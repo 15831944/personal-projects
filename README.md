@@ -1,2 +1,2 @@
-# led-matrix-display
-All about LED Matrix Projects
+# Personal Projects
+All about my comercial projects since 2002.
