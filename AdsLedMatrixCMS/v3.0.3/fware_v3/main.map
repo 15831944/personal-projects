@@ -1,0 +1,37 @@
+CodeVisionAVR C Compiler V1.25.2 Standard
+(C) Copyright 1998-2006 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+File: D:\MyProjects\LCMS\v3.0.3\fware_v3\main.c
+Global variables memory map:
+
+Variable                          Address   Size
+*start_mem_G1                                                         164h      2
+data_bit                                                              R2.0    1/8
+power_off                                                             R2.1    1/8
+is_stopping                                                           R2.2    1/8
+x                                                                    R4,R5      2
+y                                                                    R6,R7      2
+scroll_count_G1                                                       166h      2
+tick_count_G1                                                         168h      2
+stopping_count_G1                                                     16Ah      2
+frame_index_G1                                                        16Ch      1
+text_length_G1                                                        16Dh      2
+scroll_rate_G1                                                        16Fh      1
+scroll_type_G1                                                        170h      1
+szBuff_G1                                                             171h     50
+rx_message                                                              R8      1
+rx_wparam                                                           R9,R10      2
+rx_lparam                                                          R11,R12      2
+rx_buffer                                                             1A3h      8
+rx_wr_index                                                            R13      1
+rx_counter                                                             R14      1
+__ds18b20_scratch_pad.temp_lsb                                        1ABh      1
+__ds18b20_scratch_pad.temp_msb                                        1ACh      1
+__ds18b20_scratch_pad.temp_high                                       1ADh      1
+__ds18b20_scratch_pad.temp_low                                        1AEh      1
+__ds18b20_scratch_pad.conf_register                                   1AFh      1
+__ds18b20_scratch_pad.res1                                            1B0h      1
+__ds18b20_scratch_pad.res2                                            1B1h      1
+__ds18b20_scratch_pad.res3                                            1B2h      1
+__ds18b20_scratch_pad.crc                                             1B3h      1

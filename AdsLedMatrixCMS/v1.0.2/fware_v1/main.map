@@ -1,0 +1,38 @@
+CodeVisionAVR C Compiler V1.24.7e Standard
+(C) Copyright 1998-2005 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+File: j:\mydesigns\elmd\v1.0.2\fware_v1\main.c
+Global variables memory map:
+
+Variable                          Address   Size
+*start_mem_G1                                                         164h      2
+*end_mem_G1                                                           166h      2
+*buffer_G1                                                            168h      2
+*bkgnd_mem_G1                                                         16Ah      2
+*org_mem_G1                                                           16Ch      2
+is_show_bkgnd                                                         R2.0    1/8
+is_flipping_bk                                                        R2.1    1/8
+count_row                                                            R4,R5      2
+count_col                                                            R6,R7      2
+frm_delay_G1                                                          16Eh      1
+shift_rate_G1                                                         16Fh      1
+shift_step_G1                                                         170h      1
+sys_mode_G1                                                           171h      1
+tick_count_G1                                                         172h      2
+count_shift_G1                                                        174h      2
+char_count_G1                                                         176h      2
+text_length_G1                                                        178h      2
+char_width_G1                                                         17Ah    512
+columeH_G1                                                            37Ah      2
+columeL_G1                                                            37Ch      2
+char_index_G1                                                         37Eh      2
+next_char_width_G1                                                    380h      2
+current_char_width_G1                                                 382h      2
+szText_G1                                                             384h     38
+rx_message                                                              R8      1
+rx_wparam                                                           R9,R10      2
+rx_lparam                                                          R11,R12      2
+rx_buffer                                                             3AAh      8
+rx_wr_index                                                            R13      1
+rx_counter                                                             R14      1

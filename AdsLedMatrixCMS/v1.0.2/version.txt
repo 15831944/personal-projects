@@ -1,0 +1,32 @@
+﻿
+1. Cập nhật thêm một số hiệu ứng
+- Flipping Background
+- Combine Effect
+
+2. Sử dụng ngắt timer 1ms để hiển thị
+
+[18/03/2006]
+
+1. Sửa định nghĩa byte config để đặt chế độ cho bảng LED
+
+#define     MODE_FONT           0x80
+#define     MODE_CLR_1          0x40
+#define     MODE_CLR_0          0x20
+#define     MODE_CLOCK          0x10
+#define     MODE_POWER          0x08
+#define     MODE_STOP           0x04
+#define     MODE_1          	0x02
+#define     MODE_0          	0x01
+
+2. Version kết thúc ngày 18/03/2006. Đã đặt được một trong hai chế độ
+cuộn chữ và bay chữ. Tạm thời dừng ở giai đoạn này.
+
+[11/02/2006]
+
+1. Hoàn thiện bảng LED giao đoạn 1:
+- Có đầy đủ chức năng ban đầu
+- Có hai chế độ dịch trái và bắn chữ
+
+2. Đây là version bán CPU và nạp chip cho công ty cổ phần Thế Kỷ
+
+[KET THUC VERSION]

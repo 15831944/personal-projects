@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupDigiLED", "SetupDigiLED\SetupDigiLED.vdproj", "{F37F1E37-9250-4F73-BBC3-9D4BED624617}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F37F1E37-9250-4F73-BBC3-9D4BED624617}.Debug|Default.ActiveCfg = Debug
+		{F37F1E37-9250-4F73-BBC3-9D4BED624617}.Debug|Default.Build.0 = Debug
+		{F37F1E37-9250-4F73-BBC3-9D4BED624617}.Release|Default.ActiveCfg = Release
+		{F37F1E37-9250-4F73-BBC3-9D4BED624617}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

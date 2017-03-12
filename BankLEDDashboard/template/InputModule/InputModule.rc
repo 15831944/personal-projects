@@ -1,0 +1,333 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\InputModule.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\InputModule.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INPUTMODULE_DIALOG DIALOGEX 0, 0, 320, 200
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "InputModule"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,260,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,260,23,50,14
+    LTEXT           "Digital I/O",IDC_STATIC_IO,7,7,53,8
+    PUSHBUTTON      "On/Off",IDC_BUTTON_ONOFF,99,7,50,14
+    LTEXT           "Static",IDC_STATIC_CONTROL,74,7,23,8,SS_NOTIFY
+    CTEXT           "caption",IDC_STATIC_INPUT,19,38,43,11,SS_NOTIFY | NOT 
+                    WS_GROUP,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Button1",IDC_BUTTON1,157,7,50,14
+    CTEXT           "T1 = 22.6 C",IDC_STATIC,26,109,41,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "U2 = 220 V",IDC_STATIC,26,127,41,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "U3 = 220 V",IDC_STATIC,26,145,41,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "T2 = 22.6 C",IDC_STATIC,74,89,41,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "I2 = 10 A",IDC_STATIC,74,127,41,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "I3 = 10 A",IDC_STATIC,74,145,41,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "UDC1 = 45 V",IDC_STATIC,26,69,50,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "f = 50 Hz",IDC_STATIC,123,96,41,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "Cos = 0.8",IDC_STATIC,122,145,41,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "1234",IDC_STATIC_DIGIT,184,97,50,13,SS_NOTIFY | 
+                    SS_CENTERIMAGE
+    CONTROL         "Tu dong chuyen nguon dien",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,187,54,106,10
+    CONTROL         "Tu dong chuyen nguon dien",IDC_CHECK2,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,187,71,106,10
+    LTEXT           "matrix",IDC_STATIC_MATRIX,177,141,125,18,SS_CENTERIMAGE
+    LTEXT           "Static",IDC_STATIC_TEXT,91,52,79,19
+END
+
+CG_IDD_PROGRESS DIALOG DISCARDABLE  0, 0, 186, 69
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,67,48,50,14
+    CONTROL         "Progress1",CG_IDC_PROGDLG_PROGRESS,"msctls_progress32",
+                    WS_BORDER,15,29,154,13
+    LTEXT           " 0 %",CG_IDC_PROGDLG_PERCENT,85,18,18,8
+    LTEXT           "",CG_IDC_PROGDLG_STATUS,13,7,158,8
+END
+
+IDD_DIALOG_PASSWORD DIALOG DISCARDABLE  0, 0, 186, 49
+STYLE DS_MODALFRAME | WS_POPUP
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT2,42,20,102,14,ES_PASSWORD | ES_AUTOHSCROLL
+    GROUPBOX        "&Sercurity password",IDC_STATIC,7,7,172,35
+END
+
+IDD_DIALOG DIALOG DISCARDABLE  0, 0, 462, 247
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_COMBO,60,14,66,30,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,7,7,448,24
+    LISTBOX         IDC_LIST1,7,39,448,201,LBS_SORT | LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Search for:",IDC_STATIC,13,17,36,8
+    EDITTEXT        IDC_EDIT1,387,15,62,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,292,15,62,12,ES_AUTOHSCROLL
+    LTEXT           "From Date",IDC_STATIC,253,17,34,8
+    LTEXT           "To Date",IDC_STATIC,356,17,27,8
+    COMBOBOX        IDC_COMBO2,187,15,60,30,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "In Station",IDC_STATIC,148,17,31,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "InputModule MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "InputModule\0"
+            VALUE "LegalCopyright", "Copyright (C) 2004\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "InputModule.EXE\0"
+            VALUE "ProductName", "InputModule Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_INPUTMODULE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        VERTGUIDE, 26
+        VERTGUIDE, 74
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+        HORZGUIDE, 123
+        HORZGUIDE, 141
+        HORZGUIDE, 159
+    END
+
+    CG_IDD_PROGRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 62
+    END
+
+    IDD_DIALOG_PASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 42
+    END
+
+    IDD_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 455
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 240
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR_MOVE         CURSOR  DISCARDABLE     "res\\DRAGMOVE.CUR"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LED_ON              BITMAP  DISCARDABLE     "res\\bngreen.bmp"
+IDB_LED_OFF             BITMAP  DISCARDABLE     "res\\bnred.bmp"
+IDB_SEPERATOR           BITMAP  DISCARDABLE     "res\\Seperator.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+CG_IDR_POPUP_INPUT_PANEL MENU DISCARDABLE 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "&Lock Panel Position",        ID_POPUP_LOCKPANELPOSITION
+        , CHECKED
+        MENUITEM SEPARATOR
+        MENUITEM "Update &Configuration",       ID_POPUP_UPDATE_CONFIGURATION
+        , GRAYED
+        MENUITEM "Advanced Command",            ID_POPUP_ADVANCED, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Panel &Properties ...",       ID_POPUP_PROPERTIES
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO, 0x403, 11, 0
+0x4c41, 0x5241, 0x5f4d, 0x4f5a, 0x454e, "\000" 
+    IDC_COMBO2, 0x403, 12, 0
+0x4c41, 0x204c, 0x5453, 0x5441, 0x4f49, 0x004e, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+IDR_MANIFEST            24      MOVEABLE PURE   "res\\MDI.manifest"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\InputModule.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

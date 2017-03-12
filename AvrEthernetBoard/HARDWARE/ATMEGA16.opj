@@ -1,0 +1,63 @@
+(ExpressProject "ATMEGA16"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (NoModify)
+    (File ".\atmega16.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (Netlist_TAB "5")
+    (EDIF_Netlist_File "D:\MYPROJECTS\ETHERNET\ATMEGA16.EDN")
+    (EDIF_Allow_NonEDIF "FALSE")
+    (EDIF_Pin_Names "FALSE")
+    (EDIF_No_Library "FALSE")
+    (EDIF_Net_Props "FALSE")
+    (EDIF_Part_Props "FALSE")
+    (EDIF_Pin_Props "FALSE")
+    (EDIF_Designators "FALSE")
+    (EDIF_Part_Value "{Value}")
+    (EDIF_PCB_Footprint "{PCB Footprint}")
+    (EDIF_View_Output "FALSE")
+    (DRC_Scope "0")
+    (DRC_Action "0")
+    (DRC_Create_Warnings "TRUE")
+    (DRC_Check_Ports "FALSE")
+    (DRC_Check_Off-Page_Connectors "FALSE")
+    (DRC_Identical_References "TRUE")
+    (DRC_Type_Mismatch "TRUE")
+    (DRC_Report_Ports_and_Off-page_Connectors "FALSE")
+    (DRC_SDT_Compatibility "FALSE")
+    (DRC_Report_Off-grid_Objects "FALSE")
+    (DRC_Check_Unconnected_Wires "FALSE")
+    (DRC_Report_Netnames "FALSE")
+    (DRC_View_Output "FALSE")
+    (DRC_Report_File "D:\MYPROJECTS\ETHERNET\ATMEGA16.DRC")
+    (LAYOUT_Netlist_File "D:\MYPROJECTS\ETHERNET\ATMEGA16.MNL")
+    (LAYOUT_PCB_Footprint "{PCB Footprint}")
+    (LAYOUT_Run_ECO "TRUE")
+    (LAYOUT_Units "1"))
+  (Folder "Outputs"
+    (File ".\atmega16.edn"
+      (Type "Report"))
+    (File ".\atmega16.drc"
+      (Type "Report"))
+    (File ".\atmega16.mnl"
+      (Type "Report"))
+    (File "..\atmega16.drc"
+      (Type "Report"))
+    (File "..\atmega16.mnl"
+      (Type "Report")))
+  (Folder "Referenced Projects")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Outputs")
+      (Select "Design Resources"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -4 -30 0 200 0 403"))
+      (Tab 0))))

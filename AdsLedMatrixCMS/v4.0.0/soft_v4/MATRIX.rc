@@ -1,0 +1,544 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\MATRIX.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MATRIX_DIALOG DIALOGEX 0, 0, 611, 401
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "MATRIX"
+MENU IDR_MENU
+FONT 8, "Microsoft Sans Serif"
+BEGIN
+    CONTROL         "Normal",IDC_RADIO_POINTER,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,560,10,36,14
+    CONTROL         "Pencil",IDC_RADIO_PEN,"Button",BS_AUTORADIOBUTTON,560,
+                    24,36,14
+    COMBOBOX        IDC_COMBO_COLOR_PEN,555,58,47,136,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_EDIT_TEXT,"RICHEDIT",ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | WS_BORDER | WS_VSCROLL | 
+                    WS_HSCROLL | WS_TABSTOP,6,278,312,103
+    LISTBOX         IDC_LIST_FONT,327,279,134,83,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_EDIT_RATE,511,337,24,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN_RATE,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,523,336,11,14
+    COMBOBOX        IDC_COMBO_LINE,544,319,59,105,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_SCROLL_MODE,544,336,58,84,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_COLOR_TEXT,404,366,57,136,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | WS_VSCROLL | WS_TABSTOP,
+                    WS_EX_TRANSPARENT
+    LISTBOX         IDC_LIST_LAYER,544,279,45,35,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "N?p &ch?",IDC_BUTTON_LOAD_TEXT,470,360,64,18
+    PUSHBUTTON      "Ð?t c?u h?nh",IDC_BUTTON_SET,544,360,59,18
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,395,270,208,1
+    LTEXT           ".VnTimeH - 12 - Bold - Italic",IDC_STATIC_FONT_TEXT,327,
+                    263,92,12,SS_CENTERIMAGE
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,49,270,268,1
+    LTEXT           "Ch?nh s?a ch?",IDC_STATIC,7,265,59,8
+    CONTROL         "",IDC_STATIC_MATRIX,"Static",SS_GRAYRECT | SS_NOTIFY | 
+                    NOT WS_VISIBLE | WS_DISABLED,8,6,544,240,
+                    WS_EX_TRANSPARENT
+    PUSHBUTTON      "B?t ngu?n",IDC_BUTTON_START,471,279,61,14
+    PUSHBUTTON      "T?t ngu?n",IDC_BUTTON_STOP,471,294,61,15
+    CTEXT           "[ Y ]",IDC_STATIC,365,369,16,10,SS_CENTERIMAGE,
+                    WS_EX_TRANSPARENT
+    CTEXT           "[ X ]",IDC_STATIC,329,369,20,10,SS_CENTERIMAGE,
+                    WS_EX_TRANSPARENT
+    CONTROL         "Spin1",IDC_SPIN_TOPBOT_TEXT,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_ARROWKEYS,381,368,
+                    11,11,WS_EX_TRANSPARENT
+    CONTROL         "Spin1",IDC_SPIN_LEFTRIGHT_TEXT,"msctls_updown32",
+                    UDS_ALIGNRIGHT | UDS_ARROWKEYS | UDS_HORZ,349,368,14,11,
+                    WS_EX_TRANSPARENT
+    CONTROL         "",IDC_CHECK_LAYER0,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,592,279,11,8
+    CONTROL         "",IDC_CHECK_LAYER1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,592,288,11,8
+    CONTROL         "",IDC_CHECK_LAYER2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,592,297,11,8
+    CONTROL         "",IDC_CHECK_LAYER3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,592,305,11,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,6,1,597,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,6,254,597,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,327,366,69,16,
+                    WS_EX_TRANSPARENT
+    CONTROL         "",IDC_STATIC_FRAME,"Static",SS_BLACKRECT | SS_SUNKEN,6,
+                    5,546,242
+    CTEXT           "S? d?ng COM1 9600, 8, n, 1",IDC_STATIC_COM_STATUS,469,
+                    387,97,13,SS_CENTERIMAGE,WS_EX_STATICEDGE
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,386,596,1
+    CTEXT           "12:00 AM",IDC_STATIC_CLOCK,567,387,36,13,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    LTEXT           "Tr?ng thái s?n sàng",IDC_STATIC,6,387,100,11,
+                    SS_CENTERIMAGE
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,6,262,61,13
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,471,337,39,13
+    LTEXT           "T?c ð?",IDC_STATIC,477,339,29,8
+    PUSHBUTTON      "Xoa lop",IDC_BUTTON_CLEAR_LAYER,471,311,61,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,554,5,49,39
+    LTEXT           "Pencil Color",IDC_STATIC,555,48,38,8
+END
+
+IDD_PROGRESS_DIALOG DIALOG DISCARDABLE  0, 0, 187, 38
+STYLE DS_SYSMODAL | DS_MODALFRAME | DS_CONTROL | DS_CENTER | WS_POPUP
+FONT 8, "Microsoft Sans Serif"
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH,
+                    4,21,178,10
+    LTEXT           "65%",IDC_STATIC_PROGRESS,165,8,17,8
+    LTEXT           "?ang x? l? d? li?u ...",IDC_STATIC_TEXT,6,8,155,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,4,3,178,1
+END
+
+IDD_SETTING_DIALOG DIALOG DISCARDABLE  0, 0, 237, 132
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Thi?t l?p c?u h?nh"
+FONT 8, "Microsoft Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Ð?ng ?",IDOK,125,111,50,14
+    PUSHBUTTON      "Hu? b?",IDCANCEL,180,111,50,14
+    COMBOBOX        IDC_COMBO_COMPORT,7,113,66,99,CBS_DROPDOWNLIST | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,104,223,1
+    EDITTEXT        IDC_EDIT_COLUMN,73,18,30,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN_COLUMN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,93,17,11,14
+    GROUPBOX        "&Màn h?nh ",IDC_STATIC,7,7,223,71
+    LTEXT           "S? c?t",IDC_STATIC,42,20,24,8
+    LTEXT           "S? hàng",IDC_STATIC,131,20,31,8
+    COMBOBOX        IDC_COMBO_RESIZE,138,53,85,102,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,17,40,206,1
+    LTEXT           "T? l? hi?n th?",IDC_STATIC,74,55,44,8
+    CONTROL         "T? ð?ng lýu d? li?u sau khi n?p",
+                    IDC_CHECK_SAVE_AFTER_LOAD,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,85,129,10
+    EDITTEXT        IDC_EDIT_ROW,164,18,30,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN_ROW,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,184,17,11,
+                    14
+END
+
+IDD_CONNECTING_STATUS DIALOGEX 0, 0, 196, 51
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP
+FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Animate1",IDC_ANIMATE,"SysAnimate32",ACS_TRANSPARENT | 
+                    ACS_AUTOPLAY | WS_TABSTOP,91,9,80,25
+    LTEXT           "",IDC_STATIC_TEXT,69,40,125,8
+    CONTROL         141,IDC_STATIC,"Static",SS_BITMAP,3,3,55,44,
+                    WS_EX_STATICEDGE
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,67,37,125,1
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,68,3,124,1
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 4,0,0,1
+ PRODUCTVERSION 4,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", " Designed by CuongQuay\0"
+            VALUE "FileDescription", "Static LCMS - Chýõng tr?nh qu?n l? n?i dung b?ng ði?n t?\0"
+            VALUE "FileVersion", "4, 0, 0, 1\0"
+            VALUE "InternalName", "GoldStar-LCMS\0"
+            VALUE "LegalCopyright", "Copyright (C) 2006\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "StaticLCMS.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Static LCMS - Chýõng tr?nh qu?n l? n?i dung b?ng ði?n t?\0"
+            VALUE "ProductVersion", "4, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MATRIX_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 603
+        VERTGUIDE, 82
+        VERTGUIDE, 101
+        VERTGUIDE, 122
+        VERTGUIDE, 142
+        VERTGUIDE, 174
+        VERTGUIDE, 235
+        VERTGUIDE, 251
+        VERTGUIDE, 318
+        VERTGUIDE, 327
+        VERTGUIDE, 471
+        VERTGUIDE, 532
+        VERTGUIDE, 544
+        HORZGUIDE, 100
+        HORZGUIDE, 211
+        HORZGUIDE, 348
+    END
+
+    IDD_PROGRESS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 182
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 31
+    END
+
+    IDD_SETTING_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 125
+    END
+
+    IDD_CONNECTING_STATUS, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 192
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 47
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "182.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&H? th?ng"
+    BEGIN
+        MENUITEM "M? &phiên làm vi?c ...",      ID_FILE_OPENWORKSPACE
+        MENUITEM "Lýu phiên làm vi?c",          ID_FILE_SAVEWORKSPACE
+        MENUITEM SEPARATOR
+        MENUITEM "Thoát kh?i chýõng tr?nh\tAlt + F4", ID_FILE_EXIT
+    END
+    POPUP " &Ði?u khi?n"
+    BEGIN
+        MENUITEM "Nap Du lieu",                 ID_DEVICE_DOWNLOADDATA
+        MENUITEM SEPARATOR
+        MENUITEM "Luu khung hinh\tCtrl + S",    ID_DEVICE_SAVEALLDATATOEEPROM
+
+        MENUITEM SEPARATOR
+        MENUITEM "Ch? ð? ngh? Standby ...",     ID_DEVICE_STANDBYSETTING
+        , GRAYED
+        MENUITEM "Thi?t l?p ð?ng h? th?i gian th?c", 
+                                                ID_DEVICE_SETDEVICEDATETIME
+        , GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Ph?c h?i c?u h?nh chu?n",     ID_DEVICE_RESTOREFACTORYSETTINGS
+        , GRAYED
+        MENUITEM SEPARATOR
+        POPUP "Ði?u khi?n"
+        BEGIN
+            MENUITEM "B?t ngu?n ...\tCtrl + B",     ID_DEVICE_POWERONCOMMAND
+            MENUITEM "T?t ngu?n ...\tCtrl + T",     ID_DEVICE_POWEROFF
+            MENUITEM SEPARATOR
+        END
+    END
+    POPUP "&Tu? ch?n"
+    BEGIN
+        MENUITEM "Ch?nh s?a& t?o Font",         ID_OPTION_FONTFIREEDITOR
+        MENUITEM SEPARATOR
+        MENUITEM "&C?u h?nh b?ng ...",          ID_OPTION_SETTINGS
+    END
+    POPUP "&Tr? giúp"
+    BEGIN
+        MENUITEM "&Thông tin v? chýõng tr?nh",  ID_HELP_ABOUT
+    END
+END
+
+CG_IDR_POPUP_MATRIX_SIMULATOR MENU DISCARDABLE 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "N?p ?nh vào khung hi?n hành...", ID_POPUP_LOADFRAMESIMAGE
+        MENUITEM SEPARATOR
+        POPUP "Thay ð?i t? l? nh?n"
+        BEGIN
+            MENUITEM "  25%",                       ID_POPUP_CHANGESCALE_1X1
+            MENUITEM "  50%",                       ID_POPUP_CHANGESCALE_2X2
+            MENUITEM "  75%",                       ID_POPUP_CHANGESCALE_3X3
+            MENUITEM "100%",                        ID_POPUP_CHANGESCALE_4X4
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "Mô ph?ng ch?y ch?",           ID_POPUP_STARTSCROLL, GRAYED
+        MENUITEM "Mô ph?ng d?ng ch?",           ID_POPUP_STOPSCROLL, GRAYED
+    END
+    POPUP "_MOVING_"
+    BEGIN
+        MENUITEM "LEFT_TEXT",                   ID_MOVING_LEFTTEXT
+        MENUITEM "RIGHT_TEXT",                  ID_MOVING_RIGHTTEXT
+        MENUITEM "TOP_TEXT",                    ID_MOVING_TOPTEXT
+        MENUITEM "BOT_TEXT",                    ID_MOVING_BOTTEXT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_MATRIX_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_COLOR_PEN, 0x403, 6, 0
+0x2d30, 0x2d30, 0x0030, 
+    IDC_COMBO_COLOR_PEN, 0x403, 8, 0
+0x2d30, 0x2d30, 0x3532, 0x0035, 
+    IDC_COMBO_COLOR_PEN, 0x403, 8, 0
+0x2d30, 0x3532, 0x2d35, 0x0030, 
+    IDC_COMBO_COLOR_PEN, 0x403, 10, 0
+0x2d30, 0x3532, 0x2d35, 0x3532, 0x0035, 
+    IDC_COMBO_COLOR_PEN, 0x403, 8, 0
+0x3532, 0x2d35, 0x2d30, 0x0030, 
+    IDC_COMBO_COLOR_PEN, 0x403, 10, 0
+0x3532, 0x2d35, 0x2d30, 0x3532, 0x0035, 
+    IDC_COMBO_COLOR_PEN, 0x403, 10, 0
+0x3532, 0x2d35, 0x3532, 0x2d35, 0x0030, 
+    IDC_COMBO_COLOR_PEN, 0x403, 12, 0
+0x3532, 0x2d35, 0x3532, 0x2d35, 0x3532, 0x0035, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 6, 0
+0x2d30, 0x2d30, 0x0030, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 8, 0
+0x2d30, 0x2d30, 0x3532, 0x0035, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 8, 0
+0x2d30, 0x3532, 0x2d35, 0x0030, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 10, 0
+0x2d30, 0x3532, 0x2d35, 0x3532, 0x0035, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 8, 0
+0x3532, 0x2d35, 0x2d30, 0x0030, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 10, 0
+0x3532, 0x2d35, 0x2d30, 0x3532, 0x0035, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 10, 0
+0x3532, 0x2d35, 0x3532, 0x2d35, 0x0030, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 12, 0
+0x3532, 0x2d35, 0x3532, 0x2d35, 0x3532, 0x0035, 
+    0
+END
+
+IDD_SETTING_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_COMPORT, 0x403, 5, 0
+0x4f43, 0x314d, "\000" 
+    IDC_COMBO_COMPORT, 0x403, 5, 0
+0x4f43, 0x324d, "\000" 
+    IDC_COMBO_COMPORT, 0x403, 5, 0
+0x4f43, 0x334d, "\000" 
+    IDC_COMBO_COMPORT, 0x403, 5, 0
+0x4f43, 0x344d, "\000" 
+    IDC_COMBO_RESIZE, 0x403, 14, 0
+0x6552, 0x6973, 0x657a, 0x5420, 0x206f, 0x3532, 0x0025, 
+    IDC_COMBO_RESIZE, 0x403, 14, 0
+0x6552, 0x6973, 0x657a, 0x5420, 0x206f, 0x3035, 0x0025, 
+    IDC_COMBO_RESIZE, 0x403, 14, 0
+0x6552, 0x6973, 0x657a, 0x5420, 0x206f, 0x3537, 0x0025, 
+    IDC_COMBO_RESIZE, 0x403, 15, 0
+0x6552, 0x6973, 0x657a, 0x5420, 0x206f, 0x3031, 0x2530, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AVI
+//
+
+IDR_CONNECTING          AVI     MOVEABLE PURE   "res\\1042.avi"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_COMPUTER            BITMAP  MOVEABLE PURE   "res\\logo.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+IDR_MANIFEST            24      MOVEABLE PURE   "res\\MDI.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_SHORT_KEY ACCELERATORS DISCARDABLE 
+BEGIN
+    VK_DOWN,        ID_MOVING_BOTTEXT,      VIRTKEY, NOINVERT
+    VK_LEFT,        ID_MOVING_LEFTTEXT,     VIRTKEY, NOINVERT
+    VK_RIGHT,       ID_MOVING_RIGHTTEXT,    VIRTKEY, NOINVERT
+    VK_UP,          ID_MOVING_TOPTEXT,      VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_PEN                 CURSOR  DISCARDABLE     "arrow.cur"
+IDC_POINTER             CURSOR  DISCARDABLE     "res\\pointer.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SAVE_TEXT           "Ðang lýu d? li?u ch?..."
+    IDS_LOAD_TEXT           "Ðang ph?c h?i li?u ch?..."
+    IDS_SAVE_BACKGROUND     "Ðang lýu d? li?u n?n..."
+    IDS_LOAD_BACKGROUND     "Ðang ph?c h?i d? li?u n?n..."
+    IDS_SAVE_ALL_DATA       "Ðang lýu toàn b? d? li?u ..."
+    IDS_LOAD_ALL_DATA       "Ðang ph?c h?i toàn b? d? li?u ..."
+    IDS_SAVE_CHARACTER_FONT "Ðang lýu b? Font..."
+    IDS_LOAD_CHARACTER_FONT "Ðang ph?c h?i b? Font..."
+    IDS_LOAD_ASCII_TEXT     "Ðang n?p ch? ASCII ..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\MATRIX.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

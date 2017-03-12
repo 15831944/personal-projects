@@ -1,0 +1,330 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\FontFire.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\157.ico"
+IDI_ICON_FONT           ICON    DISCARDABLE     "res\\icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 122
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About FontFire"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CTEXT           "\nFontFire v1.0 - Font Editor Program\nCopyright@2006 by Cuong Quay - cuong3ihut@yahoo.com\n-=: http://www.ic-vn.com :=-",
+                    IDC_STATIC_COPYRIGHT,0,81,235,41,0,WS_EX_STATICEDGE
+    CONTROL         "",IDC_STATIC_COUNTER_L,"Static",SS_BLACKFRAME | 
+                    WS_GROUP,0,0,128,31
+    CONTROL         "",IDC_STATIC_MATRIX_TOP,"Static",SS_BLACKFRAME,0,31,235,
+                    30,WS_EX_STATICEDGE
+    CONTROL         "",IDC_STATIC_MATRIX_BOTTOM,"Static",SS_BLACKFRAME,0,61,
+                    235,21
+    CONTROL         "",IDC_STATIC_COUNTER_R,"Static",SS_BLACKFRAME | 
+                    WS_GROUP,127,0,108,31
+END
+
+IDD_FONTFIRE_DIALOG DIALOGEX 0, 0, 457, 273
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CLIENTEDGE | WS_EX_CONTROLPARENT | WS_EX_APPWINDOW
+CAPTION "FontFire"
+MENU IDR_MENU
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "&Pen",IDC_RADIO_PEN,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,65,253,28,10
+    CONTROL         "&Brush",IDC_RADIO_BRUSH,"Button",BS_AUTORADIOBUTTON,93,
+                    253,31,10
+    EDITTEXT        IDC_EDIT_BRUSH_SIZE,126,252,24,12,ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_BRUSH,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,139,251,
+                    11,14
+    CONTROL         "&Select",IDC_RADIO_SELECT,"Button",BS_AUTORADIOBUTTON,
+                    153,254,34,10
+    CONTROL         "&Move",IDC_RADIO_MOVE,"Button",BS_AUTORADIOBUTTON,188,
+                    254,31,10
+    CONTROL         "&Zoom",IDC_RADIO_ZOOM,"Button",BS_AUTORADIOBUTTON,221,
+                    254,32,10
+    PUSHBUTTON      "&Copy",IDC_BUTTON_COPY,253,250,50,14
+    PUSHBUTTON      "&Paste",IDC_BUTTON_PASTE,303,250,50,14
+    PUSHBUTTON      "&Erase",IDC_BUTTON_ERASE,353,250,50,14
+    PUSHBUTTON      "&Fill",IDC_BUTTON_FILL,403,250,50,14
+    CONTROL         "",IDC_STATIC_FRAME,"Static",SS_WHITEFRAME,0,76,177,164
+    CONTROL         "List1",IDC_LIST_FONT,"SysListView32",LVS_SINGLESEL | 
+                    LVS_OWNERDRAWFIXED | WS_BORDER | WS_TABSTOP,177,76,280,
+                    164
+    EDITTEXT        IDC_EDIT_CHAR_WIDTH,32,252,24,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN_CHAR_WIDTH,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,47,251,11,14
+    CTEXT           "[ 0x00 ]",IDC_STATIC_CODE,6,254,23,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,1,247,456,21
+    LTEXT           "",IDC_STATIC_PREVIEW,0,0,457,58,NOT WS_VISIBLE | 
+                    WS_BORDER | NOT WS_GROUP
+    CONTROL         "",IDC_EDIT_PREVIEW,"RICHEDIT",ES_AUTOHSCROLL | 
+                    WS_TABSTOP,0,59,457,17
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "FontFire MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "FontFire\0"
+            VALUE "LegalCopyright", "Copyright (C) 2006\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "FontFire.EXE\0"
+            VALUE "ProductName", "FontFire Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        HORZGUIDE, 31
+    END
+
+    IDD_FONTFIRE_DIALOG, DIALOG
+    BEGIN
+        VERTGUIDE, 177
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_SELECT_ARROW        CURSOR  DISCARDABLE     "res\\arrow_m.cur"
+IDC_SELECT_BRUSH        CURSOR  DISCARDABLE     "res\\cur00001.cur"
+IDC_SELECT_MARQUEE      CURSOR  DISCARDABLE     "res\\arrow_r.cur"
+IDC_SELECT_MOVE         CURSOR  DISCARDABLE     "res\\move_m.cur"
+IDC_SELECT_NULL         CURSOR  DISCARDABLE     "res\\cursor1.cur"
+IDC_SELECT_POINT        CURSOR  DISCARDABLE     "res\\CROSS02.CUR"
+IDC_SELECT_TEXT         CURSOR  DISCARDABLE     "res\\beam_m.cur"
+IDC_SELECT_ZOOM_IN      CURSOR  DISCARDABLE     "res\\cur1270.cur"
+IDC_SELECT_ZOOM_OUT     CURSOR  DISCARDABLE     "res\\cur1310.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open Font ...\tCtrl+O",      ID_FILE_OPENFONT
+        MENUITEM "&Create Font\tCtrl+N",        ID_FILE_NEWFONT
+        MENUITEM SEPARATOR
+        MENUITEM "Save Font\tCtrl+S",           ID_FILE_SAVEFONT
+        MENUITEM "Save Font As ...",            ID_FILE_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "&About FontFire Editor...",   ID_FILE_ABOUTFONTFIREEDITOR
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPYOBJECT
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTEOBJECT
+        MENUITEM "&Erase Object...    \tDetele", ID_EDIT_ERASEOBJECT
+        MENUITEM SEPARATOR
+        MENUITEM "&Paint Selected",             ID_EDIT_FILLRECT
+        MENUITEM SEPARATOR
+        MENUITEM "Select Object ...\tCtrl+M",   ID_EDIT_SELECTOBJECT
+        MENUITEM "Deselect Object\tEscape",     ID_EDIT_DESELECTOBJECT
+        MENUITEM SEPARATOR
+        MENUITEM "Zoom In \tPage Up",           ID_EDIT_ZOOMIN
+        MENUITEM "Zoom Out\tPage Dn",           ID_EDIT_ZOOMOUT
+    END
+    POPUP "&Tool"
+    BEGIN
+        MENUITEM "&Convert Windows Font ",      ID_TOOL_CONVERT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About FontFire v1.0 ...",    ID_HELP_ABOUTFONTFIREV10
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_FONT_FIRE ACCELERATORS DISCARDABLE 
+BEGIN
+    "C",            ID_EDIT_COPYOBJECT,     VIRTKEY, CONTROL, NOINVERT
+    "M",            ID_EDIT_SELECTOBJECT,   VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEWFONT,        VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPENFONT,       VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVEFONT,       VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTEOBJECT,    VIRTKEY, CONTROL, NOINVERT
+    VK_ADD,         ID_EDIT_ZOOMIN,         VIRTKEY, NOINVERT
+    VK_DELETE,      ID_EDIT_ERASEOBJECT,    VIRTKEY, NOINVERT
+    VK_ESCAPE,      ID_EDIT_DESELECTOBJECT, VIRTKEY, NOINVERT
+    VK_SUBTRACT,    ID_EDIT_ZOOMOUT,        VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_MATRIXTINY          BITMAP  DISCARDABLE     "res\\matrixsettinyblue.bmp"
+IDB_MATRIXLARGE         BITMAP  DISCARDABLE     "res\\matrixsetblue.bmp"
+IDB_MATRIXSMALL         BITMAP  DISCARDABLE     "res\\matrixsetsmallblue.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+IDR_MANIFEST            24      MOVEABLE PURE   "res\\MDI.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About FontFire..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\FontFire.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

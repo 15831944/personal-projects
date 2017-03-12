@@ -1,0 +1,2034 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0148)http://72.14.253.104/search?q=cache:W06LkcBnl88J:www.mactech.com/articles/mactech/Vol.05/05.01/BezierCurve/+Bezier+equation&hl=vi&ct=clnk&cd=1&gl=vn -->
+<HTML><HEAD><TITLE>Bezier Curve</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.3132" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onunload=popup()>
+<TABLE width="100%" border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=10 width="100%" bgColor=#ffffff border=1 
+      color="#ffffff">
+        <TBODY>
+        <TR>
+          <TD><FONT face="" color=black size=-1>&#272;by la&#768; <A 
+            href="http://www.google.com/intl/vi/help/features.html#cached"><FONT 
+            color=blue>cache</FONT></A> cu&#777;a <A 
+            href="http://www.mactech.com/articles/mactech/Vol.05/05.01/BezierCurve/"><FONT 
+            color=blue>http://www.mactech.com/articles/mactech/Vol.05/05.01/BezierCurve/</FONT></A> 
+            &#273;&#432;&#417;&#803;c l&#432;u nga&#768;y 25 Thang Sau 2007 22:37:06 GMT. cu&#777;a <B><FONT 
+            color=#0039b6>G</FONT> <FONT color=#c41200>o</FONT> <FONT 
+            color=#f3c518>o</FONT> <FONT color=#0039b6>g</FONT> <FONT 
+            color=#30a72f>l</FONT> <FONT color=#c41200>e</FONT></B><BR>Bt&#803; nh&#417;&#769; 
+            cache cu&#777;a <B><FONT color=#0039b6>G</FONT> <FONT 
+            color=#c41200>o</FONT> <FONT color=#f3c518>o</FONT> <FONT 
+            color=#0039b6>g</FONT> <FONT color=#30a72f>l</FONT> <FONT 
+            color=#c41200>e</FONT></B> l` m&#7897;t b&#7843;n sao c&#7911;a trang web chu&#769;ng tti 
+            &#273;a&#771; l&#432;u la&#803;i khi thu l&#432;&#7907;m trjn Web.<BR>Trang n`y cs th&#7875; &#273;a&#771; thay &#273;&#7893;i 
+            kj&#777; t&#432;&#768; khi &#273;o&#769;. Ha&#771;y b&#7845;m va&#768;o &#273;by &#273;&#7875; t&#7899;i <A 
+            href="http://www.mactech.com/articles/mactech/Vol.05/05.01/BezierCurve/"><FONT 
+            color=blue>trang m&#7899;i nh&#7845;t</FONT></A> ma&#768; khtng &#273;a&#769;nh db&#769;u.<BR>Trang 
+            &#273;&#432;&#417;&#803;c l&#432;u trong bt&#803; nh&#417;&#769; cache n`y cs th&#7875; ch&#7913;a nh&#7919;ng hlnh &#7843;nh khtng 
+            t&#7891;n t&#7841;i n&#7919;a. Bb&#769;m v`o &#273;by &#273;&#7875; xem <A 
+            href="http://72.14.253.104/search?q=cache:W06LkcBnl88J:www.mactech.com/articles/mactech/Vol.05/05.01/BezierCurve/+Bezier+equation&amp;hl=vi&amp;gl=vn&amp;strip=1"><FONT 
+            color=blue>ph&#7847;n v&#259;n b&#7843;n &#273;&#432;&#7907;c l&#432;u trong bt&#803; nh&#417;&#769; 
+            cache</FONT></A>.<BR>Hcy s&#7917; d&#7909;ng URL sau &#273;&#7875; lijn k&#7871;t hay chi&#777; mu&#803;c 
+            trang n`y: 
+            <CODE>http://www.google.com/search?q=cache:W06LkcBnl88J:www.mactech.com/articles/mactech/Vol.05/05.01/BezierCurve/+Bezier+equation&amp;hl=vi&amp;ct=clnk&amp;cd=1&amp;gl=vn</CODE></FONT><BR><BR>
+            <CENTER><FONT size=-2><I>Google khtng cs m&#7897;t m&#7889;i lijn h&#7879; n`o &#273;&#7871;n cac 
+            tac gi&#7843; c&#7911;a cac trang web n`y c&#361;ng nh&#432; khtng ch&#7883;u trach nhi&#7879;m v&#7873; n&#7897;i 
+            dung c&#7911;a chzng.</I></FONT></CENTER></TD></TR>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD><FONT face="" color=black size=-1>Nh&#7919;ng cu&#803;m t&#7915; tlm ki&#7871;m 
+                  na&#768;y &#273;c &#273;&#432;&#7907;c tt sang:&nbsp;</FONT></TD>
+                <TD bgColor=#ffff66><B><FONT face="" color=black 
+                  size=-1>bezier&nbsp;</FONT></B></TD>
+                <TD bgColor=#a0ffff><B><FONT face="" color=black 
+                  size=-1>equation&nbsp;</FONT></B></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<HR>
+
+<DIV style="POSITION: relative"><!-- BEGIN MT-METAS INCLUDE --><!-- Template Revised: 06 Dec 2004 -->
+<META content="MacTech Magazine" name=Author-Template>
+<META content="Xplain Corporation" name=Author-Corporate>
+<META content="Xplain Corporation" name=Publisher>
+<META 
+content="MacTech Magazine, Macintosh, Mac, Apple Computer, Welcome, www.mactech.com, MacTech home page, NetProfessional, MacDev-1, programmer, developer, web, netadmin, network administrator" 
+name=Keywords>
+<META 
+content="www.mactech.com is the global entry point for technology information for the Apple Macintosh. Find links to all Apple Macintosh technology content here." 
+name=Description>
+<META content=http://www.mactech.com/ name=Identifier-URL>
+<META content=en-US name=Content-Language>
+<META content=Worldwide name=Coverage>
+<META http-equiv=Pragma content=no-cache>
+<META http-equiv=expires MacTechCONTENT="0">
+<META http-equiv=refresh content=600><LINK title=RSS 
+href="http://www.mactech.com/news/mactech.rss" type=application/rss+xml 
+rel=alternate><LINK href="http://www.mactech.com/misc/about_mt.html" 
+rel=Help><LINK href="http://www.mactech.com/" rel=Index><LINK 
+href="http://www.mactech.com/favicon.ico" rel="SHORTCUT ICON">
+<SCRIPT src="Bezier Curve_files/urchin.js" type=text/javascript>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+_uacct = "UA-76315-1";
+urchinTracker();
+</SCRIPT>
+
+<SCRIPT language=javascript 
+src="Bezier Curve_files/awstats_misc_tracker.js"></SCRIPT>
+
+<STYLE type=text/css>BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: small; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Arial, Geneva, sans-serif
+}
+A {
+	COLOR: #003399; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #0066ff; TEXT-DECORATION: underline
+}
+P.sitefamily {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 8pt; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #999999; PADDING-TOP: 0px; FONT-FAMILY: Arial, Verdana, SANS-SERIF; TEXT-DECORATION: none
+}
+A.sitefamily {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 8pt; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #999999; PADDING-TOP: 0px; FONT-FAMILY: Arial, Verdana, SANS-SERIF; TEXT-DECORATION: none
+}
+A.sitefamily:hover {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 8pt; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #999999; PADDING-TOP: 0px; FONT-FAMILY: Arial, Verdana, SANS-SERIF; TEXT-DECORATION: underline
+}
+#pwrby {
+	MARGIN-TOP: 0px; FLOAT: right; MARGIN-BOTTOM: 0.6em; MARGIN-RIGHT: 0.6em
+}
+#section {
+	CLEAR: both; FONT-WEIGHT: bold; FONT-SIZE: small; MARGIN-BOTTOM: 0.6em; FONT-FAMILY: Arial, Geneva, sans-serif
+}
+.underline {
+	MARGIN-BOTTOM: 0.3em; PADDING-BOTTOM: 0.2em; BORDER-BOTTOM: #666 1px solid
+}
+.largea {
+	FONT-WEIGHT: bold; COLOR: #666
+}
+#content {
+	BORDER-RIGHT: #666 1px solid; PADDING-RIGHT: 0.8em; PADDING-LEFT: 0.8em; FONT-SIZE: small; BORDER-LEFT: #666 1px solid
+}
+#content TD {
+	FONT-SIZE: small
+}
+.tab {
+	BORDER-RIGHT: #eeeeee 1px solid; PADDING-RIGHT: 0.4em; BORDER-TOP: #ffffff 1px solid; PADDING-LEFT: 0.4em; FONT-WEIGHT: bold; FONT-SIZE: small; PADDING-BOTTOM: 0.1em; BORDER-LEFT: #bbbbbb 1px solid; PADDING-TOP: 0px; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #dddddd
+}
+#ad1 {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; BACKGROUND: #000; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; TEXT-ALIGN: center
+}
+A {
+	FONT-WEIGHT: bold; BACKGROUND: none transparent scroll repeat 0% 0%; FONT-FAMILY: Verdana, Arial, SANS-SERIF; TEXT-DECORATION: none
+}
+A:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A:visited {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A:unknown {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A:link {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+A:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+A.navlink {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff; FONT-FAMILY: Verdana, Arial, SANS-SERIF; TEXT-DECORATION: none
+}
+A.navlink:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.navlink:visited {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.navlink:unknown {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.navlink:link {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.navlink:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+A.navlink:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+A.footerhidden {
+	FONT-SIZE: 4pt; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #b3b3b3; TEXT-DECORATION: none
+}
+A.footerhidden:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #b3b3b3
+}
+A.footerhidden:visited {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #b3b3b3
+}
+A.footerhidden:unknown {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #b3b3b3
+}
+A.footerhidden:link {
+	FONT-WEIGHT: normal; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #b3b3b3
+}
+A.footerhidden:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #b3b3b3
+}
+A.footerhidden:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #b3b3b3
+}
+TABLE {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: Verdana, Arial, SANS-SERIF; TEXT-DECORATION: none
+}
+TD {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: Verdana, Arial, SANS-SERIF; TEXT-DECORATION: none
+}
+TABLE.NavBarBackground {
+	BACKGROUND: #ffffff
+}
+TD.NavBarBackground {
+	BACKGROUND: #ffffff
+}
+TD.NavBarText {
+	FONT-SIZE: 7pt; BACKGROUND: #ffffff
+}
+TABLE.NewsSection {
+	BACKGROUND: #ffffff
+}
+TD.NewsSectionItem {
+	FONT-SIZE: 10pt; BACKGROUND: #ffffff
+}
+A.NewsSectionItem {
+	FONT-WEIGHT: bold; BACKGROUND: none transparent scroll repeat 0% 0%; FONT-FAMILY: Verdana, Arial, SANS-SERIF; TEXT-DECORATION: none
+}
+A.NewsSectionItem:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.NewsSectionItem:visited {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.NewsSectionItem:unknown {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.NewsSectionItem:link {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.NewsSectionItem:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+A.NewsSectionItem:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+TABLE.BreakNewsSection {
+	BACKGROUND: #eeeeee
+}
+TD.BreakNewsSectionItem {
+	FONT-SIZE: 9pt
+}
+A.BreakNewsSectionItem {
+	FONT-WEIGHT: bold; BACKGROUND: none transparent scroll repeat 0% 0%; FONT-FAMILY: Verdana, Arial, SANS-SERIF; TEXT-DECORATION: none
+}
+A.BreakNewsSectionItem:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.BreakNewsSectionItem:visited {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.BreakNewsSectionItem:unknown {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.BreakNewsSectionItem:link {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #0033ff
+}
+A.BreakNewsSectionItem:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+A.BreakNewsSectionItem:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+A.BodyTextAd {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; BACKGROUND: none transparent scroll repeat 0% 0%; FONT-FAMILY: Verdana, Arial, SANS-SERIF; TEXT-DECORATION: none
+}
+A.BodyTextAd:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #000000
+}
+A.BodyTextAd:visited {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #000000
+}
+A.BodyTextAd:unknown {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #000000
+}
+A.BodyTextAd:link {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #000000
+}
+A.BodyTextAd:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+A.BodyTextAd:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+A.RightBarTextAd {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; BACKGROUND: none transparent scroll repeat 0% 0%; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; TEXT-DECORATION: none
+}
+A.RightBarTextAd:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #000000
+}
+A.RightBarTextAd:visited {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #000000
+}
+A.RightBarTextAd:unknown {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #000000
+}
+A.RightBarTextAd:link {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #000000
+}
+A.RightBarTextAd:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+A.RightBarTextAd:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #ff0000
+}
+TABLE.WelcomeText {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 10pt; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF; TEXT-ALIGN: left
+}
+TD.WelcomeText {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 10pt; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF; TEXT-ALIGN: left
+}
+TD.MacTechTOC {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 9pt; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; TEXT-ALIGN: left
+}
+LI.MacTechTOC {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 11pt; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; TEXT-ALIGN: left
+}
+A.WelcomeText {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 11pt; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF; TEXT-ALIGN: left
+}
+P.Tagline {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 8pt; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-STYLE: italic; FONT-FAMILY: Georgia, "Times New Roman", Times, serif; TEXT-ALIGN: right
+}
+P.AnnounceTitle {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; FONT: bolder oblique 20pt/20pt Verdana, Arial, SANS-SERIF; COLOR: #993399; PADDING-TOP: 0px; TEXT-ALIGN: center
+}
+P.AnnounceText {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; FONT: 10pt Verdana, Arial, SANS-SERIF; COLOR: #000000; PADDING-TOP: 0px; TEXT-ALIGN: left
+}
+H1 {
+	FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+H2 {
+	FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+H3 {
+	FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+H4 {
+	FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+H5 {
+	FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+H6 {
+	FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+LI {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+BODY {
+	FONT-SIZE: 10pt; BACKGROUND-IMAGE: url(http://www.mactech.com/images/background.jpg); MARGIN: 10px 0px 10px 10px; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF; BACKGROUND-COLOR: #ffffff
+}
+P {
+	FONT-SIZE: 10pt; MARGIN: 0px 0px 10px; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+P.rightnav {
+	FONT-WEIGHT: normal; FONT-SIZE: 8pt; MARGIN: 0px; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+P.nextissue {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; MARGIN: 0px; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+A.nextissue:active {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+A.nextissue:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+A.nextissue:unknown {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+A.nextissue:link {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+A.nextissue:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+A.nextissue:hover {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #ff0000; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+P.didyouknow {
+	FONT-WEIGHT: normal; FONT-SIZE: 9pt; MARGIN: 0px; FONT-FAMILY: Verdana, Arial, Geneva, SANS-SERIF
+}
+P.mainsectionheader {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; MARGIN: 0px; COLOR: #cc0000; FONT-FAMILY: Helvetica, SANS-SERIF; TEXT-DECORATION: underline
+}
+P.mainsectionheaderWhite {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; MARGIN: 0px; COLOR: #ffffff; FONT-FAMILY: Helvetica, SANS-SERIF; TEXT-DECORATION: none
+}
+P.footerhidden {
+	FONT-WEIGHT: normal; FONT-SIZE: 4pt; MARGIN: 0px; COLOR: #b3b3b3; FONT-FAMILY: Helvetica, SANS-SERIF; TEXT-DECORATION: none
+}
+A.cableproductnames:active {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #000000; FONT-FAMILY: Helvetica, SANS-SERIF; TEXT-DECORATION: none
+}
+A.cableproductnames:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #000000; FONT-FAMILY: Helvetica, SANS-SERIF; TEXT-DECORATION: none
+}
+A.cableproductnames:unknown {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #000000; FONT-FAMILY: Helvetica, SANS-SERIF; TEXT-DECORATION: none
+}
+A.cableproductnames:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #000000; FONT-FAMILY: Helvetica, SANS-SERIF; TEXT-DECORATION: none
+}
+A.cableproductnames:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #cc0000; FONT-FAMILY: Helvetica, SANS-SERIF; TEXT-DECORATION: none
+}
+A.cableproductnames:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; MARGIN: 0px; COLOR: #cc0000; FONT-FAMILY: Helvetica, SANS-SERIF; TEXT-DECORATION: none
+}
+A.trialsub {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #c00; FONT-FAMILY: Verdana, Arial, SANS-SERIF; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.trialsub {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #c00; FONT-FAMILY: Verdana, Arial, SANS-SERIF; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+A.trialsubdesc {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; FONT-FAMILY: Verdana, Arial, SANS-SERIF; TEXT-ALIGN: center
+}
+.trialsubdesc {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; FONT-FAMILY: Verdana, Arial, SANS-SERIF; TEXT-ALIGN: center
+}
+A.previous {
+	BORDER-RIGHT: #004276 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #004276 1px solid; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 76%; PADDING-BOTTOM: 2px; TEXT-TRANSFORM: uppercase; BORDER-LEFT: #004276 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #004276 1px solid; FONT-FAMILY: "Times New Roman"; TEXT-DECORATION: none
+}
+A.next {
+	BORDER-RIGHT: #004276 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #004276 1px solid; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 76%; PADDING-BOTTOM: 2px; TEXT-TRANSFORM: uppercase; BORDER-LEFT: #004276 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #004276 1px solid; FONT-FAMILY: "Times New Roman"; TEXT-DECORATION: none
+}
+TABLE.CommunityNewsBox {
+	BORDER-RIGHT: thin solid; PADDING-RIGHT: 0px; BORDER-TOP: thin solid; PADDING-LEFT: 0px; BACKGROUND: #ffffff; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: thin solid; PADDING-TOP: 0px; BORDER-BOTTOM: thin solid
+}
+TD.CommunityNewsBox {
+	BORDER-RIGHT: thin solid; PADDING-RIGHT: 0px; BORDER-TOP: thin solid; PADDING-LEFT: 0px; BACKGROUND: #ffffff; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: thin solid; PADDING-TOP: 0px; BORDER-BOTTOM: thin solid
+}
+img-roundtops {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+</STYLE>
+<!-- END MT-METAS INCLUDE --><!-- BEGIN MT_HEADER INCLUDE --><!-- <BODY BGCOLOR="#FFFFFF" background="http://www.mactech.com/images/background.jpg"> --><!-- Begin Network Strip Nav Bar -->
+<TABLE style="BORDER-TOP: #666666 2px solid; BORDER-BOTTOM: #222222 1px solid" 
+cellSpacing=0 cellPadding=2 width="100%" bgColor=#444444 border=0>
+  <TBODY>
+  <TR>
+    <TD style="BORDER-BOTTOM: #333333 1px solid" vAlign=center noWrap>
+      <P class=sitefamily>&nbsp; <A class=sitefamily 
+      href="http://www.mactech.com/"><FONT color=#cccccc>MacTech 
+      Network:</FONT></A> &nbsp; <A class=sitefamily 
+      href="http://www.macforge.net/"><FONT 
+      color=#cccccc>MacForge.net</FONT></A> &nbsp;|&nbsp; <A class=sitefamily 
+      href="http://www.betterram.com/" target=_blank><FONT 
+      color=#cccccc>Computer Memory</FONT></A> &nbsp;|&nbsp; <A class=sitefamily 
+      href="http://www.mactechdomains.com/" target=_blank><FONT 
+      color=#cccccc>Register Domains</FONT></A> &nbsp;|&nbsp; <A 
+      class=sitefamily 
+      href="http://www.mactechsupplies.com/store.php?nfid=34"><FONT 
+      color=#cccccc>Printer Supplies</FONT></A> &nbsp;|&nbsp; <A 
+      class=sitefamily href="http://www.mactech.com/cables/"><FONT 
+      color=#cccccc>Cables</FONT></A> &nbsp;|&nbsp; <A class=sitefamily 
+      href="http://www.amazon.com/exec/obidos/redirect?link_code=ur2&amp;camp=1789&amp;tag=mactechmagazi-20&amp;creative=9325&amp;path=external-search%3Fsearch-type=ss%26keyword=ipod%26index=pc-hardware" 
+      target=_blank><FONT color=#cccccc>iPod Deals</FONT></A> &nbsp;|&nbsp; <A 
+      class=sitefamily href="http://www.mactech.com/macstore/" 
+      target=_blank><FONT color=#cccccc>Mac Deals</FONT></A> &nbsp;|&nbsp; <A 
+      class=sitefamily href="http://www.macbookshelf.com/" target=_blank><FONT 
+      color=#cccccc>Mac Book Shelf</FONT></A> </FONT></P></TD></TR></TBODY></TABLE><!-- end Network Strip Nav Bar --><BR><!-- BEGIN MT_HEADER_KERNEL INCLUDE -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=center align=left width=110><A href="http://www.mactech.com/">
+      <TABLE>
+        <TBODY>
+        <TR><!--
+					[[!~~ Begin Red, White & Blue Ribbon ~~]]
+					[[TD VALIGN="MIDDLE"]]
+						[[IMG SRC="http://www.mactech.com/mt_images/us-ribbon.jpg" ALT="" WIDTH="39" HEIGHT="68" BORDER="0" ALIGN="middle"]]
+					[[/TD]]
+					[[!~~ End Red, White & Blue Ribbon ~~]]
+-->
+          <TD width=5>&nbsp; </TD>
+          <TD vAlign=center><A href="http://www.mactech.com/" border="0"><IMG 
+            alt="MacTech Magazine" src="Bezier Curve_files/mt_logo_209x043.gif" 
+            border=0></A> 
+            <P class=Tagline>The journal of Macintosh technology </P></A></TD>
+          <TD width=5>&nbsp; </TD></TR></TBODY></TABLE></A></TD>
+    <TD vAlign=bottom width=25>&nbsp; </TD>
+    <TD align=middle>
+      <TABLE border=0>
+        <TBODY>
+        <TR align=middle>
+          <TD vAlign=bottom align=middle><!--BEGIN: Uncomment this code (using BBEdit's util) when you remove the above-->
+            <CENTER>
+            <SCRIPT language=JavaScript src="Bezier Curve_files/adx.js" 
+            type=text/javascript></SCRIPT>
+
+            <SCRIPT language=JavaScript type=text/javascript>
+											<!--
+											   if (!document.phpAds_used) document.phpAds_used = ',';
+											   phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
+	   
+											   document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
+											   document.write ("http://www.mactech.com/phpAdsNew/adjs.php?n=" + phpAds_random);
+											   document.write ("&amp;what=zone:1&amp;target=_blank&amp;withText=1&amp;block=1");
+											   document.write ("&amp;exclude=" + document.phpAds_used);
+											   if (document.referrer)
+												  document.write ("&amp;referer=" + escape(document.referrer));
+											   document.write ("'><" + "/script>");
+											//-->
+										</SCRIPT>
+            <NOSCRIPT><A 
+            href="http://www.mactech.com/phpAdsNew/adclick.php?n=a34c4cc3" 
+            target=_blank><IMG alt="" 
+            src="Bezier Curve_files/hometoys-070321.gif" border=0></A> 
+            </NOSCRIPT></CENTER></MGIIF><!--END: Uncomment this code (using BBEdit's util) when you remove the above--></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- END MT_HEADER_KERNEL INCLUDE -->
+<SCRIPT language=JavaScript>
+</SCRIPT>
+<BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0><!--BEGIN ROUND TOPS-->
+  <TBODY>
+  <TR>
+    <TD width=175>
+      <TABLE height=5 cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD align=left width=5><IMG class=img-roundtops height=5 
+            src="Bezier Curve_files/Corner-UL.gif" width=5></TD>
+          <TD width="100%" bgColor=#ffffff></TD>
+          <TD align=right width=5><IMG class=img-roundtops height=5 
+            src="Bezier Curve_files/Corner-UR.gif" 
+    width=5></TD></TR></TBODY></TABLE></TD>
+    <TD width=12>
+      <TABLE cellSpacing=0 cellPadding=0 align=left border=0>
+        <TBODY>
+        <TR>
+          <TD align=left width=10 height=5></TD></TR></TBODY></TABLE></TD>
+    <TD>
+      <TABLE height=5 cellSpacing=0 cellPadding=0 width="100%" align=left 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD align=left width=5><IMG class=img-roundtops height=5 
+            src="Bezier Curve_files/Corner-UL.gif" width=5></TD>
+          <TD align=right width="100%" bgColor=#ffffff></TD>
+          <TD align=right width=5><IMG class=img-roundtops height=5 
+            src="Bezier Curve_files/Corner-UR.gif" 
+    width=5></TD></TR></TBODY></TABLE></TD>
+    <TD width=12>
+      <TABLE cellSpacing=0 cellPadding=0 align=left border=0>
+        <TBODY>
+        <TR>
+          <TD align=left width=10 height=5></TD></TR></TBODY></TABLE></TD>
+    <TD width=175>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" align=left border=0>
+        <TBODY>
+        <TR>
+          <TD align=left width=5><IMG class=img-roundtops height=5 
+            src="Bezier Curve_files/Corner-UL.gif" width=5></TD>
+          <TD align=right width="100%" bgColor=#ffffff></TD>
+          <TD align=right width=5><IMG class=img-roundtops height=5 
+            src="Bezier Curve_files/Corner-UR.gif" 
+    width=5></TD></TR></TBODY></TABLE></TD></TR><!--END ROUND TOPS-->
+  <TR vAlign=top>
+    <TD vAlign=top width=98 bgColor=#ffffff><!-- Begin NavBar --><!-- BEGIN MT_NAVBAR INCLUDE -->
+      <TABLE cellSpacing=0 cellPadding=0 width=98 align=right bgColor=#ffffff 
+      border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD align=middle colSpan=4><FONT size=1><STRONG>Magazine In 
+            Print</STRONG></FONT> </TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/misc/about_mt.html">About MacTech</A> 
+          </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink href="http://www.mactech.com/">Home Page</A> 
+</TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><!-- 
+			<A class="navlink" HREF="http://www.mactech.com/business/subscribe.html">Subscribe</A>
+ --><A 
+            class=navlink 
+            href="http://www.mactech.com/ms-survey/mactechhomepage.php">Subscribe</A> 
+          </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink href="http://www.mactech.com/cd/">MacTech 
+            CD</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/press_releases/">Submit News</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink href="http://www.mactech.com/tips/">Submit a 
+            Tip!</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><!-- 
+			<A class="navlink" HREF="http://store.mactech.com/mactech/riskfree/offer.html?FROM=MTRF">Get a copy of MacTech RISK FREE</A>
+ --><A 
+            class=navlink 
+            href="http://www.mactech.com/ms-survey/mactechhomepage.php">Get a 
+            copy of MacTech RISK FREE</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=center>
+          <TD align=middle colSpan=4><IMG alt="" 
+            src="Bezier Curve_files/dashes120x5.gif" width=120 vspace=5> </TD></TR>
+        <TR vAlign=center>
+          <TD colSpan=4><!-- SiteSearch Google : entire web, mactech.com and Mac community -->
+            <FORM action=http://www.mactech.com/search/search_redirect.php 
+            method=get>
+            <TABLE bgColor=#ffffff border=0>
+              <TBODY>
+              <TR>
+                <TD vAlign=top noWrap align=left height=32><A 
+                  href="http://www.google.com/"><IMG alt=Google 
+                  src="Bezier Curve_files/Logo_25wht.gif" 
+                  border=0></A><BR><INPUT type=hidden value=mactech.com 
+                  name=domains> <INPUT maxLength=255 size=16 name=q> </TD></TR>
+              <TR>
+                <TD noWrap>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD><INPUT type=radio value="" name=sitesearch> <FONT 
+                        color=#000000 size=-2>Entire Web</FONT><BR><INPUT 
+                        type=radio CHECKED value=mactech.com name=sitesearch> 
+                        <FONT color=#000000 size=-2>mactech.com</FONT><BR><INPUT 
+                        type=radio value=community name=sitesearch> <FONT 
+                        color=#000000 size=-2>Mac Community</FONT> 
+                  </TD></TR></TBODY></TABLE><INPUT type=submit value=Search name=sa> 
+                  <INPUT type=hidden value=pub-3362040077720013 name=client> 
+                  <INPUT type=hidden value=1 name=forid> <INPUT type=hidden 
+                  value=ISO-8859-1 name=ie> <INPUT type=hidden value=ISO-8859-1 
+                  name=oe> <INPUT type=hidden 
+                  value=GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1; 
+                  name=cof> <INPUT type=hidden value=en name=hl> <A 
+                  class=navlink 
+                  href="http://www.mactech.com/advancedsearch.html">More...</A> 
+                </TD></TR></TBODY></TABLE></FORM><!-- SiteSearch Google --><!-- SiteSearch Google : web and mactech.com only --><!-- 
+			<form method="get" action="http://www.google.com/custom" target="google_window">
+			<table border="0" bgcolor="#ffffff">
+			<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+				<a href="http://www.google.com/">
+				<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google"></img></a>
+				<br/>
+				<input type="hidden" name="domains" value="mactech.com"></input>
+				<input type="text" name="q" size="16" maxlength="255" value=""></input>
+			</td></tr>
+			<tr>
+			<td nowrap="nowrap">
+			<table>
+			<tr>
+			<td>
+			<input type="radio" name="sitesearch" value=""></input>
+			<font size="-1" color="#000000">Web</font>
+			<BR>
+			<input type="radio" name="sitesearch" value="mactech.com" checked="checked"></input>
+			<font size="-1" color="#000000">mactech.com</font>
+			</td>
+			</tr>
+			</table>
+			<input type="submit" name="sa" value="Search"></input>
+			<input type="hidden" name="client" value="pub-3362040077720013"></input>
+			<input type="hidden" name="forid" value="1"></input>
+			<input type="hidden" name="ie" value="ISO-8859-1"></input>
+			<input type="hidden" name="oe" value="ISO-8859-1"></input>
+			<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;FORID:1;"></input>
+			<input type="hidden" name="hl" value="en"></input>
+			
+			</td></tr></table>
+			</form>
+		 --><!-- SiteSearch Google --><!--
+			[[!~~ SiteSearch Google ~~]]
+			[[FORM method=GET action="http://www.google.com/search" target="_blank"]]
+				[[input type=hidden name=ie value=UTF-8]]
+				[[input type=hidden name=oe value=UTF-8]]
+				[[TABLE bgcolor="#FFFFFF"]]
+					[[tr]]
+						[[td colspan=2 class="NavBarText" VALIGN="MIDDLE"]]
+							[[A HREF="http://www.google.com/"]]
+							[[!~~ [[IMG SRC="http://www.google.com/logos/Logo_40wht.gif" border="0" ALT="Google" width=98]] ~~]]
+							[[IMG SRC="http://www.mactech.com/images/GoogleLogo_110px.gif" border="0" ALT="Google"]]
+							[[/A]]
+							[[INPUT TYPE=text name=q size=16 maxlength=255 value=""]]&nbsp;[[BR]][[INPUT type=submit name=btnG VALUE="Search"]]
+							[[!~~ [[font size=-1]] ~~]]
+							[[input type=hidden name=domains value="http://www.mactech.com"]][[br]]
+							[[input type=radio name=sitesearch value=""]] WWW 
+							[[BR]]
+							[[input type=radio name=sitesearch value="http://www.mactech.com" checked]] mactech.com
+							[[!~~ [[/font]] ~~]]
+						[[/td]]
+					[[/tr]]
+				[[/TABLE]]
+			[[/FORM]]
+			[[!~~ SiteSearch Google ~~]]
+		--></TD></TR>
+        <TR vAlign=center>
+          <TD align=middle colSpan=4><IMG alt="" 
+            src="Bezier Curve_files/dashes120x5.gif" width=120 vspace=5> </TD></TR>
+        <TR vAlign=top>
+          <TD align=middle colSpan=4><FONT size=1><STRONG>MacTech 
+            Central</STRONG></FONT> </TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/mactechcentral/index.html">by 
+            Category</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/mactechcentral/companies.html">by 
+            Company</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/mactechcentral/products.html">by 
+            Product</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=center>
+          <TD align=middle colSpan=4><IMG alt="" 
+            src="Bezier Curve_files/dashes120x5.gif" width=120 vspace=5> </TD></TR>
+        <TR vAlign=top>
+          <TD align=middle colSpan=4><FONT size=1><STRONG>MacTech 
+            News</STRONG></FONT> </TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/mactechnews/index.html">MacTech 
+            News</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/news/?page_id=1007258">Previous 
+            News</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/news/rss.html">MacTech RSS</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=center>
+          <TD align=middle colSpan=4><IMG alt="" 
+            src="Bezier Curve_files/dashes120x5.gif" width=120 vspace=5> </TD></TR>
+        <TR vAlign=top>
+          <TD align=middle colSpan=4><FONT size=1><STRONG>Article 
+            Archives</STRONG></FONT> </TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink href="http://www.mactech.com/articles/">Show 
+            Indices</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/articles/mt_indices/Vol_1_Issues.html">by 
+            Volume</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/articles/mt_indices/Authors.html">by 
+            Author</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/editorial/filearchives.html">Source 
+            Code FTP</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=center>
+          <TD align=middle colSpan=4><IMG alt="" 
+            src="Bezier Curve_files/dashes120x5.gif" width=120 vspace=5> </TD></TR>
+        <TR vAlign=top>
+          <TD align=middle colSpan=4><FONT size=1><STRONG>Inside 
+            MacTech</STRONG></FONT> </TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/editorial/writersguide.html">Writer's 
+            Kit</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/editorial/abouteditors.html">Editorial 
+            Staff</A> </TD>
+          <TD>&nbsp;</TD></TR><!--
+	[[TR VALIGN=TOP]]
+		[[TD]]&nbsp;[[/TD]]
+		[[TD ALIGN=RIGHT]]
+			[[IMG SRC="http://www.mactech.com/mt_images/triangle_half.gif" ALT="" WIDTH="5" HEIGHT="9"]]
+		[[/TD]]
+		[[TD]]
+			[[A class="navlink" HREF="http://www.mactech.com/editorial/calendar.html"]]Issue Contents[[/A]]
+		[[/TD]]
+		[[TD]]&nbsp;[[/TD]]
+	[[/TR]]
+-->
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/editorial/calendar.html">Editorial 
+            Calendar</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://store.mactech.com/list.html?CREF=293">Back Issues</A> 
+          </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/business/adsales.html">Advertising</A> 
+          </TD>
+          <TD>&nbsp;</TD></TR><!-- 
+	<TR VALIGN=MIDDLE>
+		<TD colspan=4 ALIGN=CENTER>
+		<IMG SRC="http://www.mactech.com/images/dashes120x5.gif" WIDTH="120" ALT="" VSPACE=5>
+		</TD>
+	</TR>
+	
+	<TR VALIGN=TOP>
+		<TD>&nbsp;</TD>
+		<TD ALIGN=RIGHT>
+			<IMG SRC="http://www.mactech.com/mt_images/triangle_half.gif" ALT="" WIDTH="5" HEIGHT="9">
+		</TD>
+		<TD>
+			<A class="navlink" HREF="http://domains.mactech.com">Register Low Cost Domain Names: starting at $1.99</A>
+		</TD>
+		<TD>&nbsp;</TD>
+	</TR>
+ --><!--
+	[[!~~ Mactech Central Link BEGIN~~]]
+	[[TR VALIGN=TOP]]
+		[[TD]]&nbsp;[[/TD]]
+			[[TD ALIGN=RIGHT]]
+			[[IMG SRC="http://www.mactech.com/mt_images/triangle_half.gif" ALT="" WIDTH="5" HEIGHT="9"]]
+		[[/TD]]
+		[[TD]]
+			[[A class="navlink" HREF="http://www.xplain.com/macworldexpo/" target="_blank"]]MacTech Central[[/A]]
+		[[/TD]]
+		[[TD]]&nbsp;[[/TD]]
+	[[/TR]]
+	[[!~~ Mactech Central Link END~~]]
+
+-->
+        <TR vAlign=center>
+          <TD align=middle colSpan=4><IMG alt="" 
+            src="Bezier Curve_files/dashes120x5.gif" width=120 vspace=5> </TD></TR>
+        <TR vAlign=top>
+          <TD align=middle colSpan=4><FONT size=1><STRONG>Contact 
+            Us</STRONG></FONT> </TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/business/custservice.html">Customer 
+            Service</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink href="http://store.mactech.com/">MacTech 
+            Store</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink 
+            href="http://www.mactech.com/misc/legal.html">Legal/Disclaimers</A> 
+          </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR vAlign=top>
+          <TD>&nbsp;</TD>
+          <TD align=right><IMG height=9 alt="" 
+            src="Bezier Curve_files/triangle_half.gif" width=5> </TD>
+          <TD><A class=navlink href="mailto:webmaster@mactech.com">Webmaster 
+            Feedback</A> </TD>
+          <TD>&nbsp;</TD></TR>
+        <TR class=NavBar vAlign=center>
+          <TD align=middle colSpan=4>&nbsp;<BR><BR></TD></TR>
+        <TR class=NavBar vAlign=top>
+          <TD class=NavBar>&nbsp;</TD>
+          <TD class=NavBar align=middle colSpan=2>
+            <SCRIPT type=text/javascript><!--
+			google_ad_client = "pub-3362040077720013";
+			google_ad_width = 120;
+			google_ad_height = 90;
+			google_ad_format = "120x90_0ads_al_s";
+			google_ad_channel ="";
+			google_color_border = "CCCCCC";
+			google_color_bg = "FFFFFF";
+			google_color_link = "000000";
+			google_color_url = "666666";
+			google_color_text = "333333";
+			//--></SCRIPT>
+
+            <SCRIPT src="Bezier Curve_files/show_ads.js" type=text/javascript>
+			</SCRIPT>
+          </TD>
+          <TD class=NavBar>&nbsp;</TD></TR></TBODY></TABLE><!-- END MT_NAVBAR INCLUDE --><!-- End NavBar --></TD><!--BEGIN DROP SHADOW-->
+    <TD vAlign=top><IMG alt="" src="Bezier Curve_files/left_side.jpg"> </TD><!--END DROP SHADOW-->
+    <TD vAlign=top width="100%" bgColor=#ffffff>
+      <TABLE width="95%" align=center>
+        <TBODY>
+        <TR>
+          <TD><!-- END MT_HEADER INCLUDE -->
+            <TABLE cellSpacing=20 cellPadding=4 align=right border=0>
+              <TBODY>
+              <TR>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD align=middle><FONT face=arial 
+                        size=-2>ADVERTISEMENT</FONT><BR><!-- 
+						<script type="text/javascript"><!~~
+						google_ad_client = "pub-3362040077720013";
+						google_ad_width = 300;
+						google_ad_height = 250;
+						google_ad_format = "300x250_as";
+						google_ad_type = "text_image";
+						google_ad_channel = "";
+						//~~></script>
+						<script type="text/javascript"
+						src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+						</script>
+
+						<A HREF="https://store.mactech.com/mactech/riskfree/offer.html?FROM=MTRF">
+
+							<IMG SRC="http://www.mactech.com/banners/files/050415-MT-BANNER-AD-300X250.gif" BORDER=0 WIDTH=300 HEIGHT=250 ALT="Click Here">
+
+						</A>
+--><A 
+                        href="http://www.mactech.com/ms-survey/mactechinlinearticle.php"><IMG 
+                        height=250 alt="Click Here" 
+                        src="Bezier Curve_files/macTech_300x250.jpg" width=300 
+                        border=0> </A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD><B>Volume Number:</B>
+                <TD align=right><B></B>
+                <TD><B>5</B> 
+              <TR>
+                <TD><B>Issue Number:</B>
+                <TD align=right><B></B>
+                <TD><B>1</B> 
+              <TR>
+                <TD><B>Column Tag:</B>
+                <TD align=right><B></B>
+                <TD><B>C Workshop</B> </TR></TBODY></TABLE>
+            <P><B>Related Info: Quickdraw</P></B>
+            <H1>
+            <P><B><B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> 
+            Curve Ahead! <IMG src="Bezier Curve_files/img001.gif" 
+            align=center></P></B></H1>
+            <P><I>By David W. Smith, Los Gatos, CA</P>
+            <P><IMG src="Bezier Curve_files/img002.gif" align=center> Note: <A 
+            href="http://www.mactech.com/articles/mactech/source_index.html">Source 
+            code files</A> accompanying article are located on MacTech CD-ROM or 
+            source code disks.</P>
+            <P>David W. Smith (no known relation to the Editor) is a Sr. 
+            Software Engineer at ACM Research, Inc., in Los Gatos.</P>
+            <P></P>
+            <P></I>There comes a time in the development of some applications 
+            when arcs and wedges just don’t cut the mustard. You want to draw a 
+            pretty curve from point A to point B, and QuickDraw isn’t giving you 
+            any help. It seems like a good time to reach for a computer graphics 
+            text, blow the dust off of your college math, and try to decipher 
+            their explanation of splines. Stop. All is not lost. The <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curve may 
+            be just what you need.</P>
+            <H2>
+            <P align=center><B><B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> 
+            Curves</P></B></H2>
+            <P><B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> 
+            curves (pronounced “bez-yeah”, after their inventor, a French 
+            mathematician) are well suited to graphics applications on the 
+            Macintosh for a number of reasons. First, they’re simple to 
+            describe. A curve is a function of four points. Second, the curve is 
+            efficient to calculate. From a precomputed table, the segments of 
+            the curve can be produced using only fixed-point multiplication. No 
+            trig, no messy quadratics, and no inSANEity. Third, and, to some, 
+            the most important, the <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curve is 
+            directly supported by the PostScript curve and curveto operators, 
+            and is one of the components of PostScript’s outlined fonts. The <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curve is 
+            also one of the principle drawing elements of Adobe Illustrator™. 
+            (Recently, they’ve shown up in a number of other places.)</P>
+            <P><B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> 
+            curves have some interesting properties. Unlike some other classes 
+            of curves, they can fold over on themselves. They can also be joined 
+            together to form smooth (continuous) shapes. Figure 1 shows a few <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves, 
+            including two that are joined to form a smooth shape.</P>
+            <H2>
+            <P align=center><B>The Gruesome Details</P></B></H2>
+            <P>The description of <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves 
+            below is going to get a bit technical. If you’re not comfortable 
+            with the math, you can trust that the algorithm works, and skip 
+            ahead to the implementation. However, if you’re curious about how 
+            the curves work and how to optimize their implementation, or just 
+            don’t trust using code that you don’t understand, read on.</P>
+            <P>The <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> 
+            curve is a parametric function of four points; two endpoints and two 
+            “control” points. The curve connects the endpoints, but doesn’t 
+            necessarily touch the control points. The general form <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> <B 
+            style="COLOR: black; BACKGROUND-COLOR: #a0ffff">equation</B>, which 
+            describes each point on the curve as a function of time, is:</P>
+            <P></P>
+            <P><IMG src="Bezier Curve_files/img003.gif" align=center></P>
+            <P></P>
+            <P>where P1 and P4 are the endpoints, P2 and P3 are the control 
+            points, and the wn’s are weighting functions, which blend the four 
+            points to produce the curve. (The weights are applied to the h and v 
+            components of each point independently.) The single parameter t 
+            represents time, and varies from 0 to 1. The full form of the <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curve 
+            is:</P>
+            <P><IMG src="Bezier Curve_files/img004.gif" align=center></P>
+            <P></P>
+            <P>We know that the curve touches each endpoint, so it isn’t too 
+            surprising that at t=0 the first weighting function is 1 and all 
+            others are 0 (i.e., the initial point on the curve is the first 
+            endpoint). Likewise, at t=1, the fourth weighting function is 1 and 
+            the rest are 0. However, it’s what happens between 0 and 1 that’s 
+            really interesting. A quick side-trip into calculus to take some 
+            first derivatives tells us that the second weighting function is 
+            maximized (has its greatest impact on the curve) at t=1/3, and the 
+            third weight is maximized at t=2/3. But the clever part--the bit 
+            that the graphics books don’t bother to mention--run the curve 
+            backwards by solving the <B 
+            style="COLOR: black; BACKGROUND-COLOR: #a0ffff">equation</B> for 
+            1-t, and you find that w1(t)=w4(1-t) and w2(t)=w3(1-t). As we’ll see 
+            below, this symmetry halves the effort needed to compute values for 
+            the weights.</P>
+            <P align=center><IMG src="Bezier Curve_files/img005.gif" 
+            align=center></P>
+            <P align=center><I>Figure 1. Some Beizer Curves and Shapes</P></I>
+            <H2>
+            <P align=center><B>Implementing <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> 
+            Curves</P></B></H2>
+            <P>One strategy for implementing <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves is 
+            to divide the curve into a fixed number of segments and then to 
+            pre-compute the values of the weighting functions for each of the 
+            segments. The greater the number of segments, the smoother the 
+            curve. (I’ve found that 16 works well for display purposes, but 32 
+            is better for hardcopy.) Computing any given curve becomes a simple 
+            matter of using the four points and the precomputed weights to 
+            produce the end-points of the curve segments. Fixed-point math 
+            yields reasonable accuracy, and is a hands down winner over SANE on 
+            the older (pre-Mac II) Macs, so we’ll use it.</P>
+            <P>We can optimize the process a bit. The curve touches each 
+            endpoint, so we can assume weights of 0 or 1 and needn’t compute 
+            weights for these points. Another optimization saves both time and 
+            space. By taking advantage of the symmetric nature of the <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> <B 
+            style="COLOR: black; BACKGROUND-COLOR: #a0ffff">equation</B>, we can 
+            compute arrays of values for the first two of the weighting 
+            functions, and obtain values for the other two weights by indexing 
+            backwards into the arrays.</P>
+            <P>Drawing the curve, given the endpoints of the segments, is the 
+            duty of QuickDraw (or of PostScript, if you’re really hacking).</P>
+            <P>The listing below shows a reasonably efficient implementation of 
+            <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves 
+            in Lightspeed C™. A few reminders about fixed-point math: an integer 
+            times a fixed-point number yields a fixed-point number, and a fixed 
+            by fixed multiplication uses a trap. The storage requirement for the 
+            algorithm, assuming 16 segments, (32 fixed-point values), is around 
+            32*4*4, or 512 bytes. The algorithm computes all of the segments 
+            before drawing them so that the drawing can be done at full speed. 
+            (Having all of the segments around at one time can be useful for 
+            other reasons.)</P>
+            <H2>
+            <P align=center><B>More Fun With Curves</P></B></H2>
+            <P>Given an implementation for <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves, 
+            there are some neat things that fall out for almost free. Drawing a 
+            set of joined curves within an OpenPoly/ClosePoly or an 
+            OpenRgn/CloseRgn envelope yields an object that can be filled with a 
+            pattern. (Shades of popular illustration packages?) For that matter, 
+            lines, arcs, wedges, and <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves 
+            can be joined to produce complicated shapes, such as outlined fonts. 
+            Given the direct mapping to PostScript’s curve and curveto 
+            operators, <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves 
+            are a natural for taking better advantage of the LaserWriter.</P>
+            <P>As mentioned above, <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves 
+            can be joined smoothly to produce more complicated shapes (see 
+            figure 1). The catch is that the point at which two curves are 
+            joined, and the adjacent control points, must be colinear (i.e., the 
+            three points must lay on a line). If you take a close look at Adobe 
+            Illustrator’s drawing tool, you’ll see what this means.</P>
+            <P>One nonobvious use of <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves is 
+            in animation. The endpoints of the segments can be used as 
+            anchor-points for redrawing an object, giving it the effect of 
+            moving smoothly along the curve. One backgammon program that I’ve 
+            seen moves the tiles along invisible <B 
+            style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves, 
+            and the effect is very impressive. For animation, you would probably 
+            want to vary the number of segments. Fortunately, the algorithm 
+            below is easily rewritten to produce the nth segment of an m segment 
+            curve given the the end and control points.</P>
+            <H2>
+            <P align=center><B>Further Optimizations</P></B></H2>
+            <P>If you’re really tight on space or pressed for speed, there are a 
+            few things that you can do to tighten up the algorithm. A bit of 
+            code space (and a negligible amount of time) can be preserved by 
+            eliminating the setup code in favor of statically initializing the 
+            weight arrays with precomputed constant values. Drawing can be 
+            optimized by using GetTrapAddress to find the address in ROM of 
+            lineto, and then by calling it directly from inline assembly 
+            language, bypassing the trap mechanism. I’ve found that neither 
+            optimization is necessary for reasonable performance.</P><PRE width=50>/*
+**  <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B>  --  Support for <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves
+** Herein reside support routines for drawing <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves.
+**  Copyright (C) 1987, 1988 David W. Smith
+**  Submitted to MacTutor for their source-disk.
+*/
+
+#include &lt;MacTypes.h&gt;
+/*
+   The greater the number of curve segments, the smoother the curve, 
+and the longer it takes to generate and draw.  The number below was pulled 
+out of a hat, and seems to work o.k.
+ */
+#define SEGMENTS 16
+
+static Fixedweight1[SEGMENTS + 1];
+static Fixedweight2[SEGMENTS + 1];
+
+#define w1(s)  weight1[s]
+#define w2(s)  weight2[s]
+#define w3(s)  weight2[SEGMENTS - s]
+#define w4(s)  weight1[SEGMENTS - s]
+
+/*
+ *  SetupBezier  --  one-time setup code.
+ * Compute the weights for the <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> function.
+ *  For the those concerned with space, the tables can be precomputed. 
+Setup is done here for purposes of illustration.
+ */
+void
+SetupBezier()
+{
+ Fixed  t, zero, one;
+ int    s;
+
+ zero  = FixRatio(0, 1);
+ one   = FixRatio(1, 1);
+ weight1[0] = one;
+ weight2[0] = zero;
+ for ( s = 1 ; s &lt; SEGMENTS ; ++s ) {
+ t = FixRatio(s, SEGMENTS);
+ weight1[s] = FixMul(one - t, FixMul(one - t, one - t));
+ weight2[s] = 3 * FixMul(t, FixMul(t - one, t - one));
+ }
+ weight1[SEGMENTS] = zero;
+ weight2[SEGMENTS] = zero;
+}
+
+/*
+ *  computeSegments  --  compute segments for the <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curve
+ * Compute the segments along the curve.
+ *  The curve touches the endpoints, so don’t bother to compute them.
+ */
+static void
+computeSegments(p1, p2, p3, p4, segment)
+ Point  p1, p2, p3, p4;
+ Point  segment[];
+{
+ int    s;
+ 
+ segment[0] = p1;
+ for ( s = 1 ; s &lt; SEGMENTS ; ++s ) {
+ segment[s].v = FixRound(w1(s) * p1.v + w2(s) * p2.v +
+ w3(s) * p3.v + w4(s) * p4.v);
+ segment[s].h = FixRound(w1(s) * p1.h + w2(s) * p2.h +
+ w3(s) * p3.h + w4(s) * p4.h);
+ }
+ segment[SEGMENTS] = p4;
+}
+
+/*
+ *  BezierCurve  --  Draw a <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> Curve
+ * Draw a curve with the given endpoints (p1, p4), and the given 
+ * control points (p2, p3).
+ *  Note that we make no assumptions about pen or pen mode.
+ */
+void
+BezierCurve(p1, p2, p3, p4)
+ Point  p1, p2, p3, p4;
+{
+ int    s;
+ Point  segment[SEGMENTS + 1];
+
+ computeSegments(p1, p2, p3, p4, segment);
+ MoveTo(segment[0].h, segment[0].v);
+
+ for ( s = 1 ; s &lt;= SEGMENTS ; ++s ) {
+ if ( segment[s].h != segment[s - 1].h ||
+  segment[s].v != segment[s - 1].v ) {
+ LineTo(segment[s].h, segment[s].v);
+ }
+ }
+}
+
+/*
+**  CurveLayer.c  
+** These routines provide a layer of support between my bare-  
+ bones application skeleton and the <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curve code.   
+  There’s little here of interest outside of the mouse 
+  tracking and the curve drawing.
+**  David W. Smith
+*/
+
+#include “QuickDraw.h”
+#include “MacTypes.h”
+#include “FontMgr.h”
+#include “WindowMgr.h”
+#include “MenuMgr.h”
+#include “TextEdit.h”
+#include “DialogMgr.h”
+#include “EventMgr.h”
+#include “DeskMgr.h”
+#include “FileMgr.h”
+#include “ToolboxUtil.h”
+#include “ControlMgr.h”
+
+/*
+ *  Tracker objects.  Similar to MacAPP trackers, but much,
+ much simpler.
+ */
+struct Tracker
+{
+ void (*track)();
+ int    thePoint;
+};
+
+static struct Tracker aTracker;
+static struct Tracker bTracker;
+
+/*
+ *  The <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curve control points.
+ */
+Point   control[4] = {{144,72}, {72,144}, {216,144}, {144,216}};
+
+
+/*
+ *  Draw
+ *  Called from the skeleton to update the window.  Draw the   
+ initial curve.
+ */
+Draw()
+{
+ PenMode(patXor);
+ DrawTheCurve(control, true);
+}
+
+/*
+ *  DrawTheCurve
+ * Draw the given <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curve in the current pen mode.Draw 
+   the control points if requested.
+ */
+DrawTheCurve(c, drawPoints)
+ Point  c[];
+{
+ if ( drawPoints )
+ DrawThePoints(c);
+ BezierCurve(c[0], c[1], c[2], c[3]);
+}
+
+/*
+ *  DrawThePoints
+ *  Draw all of the control points.
+ */
+DrawThePoints(c)
+ Point  c[];
+{
+ int    n;
+ 
+ for ( n = 0 ; n &lt; 4 ; ++n ) {
+ DrawPoint(c, n);
+ }
+}
+
+/*
+ *  DrawPoint
+ *  Draw a single control point
+ */
+DrawPoint(c, n)
+ Point  c[];
+ int    n;
+{
+ PenSize(3, 3);
+ MoveTo(c[n].h - 1, c[n].v - 1);
+ LineTo(c[n].h - 1, c[n].v - 1);
+ PenSize(1, 1);
+}
+
+/*
+ * GetTracker
+ * Produce a tracker object
+ * Called by the skeleton to handle mouse-down events.
+ * If the mouse touches a control point, return a tracker for
+ that point. Otherwise, return a tracker that drags a gray 
+ rectangle.
+ */
+struct Tracker *
+GetTracker(point)
+ Point  point;
+{
+ void   TrackPoint(), TrackSelect();
+ int    i;
+
+ aTracker.track = TrackPoint;
+
+ for ( i = 0 ; i &lt; 4 ; ++i ) {
+ if ( TouchPoint(control[i], point) ) {
+ aTracker.thePoint = i;
+ return (&amp;aTracker);
+ }
+ }
+ bTracker.track = TrackSelect;
+ return (&amp;bTracker);
+}
+
+/*
+ *  TouchPoint
+ *  Do the points touch?
+ */
+#define abs(a) (a &lt; 0 ? -(a) : (a))
+
+TouchPoint(target, point)
+ Point  target;
+ Point  point;
+{
+ SubPt(point, &amp;target);
+ if ( abs(target.h) &lt; 3 &amp;&amp; abs(target.v) &lt; 3 )
+ return (1);
+ return (0);
+}
+
+/*
+ *  TrackPoint
+ *  Called while dragging a control point.
+ */
+void
+TrackPoint(tracker, point, phase)
+ struct Tracker  *tracker;
+ Point  point;
+ int    phase;
+{
+ Point  savePoint;
+
+ switch ( phase ) {
+ case 1:
+ /* initial click - XOR out the control point */
+ DrawPoint(control, tracker-&gt;thePoint);
+ break;
+ case 2:
+ /* drag - undraw the original curve and draw the new one */
+ DrawTheCurve(control, false);
+ control[tracker-&gt;thePoint] = point;
+ DrawTheCurve(control, false);
+ break;
+ case 3:
+ /* release - redraw the control point */
+ DrawPoint(control, tracker-&gt;thePoint);
+ break;
+ }
+}
+
+/*
+ *  TrackSelect
+ *  Track a gray selection rectangle
+ */
+static Pointfirst;
+static Rect r;
+
+void
+TrackSelect(tracker, point, phase)
+ struct Tracker  *tracker;
+ Point  point;
+ int    phase;
+{
+ switch ( phase ) {
+ case 1:
+ PenPat(gray);
+ first = point;
+ SetupRect(&amp;r, first, point);
+ FrameRect(&amp;r);
+ break;
+ case 2:
+ FrameRect(&amp;r);
+ SetupRect(&amp;r, first, point);
+ FrameRect(&amp;r);
+ break;
+ case 3:
+ FrameRect(&amp;r);
+ PenPat(black);
+ break;
+ }
+}
+
+/*
+ *  SetupRect
+ *  Setup the rectangle for tracking.
+ */
+#define min(x, y) (((x) &lt; (y)) ? (x) : (y))
+#define max(x, y) (((x) &gt; (y)) ? (x) : (y))
+
+SetupRect(rect, point1, point2)
+ Rect   *rect;
+ Point  point1;
+ Point  point2;
+{
+ SetRect(rect,
+ min(point1.h, point2.h),
+ min(point1.v, point2.v),
+ max(point1.h, point2.h),
+ max(point1.v, point2.v));
+}
+
+/*
+**  Skeleton.c  --  A bare-bones skeleton.
+** This has been hacked up to demonstrate <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> curves.  
+    Other than the tracking technique, there’s little here of 
+    interest.
+**  David W. Smith
+*/
+
+#include “QuickDraw.h”
+#include “MacTypes.h”
+#include “FontMgr.h”
+#include “WindowMgr.h”
+#include “MenuMgr.h”
+#include “TextEdit.h”
+#include “DialogMgr.h”
+#include “EventMgr.h”
+#include “DeskMgr.h”
+#include “FileMgr.h”
+#include “ToolboxUtil.h”
+#include “ControlMgr.h”
+
+WindowRecordwRecord;
+WindowPtr myWindow;
+
+/*
+ *  main
+ *  Initialize the world, then handle events until told to quit.
+ */
+main() 
+{
+ InitGraf(&amp;thePort);
+ InitFonts();
+ FlushEvents(everyEvent, 0);
+ InitWindows();
+ InitMenus();
+ InitDialogs(0L);
+ InitCursor();
+ MaxApplZone();
+
+ SetupMenus();
+ SetupWindow();
+ SetupBezier();
+
+ while ( DoEvent(everyEvent) )
+ ;
+}
+
+/*
+ *  SetupMenus
+ *  For the purpose of this demo, we get somewhat non-standard and use 
+no menus.  Closing the window quits.
+ */
+SetupMenus()
+{
+ DrawMenuBar();
+}
+
+/*
+ *  SetupWindow
+ *  Setup the window for the <B style="COLOR: black; BACKGROUND-COLOR: #ffff66">Bezier</B> demo.
+ */
+SetupWindow()
+{
+ Rect   bounds;
+
+ bounds = WMgrPort-&gt;portBits.bounds;
+ bounds.top += 36;
+ InsetRect(&amp;bounds, 5, 5);
+
+ myWindow = NewWindow(&amp;wRecord, &amp;bounds, “\pBezier Sampler - Click and 
+Drag”, 1, noGrowDocProc, 0L, 1, 0L);
+ 
+ SetPort(myWindow);
+}
+
+/*
+ *  DoEvent
+ *  Generic event handling.
+ */
+DoEvent(eventMask)
+ int    eventMask;
+{
+ EventRecordmyEvent;
+ WindowPtrwhichWindow;
+ Rect   r;
+ 
+ SystemTask();
+ if ( GetNextEvent(eventMask, &amp;myEvent) )
+ {
+ switch ( myEvent.what )
+ {
+ case mouseDown:
+ switch ( FindWindow( myEvent.where, &amp;whichWindow ) )
+ {
+ case inDesk: 
+ break;
+ case inGoAway:
+ if ( TrackGoAway(myWindow, myEvent.where) )
+ {
+ HideWindow(myWindow);
+ return (0);
+ }
+ break;
+ case inMenuBar:
+ return (DoCommand(MenuSelect(myEvent.where)));
+ case inSysWindow:
+ SystemClick(&amp;myEvent, whichWindow);
+ break;
+ case inDrag:
+ break;
+ case inGrow:
+ break;
+ case inContent:
+ DoContent(&amp;myEvent);
+ break;
+ default:
+ break;;
+ }
+ break;
+ case keyDown:
+ case autoKey: 
+ break;
+ case activateEvt:
+ break;
+ case updateEvt:
+ DoUpdate();
+ break;
+ default:
+ break;
+ }
+ }
+ return(1);
+}
+
+/*
+ *  DoCommand
+ *  Command handling would normally go here.
+ */
+DoCommand(mResult)
+ long   mResult;
+{
+ int    theItem, temp;
+ Str255 name;
+ WindowPeek wPtr;
+ 
+ theItem = LoWord(mResult);
+
+ switch ( HiWord(mResult) )
+ {
+ }
+
+ HiliteMenu(0);
+ return(1);
+}
+
+/*
+ *  DoUpdate
+ *  Generic update handler.
+ */
+DoUpdate()
+{
+ BeginUpdate(myWindow);
+ Draw();
+ EndUpdate(myWindow);
+}
+
+/*
+ *  DoContent
+ *  Handle mouse-downs in the content area by asking the application 
+to produce a tracker object.  We then call the tracker repeatedly to 
+track the mouse. This technique came originally (as nearly as I can tell) 
+from Xerox, and is used in a modified form in MacApp.
+ */
+struct Tracker
+{
+ int    (*Track)();
+};
+
+int
+DoContent(pEvent)
+ EventRecord*pEvent;
+{
+ struct Tracker  *GetTracker();
+ struct Tracker  *t;
+ Point  point, newPoint;
+ 
+ point = pEvent-&gt;where;
+ GlobalToLocal(&amp;point);
+ t = GetTracker(point);
+ if ( t ) {
+ (*t-&gt;Track)(t, point, 1);
+ while ( StillDown() ) {
+ GetMouse(&amp;newPoint);
+ if ( newPoint.h != point.h || newPoint.v != point.v ) {
+ point = newPoint;
+ (*t-&gt;Track)(t, point, 2);
+ }
+ }
+ (*t-&gt;Track)(t, point, 3);
+ }
+}
+</PRE>
+            <P></P>
+            <P></P><!-- BEGIN MT_FOOTER INCLUDE --></TD></TR>
+        <TR>
+          <TD><BR>
+            <HR width="80%">
+            <BR>
+            <CENTER>
+            <DIV class=traffic><STRONG>Spread the word.</STRONG> Add to: <A 
+            href="javascript:void%20window.open('http://slashdot.org/bookmark.pl?url='+encodeURIComponent(window.location.href)+'&amp;title='+encodeURIComponent(document.title),'popup','',0)"><IMG 
+            class=pl src="Bezier Curve_files/slashdot.gif">Slashdot</A> <A 
+            href="javascript:void%20window.open('http://digg.com/submit?phase=2&amp;url='+encodeURIComponent(window.location.href)+'&amp;ei=UTF-8','popup','',0)"><IMG 
+            class=pl src="Bezier Curve_files/digg.gif">Digg</A> <A 
+            href="javascript:void%20window.open('http://del.icio.us/post?url='+encodeURIComponent(window.location.href)+'&amp;ei=UTF-8','popup','',0)"><IMG 
+            class=pl src="Bezier Curve_files/del.icio.us.gif">del.icio.us</A> <A 
+            href="javascript:void%20window.open('http://reddit.com/submit?url='+encodeURIComponent(window.location.href)+'&amp;ei=UTF-8','popup','',0)"><IMG 
+            class=pl src="Bezier Curve_files/reddit.gif">reddit</A> <A 
+            href="javascript:void%20window.open('http://www.newsvine.com/_tools/seed&amp;save?u='+encodeURIComponent(window.location.href)+'&amp;ei=UTF-8','popup','',0)"><IMG 
+            class=pl src="Bezier Curve_files/newsvine.gif">newsvine</A> <A 
+            href="javascript:void%20window.open('http://myweb2.search.yahoo.com/myresults/bookmarklet?t='+encodeURIComponent(window.location.href)+'&amp;ei=UTF-8','popup','',0)"><IMG 
+            class=pl src="Bezier Curve_files/yahoo-myweb.gif">Y! 
+            MyWeb</A></DIV><BR></CENTER></TD></TR></TBODY></TABLE></TD><!--BEGIN DROP SHADOW-->
+    <TD vAlign=top><IMG alt="" src="Bezier Curve_files/left_side.jpg"> </TD><!--END DROP SHADOW--><!-- BEGIN RIGHT CENTER MAGAZINE COLUMN -->
+    <TD align=middle width=175 bgColor=#ffffff><!-- BEGIN SKYSCRAPER -->
+      <TABLE cellSpacing=0 cellPadding=3 width=130 bgColor=#ffffff border=0>
+        <TBODY>
+        <TR vAlign=center align=left>
+          <TD>
+            <CENTER><A class=RightBarTextAd 
+            href="http://www.mactech.com/misc/about_mt.html"><SPAN 
+            class=trialsubdesc>Click on the cover to<BR>see this month's 
+            issue!</SPAN><BR><IMG src="Bezier Curve_files/mt-cover-current.jpg" 
+            width=120> </CENTER></A></TD></TR>
+        <TR vAlign=center>
+          <TD align=middle colSpan=4><IMG alt="" 
+            src="Bezier Curve_files/dashes120x5.gif" width=120 vspace=5> </TD></TR><!-- 
+	<TR VALIGN=MIDDLE ALIGN=LEFT>
+		<TD>
+			<CENTER><a CLASS="RightBarTextAd" href="https://store.mactech.com/mactech/riskfree/offer.html?FROM=MTRF">
+			<u><span class="trialsub">TRIAL SUBSCRIPTION</u></span><BR>
+			<span class="trialsubdesc">Get a RISK-FREE subscription to the only technical Mac magazine!</span>
+			</CENTER></a>
+		</TD>
+	</TR>
+ -->
+        <TR vAlign=center align=left>
+          <TD>
+            <CENTER><A class=RightBarTextAd 
+            href="http://www.mactech.com/ms-survey/mactechsidebar.php"><SPAN 
+            class=trialsubdesc>New subscriber?<BR>In the US/Canada?<BR>Get a 
+            FREE* subscription to MacTech!</SPAN><BR><IMG 
+            src="Bezier Curve_files/macTech_120x120.jpg" width=120> 
+          </CENTER></A></TD></TR>
+        <TR vAlign=center>
+          <TD align=middle colSpan=4><IMG alt="" 
+            src="Bezier Curve_files/dashes120x5.gif" width=120 vspace=5> </TD></TR><!--
+	[[TR]]
+		[[td align=center]]
+		[[mgiIf lhs="htdig/3.1.0b2, 
+				Phantom/2.2.1,
+				Slurp/2.0-KiteHourly, 
+				Scooter/2.0 G.R.A.B. X2.0, 
+				Scooter/1.0 scooter@pa.dec.com, 
+				Backrub/2.1, Googlebot/1.0, 
+				Gulliver/1.3, 
+				Lycos_Spider_(T-Rex), 
+				Mercator-1.0, 
+				shadow/1.4.5 (www.searchbutton.com/shadow/), 
+				Googlebot/2.0 beta (googlebot(at)googlebot.com), 
+				http://search.aol.com/dirsearch.adp" 
+			relationship="doesnotcontain" rhs={mgirequest data="UserAgent"}]]
+		
+			[[mgiset name="Set"]]MacTech_120x600_Skyscraper[[/mgiset]]
+			[[mgiIncludeFile filelocation="/admin/bannerads/bannerad.txt"]]
+			[[BR]]&nbsp;[[BR]]
+		
+		[[/mgiIf]]
+		[[/td]]
+	[[/tr]]
+-->
+        <TR vAlign=top>
+          <TD align=middle colSpan=4><FONT size=1><STRONG>Ad 
+            Showcase</STRONG></FONT> <BR><BR></TD></TR>
+        <TR align=middle WIDTH="125">
+          <TD>
+            <SCRIPT language=JavaScript src="Bezier Curve_files/adx.js" 
+            type=text/javascript></SCRIPT>
+
+            <SCRIPT language=JavaScript type=text/javascript>
+			<!--
+			   if (!document.phpAds_used) document.phpAds_used = ',';
+			   phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
+			   
+			   document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
+			   document.write ("/phpAdsNew/adjs.php?n=" + phpAds_random);
+			   document.write ("&amp;what=zone:3&amp;target=_blank&amp;withText=1&amp;block=1");
+			   document.write ("&amp;exclude=" + document.phpAds_used);
+			   if (document.referrer)
+			      document.write ("&amp;referer=" + escape(document.referrer));
+			   document.write ("'><" + "/script>");
+			//-->
+			</SCRIPT>
+            <NOSCRIPT><A 
+            href="http://www.mactech.com/phpAdsNew/adclick.php?n=ad5bcad2" 
+            target=_blank><IMG alt="" 
+            src="Bezier Curve_files/mactech_ad_invisibleshield.gif" 
+            border=0></A></NOSCRIPT> </TD></TR>
+        <TR vAlign=center>
+          <TD align=middle colSpan=4>&nbsp; </TD></TR><!-- 
+	<TR align=center WIDTH=125>
+		<td>
+
+			
+			<script type="text/javascript"><!~~
+			google_ad_client = "pub-3362040077720013";
+			google_ad_width = 120;
+			google_ad_height = 90;
+			google_ad_format = "120x90_0ads_al";
+			google_ad_channel ="";
+			google_color_border = "CCCCCC";
+			google_color_bg = "FFFFFF";
+			google_color_link = "000000";
+			google_color_url = "666666";
+			google_color_text = "333333";
+			//~~></script>
+			<script type="text/javascript"
+			  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>		
+
+		</td>
+	</tr>
+ --><!-- 
+	<TR VALIGN=MIDDLE>
+		<TD colspan=4 ALIGN=CENTER>
+			&nbsp;
+		</TD>
+	</TR>
+ -->
+        <TR align=middle WIDTH="125">
+          <TD>
+            <SCRIPT language=JavaScript src="Bezier Curve_files/adx.js" 
+            type=text/javascript></SCRIPT>
+
+            <SCRIPT language=JavaScript type=text/javascript>
+			<!--
+			   if (!document.phpAds_used) document.phpAds_used = ',';
+			   phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
+   
+			   document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
+			   document.write ("/phpAdsNew/adjs.php?n=" + phpAds_random);
+			   document.write ("&amp;what=zone:3&amp;target=_blank&amp;withText=1&amp;block=1");
+			   document.write ("&amp;exclude=" + document.phpAds_used);
+			   if (document.referrer)
+			      document.write ("&amp;referer=" + escape(document.referrer));
+			   document.write ("'><" + "/script>");
+			//-->
+			</SCRIPT>
+            <NOSCRIPT><A 
+            href="http://www.mactech.com/phpAdsNew/adclick.php?n=a69a784f" 
+            target=_blank><IMG alt="" 
+            src="Bezier Curve_files/mactank-mailtank-april-120x90.gif" 
+            border=0></A></NOSCRIPT> </TD></TR><!--
+	[[TR VALIGN=MIDDLE]]
+		[[TD colspan=4 ALIGN=CENTER]]
+			&nbsp;
+		[[/TD]]
+	[[/TR]]
+	[[TR align=center WIDTH=125]]
+		[[td]]
+		
+		[[?php //Banner Ad Generator 4 of 5 for Right Column (Author: Joel E. Torres) ?]]
+			[[script language='JavaScript' type='text/javascript' src='/phpAdsNew/adx.js']][[/script]]
+			[[script language='JavaScript' type='text/javascript']]
+			[[!~~
+			   if (!document.phpAds_used) document.phpAds_used = ',';
+			   phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
+   
+			   document.write ("[[" + "script language='JavaScript' type='text/javascript' src='");
+			   document.write ("/phpAdsNew/adjs.php?n=" + phpAds_random);
+			   document.write ("&amp;what=zone:3&amp;target=_blank&amp;withText=1&amp;block=1");
+			   document.write ("&amp;exclude=" + document.phpAds_used);
+			   if (document.referrer)
+			      document.write ("&amp;referer=" + escape(document.referrer));
+			   document.write ("']][[" + "/script]]");
+			//~~]]
+			[[/script]][[noscript]][[a href='/phpAdsNew/adclick.php?n=aba5bbed' target='_blank']][[img src='/phpAdsNew/adview.php?what=zone:3&amp;n=aba5bbed' border='0' alt='']][[/a]][[/noscript]]
+		
+		[[/td]]
+	[[/tr]]
+-->
+        <TR vAlign=center>
+          <TD align=middle colSpan=4>&nbsp; </TD></TR>
+        <TR align=middle WIDTH="125">
+          <TD>
+            <SCRIPT type=text/javascript><!--
+			google_ad_client = "pub-3362040077720013";
+			google_ad_width = 120;
+			google_ad_height = 600;
+			google_ad_format = "120x600_as";
+			google_ad_type = "text_image";
+			google_ad_channel ="";
+			google_color_border = "CCCCCC";
+			google_color_bg = "FFFFFF";
+			google_color_link = "000000";
+			google_color_url = "666666";
+			google_color_text = "333333";
+			//--></SCRIPT>
+
+            <SCRIPT src="Bezier Curve_files/show_ads.js" type=text/javascript>
+			</SCRIPT>
+<!-- 
+			<script language='JavaScript' type='text/javascript' src='/phpAdsNew/adx.js'></script>
+			<script language='JavaScript' type='text/javascript'>
+			<!~~
+			   if (!document.phpAds_used) document.phpAds_used = ',';
+			   phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
+   
+			   document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
+			   document.write ("/phpAdsNew/adjs.php?n=" + phpAds_random);
+			   document.write ("&amp;what=zone:11&amp;target=_blank&amp;withText=1&amp;block=1");
+			   document.write ("&amp;exclude=" + document.phpAds_used);
+			   if (document.referrer)
+			      document.write ("&amp;referer=" + escape(document.referrer));
+			   document.write ("'><" + "/script>");
+			//~~>
+			</script><noscript><a href='/phpAdsNew/adclick.php?n=aba5bbed' target='_blank'><img src='/phpAdsNew/adview.php?what=zone:11&amp;n=aba5bbed' border='0' alt=''></a></noscript>
+ --></TD></TR></TBODY></TABLE><!-- END SKYSCRAPER --></TD><!-- END RIGHT CENTER MAGAZINE COLUMN --><!--BEGIN DROP SHADOW-->
+    <TD vAlign=top><IMG alt="" src="Bezier Curve_files/left_side.jpg"> </TD><!--END DROP SHADOW--></TD></TR><!--BEGIN ROUND BOTTOM-->
+  <TR>
+    <TD width=175>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" align=left border=0>
+        <TBODY>
+        <TR>
+          <TD align=left><IMG height=5 src="Bezier Curve_files/Corner-LL.gif" 
+            width=5></TD>
+          <TD width="100%" bgColor=#ffffff height=5></TD>
+          <TD align=right><IMG height=5 src="Bezier Curve_files/Corner-LR.gif" 
+            width=5></TD></TR></TBODY></TABLE></TD>
+    <TD width=10>
+      <TABLE cellSpacing=0 cellPadding=0 align=left border=0>
+        <TBODY>
+        <TR>
+          <TD align=left width=10 height=5></TD></TR></TBODY></TABLE></TD>
+    <TD>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" align=left border=0>
+        <TBODY>
+        <TR>
+          <TD align=left><IMG height=5 src="Bezier Curve_files/Corner-LL.gif" 
+            width=5></TD>
+          <TD align=right width="100%" bgColor=#ffffff height=5></TD>
+          <TD align=right><IMG height=5 src="Bezier Curve_files/Corner-LR.gif" 
+            width=5></TD></TR></TBODY></TABLE></TD>
+    <TD width=10>
+      <TABLE cellSpacing=0 cellPadding=0 align=left border=0>
+        <TBODY>
+        <TR>
+          <TD align=left width=10 height=5></TD></TR></TBODY></TABLE></TD>
+    <TD width=175>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" align=left border=0>
+        <TBODY>
+        <TR>
+          <TD align=left><IMG height=5 src="Bezier Curve_files/Corner-LL.gif" 
+            width=5></TD>
+          <TD width="100%" bgColor=#ffffff height=5></TD>
+          <TD align=right><IMG height=5 src="Bezier Curve_files/Corner-LR.gif" 
+            width=5></TD></TR></TBODY></TABLE></TD></TR><!--END ROUND BOTTOM--></TBODY></TABLE>
+<CENTER>
+<P></P>
+<TABLE align=center bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD><!--
+		[[script language='JavaScript' type='text/javascript' src='/phpAdsNew/adx.js']][[/script]]
+		[[script language='JavaScript' type='text/javascript']]
+		[[!~~
+		   if (!document.phpAds_used) document.phpAds_used = ',';
+		   phpAds_random = new String (Math.random()); phpAds_random = phpAds_random.substring(2,11);
+		   
+		   document.write ("[[" + "script language='JavaScript' type='text/javascript' src='");
+		   document.write ("/phpAdsNew/adjs.php?n=" + phpAds_random);
+		   document.write ("&amp;what=zone:7&amp;target=_blank&amp;withText=1");
+		   document.write ("&amp;exclude=" + document.phpAds_used);
+		   if (document.referrer)
+			  document.write ("&amp;referer=" + escape(document.referrer));
+		   document.write ("']][[" + "/script]]");
+		//~~]]
+		[[/script]][[noscript]][[a href='/phpAdsNew/adclick.php?n=a45a4d25' target='_blank']][[img src='/phpAdsNew/adview.php?what=zone:7&amp;n=a45a4d25' border='0' alt='']][[/a]][[/noscript]]
+-->
+      <SCRIPT type=text/javascript><!--
+		google_ad_client = "pub-3362040077720013";
+		google_ad_width = 728;
+		google_ad_height = 90;
+		google_ad_format = "728x90_as";
+		google_ad_type = "text_image";
+		google_ad_channel ="";
+		google_color_border = "CCCCCC";
+		google_color_bg = "FFFFFF";
+		google_color_link = "000000";
+		google_color_url = "666666";
+		google_color_text = "333333";
+		//--></SCRIPT>
+
+      <SCRIPT src="Bezier Curve_files/show_ads.js" 
+      type=text/javascript>
+		</SCRIPT>
+    </TD></TR></TBODY></TABLE></FONT><BR><FONT color=#ffffff><B>MacTech Magazine. 
+www.mactech.com</B> <BR>Toll Free 877-MACTECH, Outside US/Canada: 
+805-494-9797<BR><BR><A href="http://www.mactechdomains.com/">Register Low Cost 
+(ok dirt cheap!) Domain Names in the MacTech Domain Store. As low as 
+$1.99!</A><BR><A href="http://www.mactechsupplies.com/">Save on brand compatible 
+and name brank ink jet and laser supplies.</A><BR><A 
+href="http://www.lowcostdialing.com/">Save on long distance</A> * <A 
+href="http://www.computerlunatics.com/">Upgrade your Computer </A><BR><A 
+href="http://www.video-depot.com/">Movies with No Late Fees!</A><BR><A 
+href="http://www.withoutopinion.com/">See local</A> <A 
+href="http://www.westlakerevelations.com/">Westlake Village 
+Politics</A><BR></FONT>
+<P></P><BR>
+<P><FONT color=#ffffff size=1><BR>
+<P>All contents are Copyright 1984-2007 by <A 
+href="http://www.xplain.com/">Xplain Corporation</A>. All rights reserved. </P>
+<P></P>MacTech is a registered trademark of <A 
+href="http://www.xplain.com/">Xplain Corporation</A>. <A 
+href="http://www.xplain.com/">Xplain</A>, <A 
+href="http://www.video-depot.com/">Video Depot</A>, <A 
+href="http://www.movie-depot.com/">Movie Depot</A>, <A 
+href="http://www.palmosdepot.com/">Palm OS Depot</A>, <A 
+href="http://www.explainit.com/">Explain It</A>, <A 
+href="http://www.mactech.com/news/?p=1000036">MacDev, MacDev-1</A>, <A 
+href="http://www.thinkreference.com/">THINK Reference</A>, <A 
+href="http://www.netprofessional.com/">NetProfessional</A>, <A 
+href="http://www.netprofessional.com/">NetProLive</A>, <A 
+href="http://www.mactech.com/articles/mactech/%20Vol.13/13.06/BuildingBeans">JavaTech</A>, 
+<A 
+href="http://www.mactech.com/articles/mactech/%20Vol.16/16.01/IntrotoWebObjects">WebTech</A>, 
+BeTech, LinuxTech, <A href="http://www.appleexpo.com/">Apple Expo</A>, <A 
+href="http://www.mactechcentral.com/">MacTech Central</A> and the <A 
+href="http://www.mactech.com/">MacTutorMan</A> are trademarks or service marks 
+of <A href="http://www.xplain.com/">Xplain Corporation</A>. Sprocket is a 
+registered trademark of eSprocket Corporation. Other trademarks and copyrights 
+appearing in this printing or software remain the property of their respective 
+holders. 
+<P></P></FONT><BR></FONT>
+<P></P></CENTER><!-- END MT_FOOTER INCLUDE --></DIV></BODY></HTML>

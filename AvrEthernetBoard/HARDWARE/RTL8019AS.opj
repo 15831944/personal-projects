@@ -1,0 +1,69 @@
+(ExpressProject "RTL8019AS"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File ".\library1.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\rtl8019as.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (DRC_Scope "0")
+    (DRC_Action "0")
+    (DRC_Create_Warnings "TRUE")
+    (DRC_Check_Ports "FALSE")
+    (DRC_Check_Off-Page_Connectors "FALSE")
+    (DRC_Identical_References "TRUE")
+    (DRC_Type_Mismatch "TRUE")
+    (DRC_Report_Ports_and_Off-page_Connectors "FALSE")
+    (DRC_SDT_Compatibility "FALSE")
+    (DRC_Report_Off-grid_Objects "FALSE")
+    (DRC_Check_Unconnected_Wires "FALSE")
+    (DRC_Report_Netnames "FALSE")
+    (DRC_View_Output "FALSE")
+    (DRC_Report_File "D:\MYPROJECTS\ETHERNET\RTL8019AS.DRC")
+    (ANNOTATE_Scope "0")
+    (ANNOTATE_Mode "1")
+    (ANNOTATE_Action "0")
+    (ANNOTATE_Reset_References_to_1 "FALSE")
+    (ANNOTATE_No_Page_Number_Change "FALSE")
+    (ANNOTATE_Property_Combine "{Value}{Source Package}")
+    (Netlist_TAB "5")
+    (LAYOUT_Netlist_File "D:\MYPROJECTS\ETHERNET\RTL8019AS.MNL")
+    (LAYOUT_PCB_Footprint "{PCB Footprint}")
+    (LAYOUT_Run_ECO "TRUE")
+    (LAYOUT_Units "1"))
+  (Folder "Outputs"
+    (File ".\rtl8019as.drc"
+      (Type "Report"))
+    (File ".\rtl8019as.mnl"
+      (Type "Report")))
+  (Folder "Referenced Projects")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" "D:\MyProjects\ETHERNET\HARDWARE\rtl8019as.dsn")
+      (Path "Design Resources" "D:\MyProjects\ETHERNET\HARDWARE\rtl8019as.dsn"
+         "SCHEMATIC")
+      (Path "Design Resources" "Library")
+      (Path "Outputs")
+      (Select "Design Resources"
+         "D:\MyProjects\ETHERNET\HARDWARE\rtl8019as.dsn" "SCHEMATIC" "RTL8019AS"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -4 -30 222 422 33 436"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 110 980 145 582")
+        (Scroll "319 574")
+        (Zoom "166")
+        (Occurrence "/"))
+      (Path "D:\MYPROJECTS\ETHERNET\HARDWARE\RTL8019AS.DSN")
+      (Schematic "SCHEMATIC")
+      (Page "RTL8019AS"))))

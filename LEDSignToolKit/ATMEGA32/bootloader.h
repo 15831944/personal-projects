@@ -1,0 +1,28 @@
+#ifndef _BOOTLOEADER_H_
+#define _BOOTLOEADER_H_
+
+#define BOOL    unsigned char
+#define BYTE    unsigned char
+#define WORD    unsigned int
+#define DWORD   unsigned long
+
+#define TRUE    1
+#define FALSE   0
+
+extern BOOL GetPageBuffer(void);
+extern BOOL FLCheckPage(void);
+extern void FLWritePage(unsigned int address);
+extern WORD FLReadWord(unsigned int address);
+
+#ifdef _CHIP_ATMEGA32_                   
+#include <mega32.h>
+#endif
+
+#ifdef _CHIP_ATMEGA8_ 
+#include <mega8.h>
+#endif
+
+#endif //_BOOTLOEADER_H_
+
+
+

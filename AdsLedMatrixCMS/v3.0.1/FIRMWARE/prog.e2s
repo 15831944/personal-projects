@@ -1,0 +1,24 @@
+#------ START --------
+#Programming sequence
+SELECTDEVICE ATMEGA162
+CLEARBUFFER
+LOAD-PROG main.hex
+LOAD-DATA main.eep
+PAUSE "Xin hay kiem tra ket noi va chip nap, da san sang?"
+READ-CALIBRATION 0x3ff
+ERASE-ALL
+WRITE&VERIFY-ALL
+
+#Pay attention to NOT disable RSTDISBL
+#FuseE: X,X,"M161C ","BOD2LEVEL ","BOD1LEVEL ","BOD0LEVEL ",X
+#FuseH: "OCEN ","JTAGEN ","SPIEN ","WDTON ","EESAVE ","BOOTSZ1 ","BOOTSZ0 ","BOOTRST "
+#FuseL: "CKDIV8 ","CKOUT ","SUT1 ","SUT0 ","CKSEL3 ","CKSEL2 "," CKSEL1 ","CKSEL0 "
+# 0 0 0 0 0 0 0 0
+# 0 0 1 1 0 1 1 0
+# 0 0 0 1 0 0 0 0
+WRITE-FUSE 0x003610
+
+#Lock: {X,X,"BootLock12 ","BootLock11 ","BootLock02 ","BootLock01 ","Lock2 ","Lock1 "}
+# 0 0 1 1 1 1 1 1
+WRITE-LOCK 0x3F
+#------- END ---------

@@ -1,0 +1,31 @@
+CodeVisionAVR C Compiler V1.25.2 Standard
+(C) Copyright 1998-2006 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+File: d:\myprojects\lcms\v4.0.0\fware_m8515\main.c
+Global variables memory map:
+
+Variable                          Address   Size
+*start_memR_G1                                                         9Ch      2
+*start_memG_G1                                                         9Eh      2
+*start_memB_G1                                                         A0h      2
+data_bit                                                              R2.0    1/8
+power_off                                                             R2.1    1/8
+is_stopping                                                           R2.2    1/8
+x                                                                    R4,R5      2
+y                                                                    R6,R7      2
+scroll_count_G1                                                        A2h      2
+tick_count_G1                                                          A4h      2
+stopping_count_G1                                                      A6h      2
+frame_index_G1                                                         A8h      1
+scroll_step_G1                                                         A9h      1
+text_length_G1                                                         AAh      2
+scroll_rate_G1                                                         ACh      1
+scroll_temp_G1                                                         ADh      1
+scroll_type_G1                                                         AEh      1
+rx_message                                                              R8      1
+rx_wparam                                                           R9,R10      2
+rx_lparam                                                          R11,R12      2
+rx_buffer                                                              AFh      8
+rx_wr_index                                                            R13      1
+rx_counter                                                             R14      1

@@ -1,0 +1,16 @@
+CodeVisionAVR C Compiler V1.25.9 Professional
+(C) Copyright 1998-2008 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+File: D:\LEDTechnology\LEDSignToolKit\ATMEGA32\main.c
+Global variables memory map:
+
+Variable                          Address   Size
+wPageData                                                            R2,R3      2
+wPageAddress                                                         R4,R5      2
+wCurrentAddress                                                      R6,R7      2
+ubSPMCRF                                                               R10      1
+i                                                                  R11,R12      2
+j                                                                  R13,R14      2
+ubPageBuffer                                                          260h    128
+*p_S4B                                                                2E0h      2

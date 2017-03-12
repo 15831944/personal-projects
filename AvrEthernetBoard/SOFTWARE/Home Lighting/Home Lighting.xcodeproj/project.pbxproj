@@ -1,0 +1,544 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4022388618D73FA10036D86A /* SwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4022388518D73FA10036D86A /* SwitchButton.m */; };
+		402DE8E618CA188A0017347B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402DE8E518CA188A0017347B /* UIKit.framework */; };
+		402DE8E818CA188A0017347B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402DE8E718CA188A0017347B /* Foundation.framework */; };
+		402DE8EA18CA188A0017347B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 402DE8E918CA188A0017347B /* CoreGraphics.framework */; };
+		402DE8F018CA188A0017347B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 402DE8EE18CA188A0017347B /* InfoPlist.strings */; };
+		402DE8F218CA188A0017347B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 402DE8F118CA188A0017347B /* main.m */; };
+		402DE8F618CA188A0017347B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 402DE8F518CA188A0017347B /* AppDelegate.m */; };
+		402DE8F818CA188A0017347B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 402DE8F718CA188A0017347B /* Default.png */; };
+		402DE8FA18CA188A0017347B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 402DE8F918CA188A0017347B /* Default@2x.png */; };
+		402DE8FC18CA188A0017347B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 402DE8FB18CA188A0017347B /* Default-568h@2x.png */; };
+		402DE8FF18CA188A0017347B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 402DE8FE18CA188A0017347B /* ViewController.m */; };
+		402DE90218CA188A0017347B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 402DE90018CA188A0017347B /* ViewController.xib */; };
+		402DE91418CA19B20017347B /* CDFMsgQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 402DE90918CA19B20017347B /* CDFMsgQueue.cpp */; };
+		402DE91518CA19B20017347B /* CDFSocketClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 402DE90B18CA19B20017347B /* CDFSocketClient.cpp */; };
+		402DE91618CA19B20017347B /* CDFThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 402DE90D18CA19B20017347B /* CDFThread.cpp */; };
+		402DE93218CA1A760017347B /* SocketClient.mm in Sources */ = {isa = PBXBuildFile; fileRef = 402DE93118CA1A760017347B /* SocketClient.mm */; };
+		402DE93618CA29800017347B /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 402DE93518CA29800017347B /* libstdc++.dylib */; };
+		40698BDB18CF6AF100D47A2D /* ToggleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 40698BC918CF6AF100D47A2D /* ToggleBase.m */; };
+		40698BDC18CF6AF100D47A2D /* ToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 40698BCB18CF6AF100D47A2D /* ToggleButton.m */; };
+		40698BDD18CF6AF100D47A2D /* ToggleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40698BCD18CF6AF100D47A2D /* ToggleView.m */; };
+		40698BDE18CF6AF100D47A2D /* left_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BCF18CF6AF100D47A2D /* left_button_off@2x.png */; };
+		40698BDF18CF6AF100D47A2D /* left_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BD018CF6AF100D47A2D /* left_button_on@2x.png */; };
+		40698BE018CF6AF100D47A2D /* right_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BD118CF6AF100D47A2D /* right_button_off@2x.png */; };
+		40698BE118CF6AF100D47A2D /* right_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BD218CF6AF100D47A2D /* right_button_on@2x.png */; };
+		40698BE218CF6AF100D47A2D /* toggle_base.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BD318CF6AF100D47A2D /* toggle_base.png */; };
+		40698BE318CF6AF100D47A2D /* toggle_base@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BD418CF6AF100D47A2D /* toggle_base@2x.png */; };
+		40698BE418CF6AF100D47A2D /* toggle_base_l@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BD518CF6AF100D47A2D /* toggle_base_l@2x.png */; };
+		40698BE518CF6AF100D47A2D /* toggle_base_r@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BD618CF6AF100D47A2D /* toggle_base_r@2x.png */; };
+		40698BE618CF6AF100D47A2D /* toggle_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BD718CF6AF100D47A2D /* toggle_button.png */; };
+		40698BE718CF6AF100D47A2D /* toggle_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BD818CF6AF100D47A2D /* toggle_button@2x.png */; };
+		40698BE818CF6AF100D47A2D /* toggle_button_l@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BD918CF6AF100D47A2D /* toggle_button_l@2x.png */; };
+		40698BE918CF6AF100D47A2D /* toggle_button_r@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40698BDA18CF6AF100D47A2D /* toggle_button_r@2x.png */; };
+		40DCEADC18CB41110006B813 /* FBBitmapFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DCEACF18CB41110006B813 /* FBBitmapFont.m */; };
+		40DCEADD18CB41110006B813 /* FBBitmapFontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DCEAD118CB41110006B813 /* FBBitmapFontView.m */; };
+		40DCEADE18CB41110006B813 /* FBFontSymbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DCEAD318CB41110006B813 /* FBFontSymbol.m */; };
+		40DCEADF18CB41110006B813 /* FBLCDFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DCEAD518CB41110006B813 /* FBLCDFont.m */; };
+		40DCEAE018CB41110006B813 /* FBLCDFontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DCEAD718CB41110006B813 /* FBLCDFontView.m */; };
+		40DCEAE118CB41110006B813 /* FBSquareFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DCEAD918CB41110006B813 /* FBSquareFont.m */; };
+		40DCEAE218CB41110006B813 /* FBSquareFontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40DCEADB18CB41110006B813 /* FBSquareFontView.m */; };
+		40DD1BF418CCC7EA00265B3A /* bundle.png in Resources */ = {isa = PBXBuildFile; fileRef = 40DD1BF318CCC7EA00265B3A /* bundle.png */; };
+		40DD1BF718CCC84200265B3A /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 40DD1BF518CCC84200265B3A /* setting.png */; };
+		40DD1BF818CCC84200265B3A /* spotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 40DD1BF618CCC84200265B3A /* spotlight.png */; };
+		40DD1C1018CCDD2A00265B3A /* button-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 40DD1C0B18CCDD2A00265B3A /* button-off.png */; };
+		40DD1C1118CCDD2A00265B3A /* button-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 40DD1C0C18CCDD2A00265B3A /* button-on.png */; };
+		40DD1C1218CCDD2A00265B3A /* footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 40DD1C0D18CCDD2A00265B3A /* footer.png */; };
+		40DD1C1318CCDD2A00265B3A /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 40DD1C0E18CCDD2A00265B3A /* header.png */; };
+		40DD1C1618CCDDB900265B3A /* power.png in Resources */ = {isa = PBXBuildFile; fileRef = 40DD1C1518CCDDB900265B3A /* power.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4022388418D73FA10036D86A /* SwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchButton.h; sourceTree = "<group>"; };
+		4022388518D73FA10036D86A /* SwitchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchButton.m; sourceTree = "<group>"; };
+		402DE8E118CA188A0017347B /* Home Lighting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Home Lighting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		402DE8E518CA188A0017347B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		402DE8E718CA188A0017347B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		402DE8E918CA188A0017347B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		402DE8ED18CA188A0017347B /* Home Lighting-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Home Lighting-Info.plist"; sourceTree = "<group>"; };
+		402DE8EF18CA188A0017347B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		402DE8F118CA188A0017347B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		402DE8F318CA188A0017347B /* Home Lighting-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Home Lighting-Prefix.pch"; sourceTree = "<group>"; };
+		402DE8F418CA188A0017347B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		402DE8F518CA188A0017347B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		402DE8F718CA188A0017347B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		402DE8F918CA188A0017347B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		402DE8FB18CA188A0017347B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		402DE8FD18CA188A0017347B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		402DE8FE18CA188A0017347B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		402DE90118CA188A0017347B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		402DE90918CA19B20017347B /* CDFMsgQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CDFMsgQueue.cpp; sourceTree = "<group>"; };
+		402DE90A18CA19B20017347B /* CDFMsgQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFMsgQueue.h; sourceTree = "<group>"; };
+		402DE90B18CA19B20017347B /* CDFSocketClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CDFSocketClient.cpp; sourceTree = "<group>"; };
+		402DE90C18CA19B20017347B /* CDFSocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFSocketClient.h; sourceTree = "<group>"; };
+		402DE90D18CA19B20017347B /* CDFThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CDFThread.cpp; sourceTree = "<group>"; };
+		402DE90E18CA19B20017347B /* CDFThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFThread.h; sourceTree = "<group>"; };
+		402DE93018CA1A760017347B /* SocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketClient.h; sourceTree = "<group>"; };
+		402DE93118CA1A760017347B /* SocketClient.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SocketClient.mm; sourceTree = "<group>"; };
+		402DE93518CA29800017347B /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		40698BC818CF6AF100D47A2D /* ToggleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleBase.h; sourceTree = "<group>"; };
+		40698BC918CF6AF100D47A2D /* ToggleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleBase.m; sourceTree = "<group>"; };
+		40698BCA18CF6AF100D47A2D /* ToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleButton.h; sourceTree = "<group>"; };
+		40698BCB18CF6AF100D47A2D /* ToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleButton.m; sourceTree = "<group>"; };
+		40698BCC18CF6AF100D47A2D /* ToggleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleView.h; sourceTree = "<group>"; };
+		40698BCD18CF6AF100D47A2D /* ToggleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleView.m; sourceTree = "<group>"; };
+		40698BCF18CF6AF100D47A2D /* left_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_button_off@2x.png"; sourceTree = "<group>"; };
+		40698BD018CF6AF100D47A2D /* left_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_button_on@2x.png"; sourceTree = "<group>"; };
+		40698BD118CF6AF100D47A2D /* right_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_button_off@2x.png"; sourceTree = "<group>"; };
+		40698BD218CF6AF100D47A2D /* right_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_button_on@2x.png"; sourceTree = "<group>"; };
+		40698BD318CF6AF100D47A2D /* toggle_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_base.png; sourceTree = "<group>"; };
+		40698BD418CF6AF100D47A2D /* toggle_base@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base@2x.png"; sourceTree = "<group>"; };
+		40698BD518CF6AF100D47A2D /* toggle_base_l@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base_l@2x.png"; sourceTree = "<group>"; };
+		40698BD618CF6AF100D47A2D /* toggle_base_r@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base_r@2x.png"; sourceTree = "<group>"; };
+		40698BD718CF6AF100D47A2D /* toggle_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_button.png; sourceTree = "<group>"; };
+		40698BD818CF6AF100D47A2D /* toggle_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button@2x.png"; sourceTree = "<group>"; };
+		40698BD918CF6AF100D47A2D /* toggle_button_l@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button_l@2x.png"; sourceTree = "<group>"; };
+		40698BDA18CF6AF100D47A2D /* toggle_button_r@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button_r@2x.png"; sourceTree = "<group>"; };
+		40DCEACE18CB41110006B813 /* FBBitmapFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBBitmapFont.h; sourceTree = "<group>"; };
+		40DCEACF18CB41110006B813 /* FBBitmapFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBBitmapFont.m; sourceTree = "<group>"; };
+		40DCEAD018CB41110006B813 /* FBBitmapFontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBBitmapFontView.h; sourceTree = "<group>"; };
+		40DCEAD118CB41110006B813 /* FBBitmapFontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBBitmapFontView.m; sourceTree = "<group>"; };
+		40DCEAD218CB41110006B813 /* FBFontSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBFontSymbol.h; sourceTree = "<group>"; };
+		40DCEAD318CB41110006B813 /* FBFontSymbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBFontSymbol.m; sourceTree = "<group>"; };
+		40DCEAD418CB41110006B813 /* FBLCDFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLCDFont.h; sourceTree = "<group>"; };
+		40DCEAD518CB41110006B813 /* FBLCDFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLCDFont.m; sourceTree = "<group>"; };
+		40DCEAD618CB41110006B813 /* FBLCDFontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLCDFontView.h; sourceTree = "<group>"; };
+		40DCEAD718CB41110006B813 /* FBLCDFontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLCDFontView.m; sourceTree = "<group>"; };
+		40DCEAD818CB41110006B813 /* FBSquareFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSquareFont.h; sourceTree = "<group>"; };
+		40DCEAD918CB41110006B813 /* FBSquareFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSquareFont.m; sourceTree = "<group>"; };
+		40DCEADA18CB41110006B813 /* FBSquareFontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSquareFontView.h; sourceTree = "<group>"; };
+		40DCEADB18CB41110006B813 /* FBSquareFontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSquareFontView.m; sourceTree = "<group>"; };
+		40DD1BF318CCC7EA00265B3A /* bundle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bundle.png; sourceTree = "<group>"; };
+		40DD1BF518CCC84200265B3A /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
+		40DD1BF618CCC84200265B3A /* spotlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight.png; sourceTree = "<group>"; };
+		40DD1C0B18CCDD2A00265B3A /* button-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-off.png"; sourceTree = "<group>"; };
+		40DD1C0C18CCDD2A00265B3A /* button-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-on.png"; sourceTree = "<group>"; };
+		40DD1C0D18CCDD2A00265B3A /* footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footer.png; sourceTree = "<group>"; };
+		40DD1C0E18CCDD2A00265B3A /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
+		40DD1C1518CCDDB900265B3A /* power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = power.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		402DE8DE18CA188A0017347B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				402DE93618CA29800017347B /* libstdc++.dylib in Frameworks */,
+				402DE8E618CA188A0017347B /* UIKit.framework in Frameworks */,
+				402DE8E818CA188A0017347B /* Foundation.framework in Frameworks */,
+				402DE8EA18CA188A0017347B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		402DE8D618CA188A0017347B = {
+			isa = PBXGroup;
+			children = (
+				402DE8EB18CA188A0017347B /* Home Lighting */,
+				402DE8E418CA188A0017347B /* Frameworks */,
+				402DE8E218CA188A0017347B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		402DE8E218CA188A0017347B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				402DE8E118CA188A0017347B /* Home Lighting.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		402DE8E418CA188A0017347B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				402DE93518CA29800017347B /* libstdc++.dylib */,
+				402DE8E518CA188A0017347B /* UIKit.framework */,
+				402DE8E718CA188A0017347B /* Foundation.framework */,
+				402DE8E918CA188A0017347B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		402DE8EB18CA188A0017347B /* Home Lighting */ = {
+			isa = PBXGroup;
+			children = (
+				40698BC618CF6AF100D47A2D /* ToggleView */,
+				40DD1C0A18CCDD2A00265B3A /* 3DHawk */,
+				40DD1BF518CCC84200265B3A /* setting.png */,
+				40DD1BF618CCC84200265B3A /* spotlight.png */,
+				40DD1BF318CCC7EA00265B3A /* bundle.png */,
+				40DCEACC18CB41110006B813 /* FBDigitalFont */,
+				402DE90818CA19B20017347B /* SocketClient */,
+				402DE8F418CA188A0017347B /* AppDelegate.h */,
+				402DE8F518CA188A0017347B /* AppDelegate.m */,
+				402DE8FD18CA188A0017347B /* ViewController.h */,
+				402DE8FE18CA188A0017347B /* ViewController.m */,
+				402DE90018CA188A0017347B /* ViewController.xib */,
+				402DE8EC18CA188A0017347B /* Supporting Files */,
+				4022388418D73FA10036D86A /* SwitchButton.h */,
+				4022388518D73FA10036D86A /* SwitchButton.m */,
+			);
+			path = "Home Lighting";
+			sourceTree = "<group>";
+		};
+		402DE8EC18CA188A0017347B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				402DE8ED18CA188A0017347B /* Home Lighting-Info.plist */,
+				402DE8EE18CA188A0017347B /* InfoPlist.strings */,
+				402DE8F118CA188A0017347B /* main.m */,
+				402DE8F318CA188A0017347B /* Home Lighting-Prefix.pch */,
+				402DE8F718CA188A0017347B /* Default.png */,
+				402DE8F918CA188A0017347B /* Default@2x.png */,
+				402DE8FB18CA188A0017347B /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		402DE90818CA19B20017347B /* SocketClient */ = {
+			isa = PBXGroup;
+			children = (
+				402DE93018CA1A760017347B /* SocketClient.h */,
+				402DE93118CA1A760017347B /* SocketClient.mm */,
+				402DE90918CA19B20017347B /* CDFMsgQueue.cpp */,
+				402DE90A18CA19B20017347B /* CDFMsgQueue.h */,
+				402DE90B18CA19B20017347B /* CDFSocketClient.cpp */,
+				402DE90C18CA19B20017347B /* CDFSocketClient.h */,
+				402DE90D18CA19B20017347B /* CDFThread.cpp */,
+				402DE90E18CA19B20017347B /* CDFThread.h */,
+			);
+			path = SocketClient;
+			sourceTree = "<group>";
+		};
+		40698BC618CF6AF100D47A2D /* ToggleView */ = {
+			isa = PBXGroup;
+			children = (
+				40698BC718CF6AF100D47A2D /* Classes */,
+				40698BCE18CF6AF100D47A2D /* Resources */,
+			);
+			path = ToggleView;
+			sourceTree = "<group>";
+		};
+		40698BC718CF6AF100D47A2D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				40698BC818CF6AF100D47A2D /* ToggleBase.h */,
+				40698BC918CF6AF100D47A2D /* ToggleBase.m */,
+				40698BCA18CF6AF100D47A2D /* ToggleButton.h */,
+				40698BCB18CF6AF100D47A2D /* ToggleButton.m */,
+				40698BCC18CF6AF100D47A2D /* ToggleView.h */,
+				40698BCD18CF6AF100D47A2D /* ToggleView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		40698BCE18CF6AF100D47A2D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				40698BCF18CF6AF100D47A2D /* left_button_off@2x.png */,
+				40698BD018CF6AF100D47A2D /* left_button_on@2x.png */,
+				40698BD118CF6AF100D47A2D /* right_button_off@2x.png */,
+				40698BD218CF6AF100D47A2D /* right_button_on@2x.png */,
+				40698BD318CF6AF100D47A2D /* toggle_base.png */,
+				40698BD418CF6AF100D47A2D /* toggle_base@2x.png */,
+				40698BD518CF6AF100D47A2D /* toggle_base_l@2x.png */,
+				40698BD618CF6AF100D47A2D /* toggle_base_r@2x.png */,
+				40698BD718CF6AF100D47A2D /* toggle_button.png */,
+				40698BD818CF6AF100D47A2D /* toggle_button@2x.png */,
+				40698BD918CF6AF100D47A2D /* toggle_button_l@2x.png */,
+				40698BDA18CF6AF100D47A2D /* toggle_button_r@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		40DCEACC18CB41110006B813 /* FBDigitalFont */ = {
+			isa = PBXGroup;
+			children = (
+				40DCEACD18CB41110006B813 /* Classes */,
+			);
+			path = FBDigitalFont;
+			sourceTree = "<group>";
+		};
+		40DCEACD18CB41110006B813 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				40DCEACE18CB41110006B813 /* FBBitmapFont.h */,
+				40DCEACF18CB41110006B813 /* FBBitmapFont.m */,
+				40DCEAD018CB41110006B813 /* FBBitmapFontView.h */,
+				40DCEAD118CB41110006B813 /* FBBitmapFontView.m */,
+				40DCEAD218CB41110006B813 /* FBFontSymbol.h */,
+				40DCEAD318CB41110006B813 /* FBFontSymbol.m */,
+				40DCEAD418CB41110006B813 /* FBLCDFont.h */,
+				40DCEAD518CB41110006B813 /* FBLCDFont.m */,
+				40DCEAD618CB41110006B813 /* FBLCDFontView.h */,
+				40DCEAD718CB41110006B813 /* FBLCDFontView.m */,
+				40DCEAD818CB41110006B813 /* FBSquareFont.h */,
+				40DCEAD918CB41110006B813 /* FBSquareFont.m */,
+				40DCEADA18CB41110006B813 /* FBSquareFontView.h */,
+				40DCEADB18CB41110006B813 /* FBSquareFontView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		40DD1C0A18CCDD2A00265B3A /* 3DHawk */ = {
+			isa = PBXGroup;
+			children = (
+				40DD1C1518CCDDB900265B3A /* power.png */,
+				40DD1C0B18CCDD2A00265B3A /* button-off.png */,
+				40DD1C0C18CCDD2A00265B3A /* button-on.png */,
+				40DD1C0D18CCDD2A00265B3A /* footer.png */,
+				40DD1C0E18CCDD2A00265B3A /* header.png */,
+			);
+			path = 3DHawk;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		402DE8E018CA188A0017347B /* Home Lighting */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 402DE90518CA188A0017347B /* Build configuration list for PBXNativeTarget "Home Lighting" */;
+			buildPhases = (
+				402DE8DD18CA188A0017347B /* Sources */,
+				402DE8DE18CA188A0017347B /* Frameworks */,
+				402DE8DF18CA188A0017347B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Home Lighting";
+			productName = "Home Lighting";
+			productReference = 402DE8E118CA188A0017347B /* Home Lighting.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		402DE8D818CA188A0017347B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = CuongQuay;
+			};
+			buildConfigurationList = 402DE8DB18CA188A0017347B /* Build configuration list for PBXProject "Home Lighting" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 402DE8D618CA188A0017347B;
+			productRefGroup = 402DE8E218CA188A0017347B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				402DE8E018CA188A0017347B /* Home Lighting */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		402DE8DF18CA188A0017347B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40698BE918CF6AF100D47A2D /* toggle_button_r@2x.png in Resources */,
+				40698BE418CF6AF100D47A2D /* toggle_base_l@2x.png in Resources */,
+				40698BE218CF6AF100D47A2D /* toggle_base.png in Resources */,
+				40DD1C1118CCDD2A00265B3A /* button-on.png in Resources */,
+				40698BE118CF6AF100D47A2D /* right_button_on@2x.png in Resources */,
+				402DE8F018CA188A0017347B /* InfoPlist.strings in Resources */,
+				40DD1BF818CCC84200265B3A /* spotlight.png in Resources */,
+				402DE8F818CA188A0017347B /* Default.png in Resources */,
+				402DE8FA18CA188A0017347B /* Default@2x.png in Resources */,
+				402DE8FC18CA188A0017347B /* Default-568h@2x.png in Resources */,
+				40698BE518CF6AF100D47A2D /* toggle_base_r@2x.png in Resources */,
+				40DD1C1018CCDD2A00265B3A /* button-off.png in Resources */,
+				40698BE018CF6AF100D47A2D /* right_button_off@2x.png in Resources */,
+				40698BDE18CF6AF100D47A2D /* left_button_off@2x.png in Resources */,
+				402DE90218CA188A0017347B /* ViewController.xib in Resources */,
+				40698BE718CF6AF100D47A2D /* toggle_button@2x.png in Resources */,
+				40DD1C1218CCDD2A00265B3A /* footer.png in Resources */,
+				40698BE618CF6AF100D47A2D /* toggle_button.png in Resources */,
+				40698BE318CF6AF100D47A2D /* toggle_base@2x.png in Resources */,
+				40DD1C1618CCDDB900265B3A /* power.png in Resources */,
+				40698BE818CF6AF100D47A2D /* toggle_button_l@2x.png in Resources */,
+				40DD1C1318CCDD2A00265B3A /* header.png in Resources */,
+				40698BDF18CF6AF100D47A2D /* left_button_on@2x.png in Resources */,
+				40DD1BF718CCC84200265B3A /* setting.png in Resources */,
+				40DD1BF418CCC7EA00265B3A /* bundle.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		402DE8DD18CA188A0017347B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				402DE8F218CA188A0017347B /* main.m in Sources */,
+				402DE8F618CA188A0017347B /* AppDelegate.m in Sources */,
+				402DE8FF18CA188A0017347B /* ViewController.m in Sources */,
+				402DE91418CA19B20017347B /* CDFMsgQueue.cpp in Sources */,
+				402DE91518CA19B20017347B /* CDFSocketClient.cpp in Sources */,
+				402DE91618CA19B20017347B /* CDFThread.cpp in Sources */,
+				402DE93218CA1A760017347B /* SocketClient.mm in Sources */,
+				40698BDC18CF6AF100D47A2D /* ToggleButton.m in Sources */,
+				40DCEADC18CB41110006B813 /* FBBitmapFont.m in Sources */,
+				40698BDB18CF6AF100D47A2D /* ToggleBase.m in Sources */,
+				40DCEADD18CB41110006B813 /* FBBitmapFontView.m in Sources */,
+				4022388618D73FA10036D86A /* SwitchButton.m in Sources */,
+				40DCEADE18CB41110006B813 /* FBFontSymbol.m in Sources */,
+				40DCEADF18CB41110006B813 /* FBLCDFont.m in Sources */,
+				40DCEAE018CB41110006B813 /* FBLCDFontView.m in Sources */,
+				40698BDD18CF6AF100D47A2D /* ToggleView.m in Sources */,
+				40DCEAE118CB41110006B813 /* FBSquareFont.m in Sources */,
+				40DCEAE218CB41110006B813 /* FBSquareFontView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		402DE8EE18CA188A0017347B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				402DE8EF18CA188A0017347B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		402DE90018CA188A0017347B /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				402DE90118CA188A0017347B /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		402DE90318CA188A0017347B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		402DE90418CA188A0017347B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		402DE90618CA188A0017347B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Duong Dinh Cuong (PAGY82S8S6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Home Lighting/Home Lighting-Prefix.pch";
+				INFOPLIST_FILE = "Home Lighting/Home Lighting-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6115A3E1-57B1-4746-88E6-D5494712E611";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6115A3E1-57B1-4746-88E6-D5494712E611";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		402DE90718CA188A0017347B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Duong Dinh Cuong (PAGY82S8S6)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Home Lighting/Home Lighting-Prefix.pch";
+				INFOPLIST_FILE = "Home Lighting/Home Lighting-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6115A3E1-57B1-4746-88E6-D5494712E611";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		402DE8DB18CA188A0017347B /* Build configuration list for PBXProject "Home Lighting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				402DE90318CA188A0017347B /* Debug */,
+				402DE90418CA188A0017347B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		402DE90518CA188A0017347B /* Build configuration list for PBXNativeTarget "Home Lighting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				402DE90618CA188A0017347B /* Debug */,
+				402DE90718CA188A0017347B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 402DE8D818CA188A0017347B /* Project object */;
+}

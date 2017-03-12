@@ -1,0 +1,322 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\LEDSignToolKit.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\239.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About LEDSignToolKit"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "LEDSignToolKit Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2009",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_LEDSIGNTOOLKIT_DIALOG DIALOGEX 0, 0, 631, 417
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "LEDSignToolKit"
+MENU IDR_MENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_LED_TEXT,63,95,150,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_COLOR_TEXT,245,93,111,81,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Simulate",IDC_BUTTON_START,367,93,56,14
+    EDITTEXT        IDC_EDIT_NUM_OF_COL,573,138,40,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_COL,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,602,132,
+                    11,14
+    EDITTEXT        IDC_EDIT_NUM_OF_ROW,573,156,40,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_ROW,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,602,151,
+                    11,14
+    EDITTEXT        IDC_EDIT_NUM_OF_PAGE,573,174,40,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_PAGE,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,602,169,
+                    11,14
+    PUSHBUTTON      "Next Page >>>>",IDC_BUTTON_NEXT_PAGE,510,213,103,14
+    PUSHBUTTON      "<<<< Prev Page ",IDC_BUTTON_PREV_PAGE,510,306,103,14
+    PUSHBUTTON      "Save Session",IDC_BUTTON_EXPORT_TO,510,345,103,14
+    PUSHBUTTON      "Load Session",IDC_BUTTON_IMPORT_FROM,510,365,103,14
+    PUSHBUTTON      "Generate Code",IDC_BUTTON_GEN_CODE,510,385,103,18
+    CONTROL         "",IDC_STATIC_DEMO_TEXT,"Static",SS_WHITERECT | 
+                    SS_SUNKEN,7,7,617,74
+    CONTROL         "",IDC_STATIC_LED_CONTROL,"Static",SS_BLACKRECT | 
+                    SS_NOTIFY | SS_SUNKEN,7,122,480,288
+    GROUPBOX        "&Parameters",IDC_STATIC,500,122,124,204
+    GROUPBOX        "",IDC_STATIC,7,83,617,30
+    LTEXT           "Sample Text",IDC_STATIC,15,94,45,13,SS_CENTERIMAGE
+    LTEXT           "Color",IDC_STATIC,221,94,23,13,SS_CENTERIMAGE
+    CONTROL         "",IDC_STATIC_PAGE,"Static",SS_BLACKFRAME,510,232,103,70,
+                    WS_EX_STATICEDGE
+    GROUPBOX        "&Import/E&xport",IDC_STATIC,500,331,124,79
+    LTEXT           "Num Of Column",IDC_STATIC,510,140,58,8
+    LTEXT           "Num Of Rows",IDC_STATIC,510,158,58,8
+    LTEXT           "Num Of Page",IDC_STATIC,510,176,58,8
+    PUSHBUTTON      "&Set Parameters",IDC_BUTTON_SET,510,194,103,16
+    COMBOBOX        IDC_COMBO_COM,510,93,103,55,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Communication Port",IDC_STATIC,444,96,64,8
+END
+
+IDD_DIALOG_DELAY DIALOGEX 0, 0, 106, 25
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Delay Time"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_DELAY,7,7,92,12,ES_AUTOHSCROLL
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "LEDSignToolKit MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "LEDSignToolKit\0"
+            VALUE "LegalCopyright", "Copyright (C) 2009\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "LEDSignToolKit.EXE\0"
+            VALUE "ProductName", "LEDSignToolKit Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_LEDSIGNTOOLKIT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 624
+        VERTGUIDE, 510
+        VERTGUIDE, 613
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 410
+        HORZGUIDE, 107
+        HORZGUIDE, 122
+    END
+
+    IDD_DIALOG_DELAY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 99
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 18
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+IDR_MANIFEST            24      MOVEABLE PURE   "res\\MDI.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open\tCtrl+O",               ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit...\tAlt+F4",            ID_FILE_EXIT
+    END
+    MENUITEM "&Help",                       65535
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_LEDSIGNTOOLKIT_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_COLOR_TEXT, 0x403, 2, 0
+0x0052, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 2, 0
+0x0047, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 2, 0
+0x0059, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 2, 0
+0x0042, 
+    IDC_COMBO_COLOR_TEXT, 0x403, 2, 0
+0x0057, 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x314d, "\000" 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x324d, "\000" 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x334d, "\000" 
+    IDC_COMBO_COM, 0x403, 5, 0
+0x4f43, 0x344d, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About LEDSignToolKit..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\LEDSignToolKit.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

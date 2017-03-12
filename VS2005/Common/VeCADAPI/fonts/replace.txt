@@ -1,0 +1,3 @@
+c:\vecad\default.shx 0
+arial.vcf
+*

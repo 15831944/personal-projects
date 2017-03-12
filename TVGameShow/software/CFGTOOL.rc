@@ -1,0 +1,229 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\CFGTOOL.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\278.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CFGTOOL_DIALOG DIALOGEX 0, 0, 464, 178
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "GameShow LED Display v1.0 "
+MENU IDR_MENU
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_STATIC_FRAME,"Static",SS_BLACKFRAME,0,163,464,14,
+                    WS_EX_TRANSPARENT
+    EDITTEXT        IDC_EDIT_PLUS_01,52,80,42,13,ES_NUMBER
+    EDITTEXT        IDC_EDIT_MINUS_01,52,102,42,12,ES_NUMBER
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,5,23,101,136
+    CTEXT           "-99",IDC_DIGIT_STATION_1,16,30,78,40,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_PLUS_2,168,80,42,13,ES_NUMBER
+    EDITTEXT        IDC_EDIT_MINUS_2,168,102,42,12,ES_NUMBER
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,123,23,101,136
+    CTEXT           "-99",IDC_DIGIT_STATION_2,132,30,78,40,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_PLUS_3,285,79,42,13,ES_NUMBER
+    EDITTEXT        IDC_EDIT_MINUS_3,286,101,42,12,ES_NUMBER
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,240,22,101,136
+    CTEXT           "-99",IDC_DIGIT_STATION_3,249,30,78,40,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_PLUS_4,401,79,42,13,ES_NUMBER
+    EDITTEXT        IDC_EDIT_MINUS_4,401,101,42,12,ES_NUMBER
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDFRAME,353,22,101,136
+    CTEXT           "-99",IDC_DIGIT_STATION_4,365,30,78,40,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "+",IDC_BUTTON_PLUS_01,16,80,29,12
+    PUSHBUTTON      "-",IDC_BUTTON_MINUS_01,16,102,29,12
+    PUSHBUTTON      "+",IDC_BUTTON_PLUS_02,132,80,29,12
+    PUSHBUTTON      "-",IDC_BUTTON_MINUS_02,132,102,29,12
+    PUSHBUTTON      "+",IDC_BUTTON_PLUS_03,250,79,29,12
+    PUSHBUTTON      "-",IDC_BUTTON_MINUS_03,250,101,29,12
+    PUSHBUTTON      "+",IDC_BUTTON_PLUS_04,366,79,29,12
+    PUSHBUTTON      "-",IDC_BUTTON_MINUS_04,366,101,29,12
+    CTEXT           "Station 01",IDC_STATIC,5,4,101,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "Station 02",IDC_STATIC,123,4,101,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "Station 03",IDC_STATIC,239,4,101,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "Station 04",IDC_STATIC,353,4,101,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "LE DUONG ELECTRONICS http://www.ic-vn.com\0"
+            VALUE "FileDescription", "GameShow v1.0\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "CFGTOOL\0"
+            VALUE "LegalCopyright", "Copyright (C) 2006 by Cuong Quay\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "GShCQ.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "GameShow LED Display\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_CFGTOOL_DIALOG, DIALOG
+    BEGIN
+        VERTGUIDE, 16
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    MENUITEM "Setting",                     65535
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+IDR_MANIFEST            24      MOVEABLE PURE   "res\\MDI.manifest"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\CFGTOOL.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

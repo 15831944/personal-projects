@@ -1,0 +1,35 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (File ".\dp2002.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (NoModify))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\dp2002.dsn")
+      (Path "Design Resources" ".\dp2002.dsn" "SCHEMATIC")
+      (Select "Design Resources" ".\dp2002.dsn" "SCHEMATIC" "PAGE"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 0 200 0 323"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -4 -30 44 910 58 487")
+        (Scroll "682 576")
+        (Zoom "144")
+        (Occurrence "/"))
+      (Path "D:\MMC32\DP2002\DP2002.DSN")
+      (Schematic "SCHEMATIC")
+      (Page "PAGE")))
+  (LastUsedLibraryBrowseDirectory "D:\Program Files\OrCAD\CAPTURE"))

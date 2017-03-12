@@ -1,0 +1,27 @@
+CodeVisionAVR C Compiler V1.25.1 Standard
+(C) Copyright 1998-2006 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+File: d:\myprojects\lcms\v3.0.1\fware_v3\main.c
+Global variables memory map:
+
+Variable                          Address   Size
+*start_mem_G1                                                         164h      2
+data_bit                                                              R2.0    1/8
+power_off                                                             R2.1    1/8
+is_stopping                                                           R2.2    1/8
+x                                                                    R4,R5      2
+y                                                                    R6,R7      2
+scroll_count_G1                                                       166h      2
+tick_count_G1                                                         168h      2
+stopping_count_G1                                                     16Ah      2
+frame_index_G1                                                        16Ch      1
+text_length_G1                                                        16Dh      2
+scroll_rate_G1                                                        16Fh      1
+scroll_type_G1                                                        170h      1
+rx_message                                                              R8      1
+rx_wparam                                                           R9,R10      2
+rx_lparam                                                          R11,R12      2
+rx_buffer                                                             171h      8
+rx_wr_index                                                            R13      1
+rx_counter                                                             R14      1

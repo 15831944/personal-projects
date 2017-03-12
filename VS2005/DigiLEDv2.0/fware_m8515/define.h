@@ -1,0 +1,146 @@
+
+#ifndef __DEFINE_H_
+#define __DEFINE_H_
+
+#include <mega8515.h>     
+#include <delay.h>        
+#include <stdio.h>    
+#include <string.h>
+#include <i2c.h>                            
+
+/***************************************************************/
+#define     __WATCH_DOG_
+#define     __SMALL_RAM_               
+#define     __EEPROM_WRITE_BYTE
+                                               
+#define     EEPROM_PAGE         64   
+
+#define     EEPROM_DEVICE_BASE   0xA0     
+#define     EEPROM_DEVICE_FONT   0xA0
+#define     EEPROM_DEVICE_DATA   0xA2
+
+/**************************************************************/
+/* serial flags definition                                    */  
+/**************************************************************/
+
+#define RXB8 1
+#define TXB8 0
+#define UPE 2
+#define OVR 3
+#define FE 4
+#define UDRE 5
+#define RXC 7
+
+#define FRAMING_ERROR (1<<FE)
+#define PARITY_ERROR (1<<UPE)
+#define DATA_OVERRUN (1<<OVR)
+#define DATA_REGISTER_EMPTY (1<<UDRE)
+#define RX_COMPLETE (1<<RXC)
+
+// USART Receiver buffer
+#define RX_BUFFER_SIZE 8
+
+/**************************************************************/
+/* IO port definition                                         */  
+/**************************************************************/
+
+#define     DATA_BIT        PORTD.2     // title data
+#define     DATA_CLK        PORTE.2     // pin 29 black-blue
+#define     DATA_STB        PORTE.0     // pin 31 red-yellow
+       
+#define     SCAN_CLK        PORTD.3     // pin 13 blue 
+#define     SCAN_STB        PORTD.4     // pin 14 orange
+#define     SCAN_DAT        PORTD.5     // pin 15 white
+                                                     
+#define     DATA_01         PORTB.0
+#define     DATA_02         PORTB.1
+#define     DATA_03         PORTB.2
+#define     DATA_04         PORTB.3
+#define     DATA_05         PORTB.4
+#define     DATA_06         PORTB.5
+
+#define     CTRL_CLK        PORTB.6     // pin 7
+#define     CTRL_STB        PORTB.7     // pin 8    
+ 
+/**************************************************************/
+/* matrix size const definition                               */  
+/**************************************************************/
+#define     __TEST_RTC_    
+//#define     __TEST_LED_
+#define     __OWN_TITLE_
+#define     __DUMP_LED_
+
+#define     SCREEN_WIDTH        104  
+#define     SCREEN_HEIGHT       16     
+#define     MAX_LED             317
+#define     MAX_PAGE            5
+#define     MAX_TITLE           20    
+#define     PAGE_SIZE           384
+
+#define     ENABLE_MASK_ROW     0x0F
+                          
+#define     __INVERT_LEVEL_ 
+                              
+#define     __ANTI_SHADOW_                                                          
+
+#define     MAX_STOP_TIME       100
+#define     MAX_FLIP_TIME       3
+
+#define     MAX_FRAME            4
+                                 
+#ifdef      __INVERT_LEVEL_
+ #define     ON                  0
+ #define     OFF                 1
+#else     //__NONINVERT_LEVEL_
+ #define     ON                  1
+ #define     OFF                 0
+#endif    //__INVERT_LEVEL_
+
+#define     SCREEN_HIDE         16
+
+#define     START_RAM           0x500    // Start Ext.RAM space
+                         
+#define     DATA_LENGTH32       (3936 -SCREEN_WIDTH)	
+#define     DATA_LENGTH64       (8032 -SCREEN_WIDTH)	
+
+#define     END_RAM32           0x7FFF
+#define     END_RAM64           0xFFFF
+
+#ifdef      __SMALL_RAM_
+ #define     END_RAM            END_RAM32
+ #define	 DATA_LENGTH		DATA_LENGTH32
+#else
+ #define     END_RAM            END_RAM64
+ #define	 DATA_LENGTH		DATA_LENGTH64
+#endif
+                                                            
+                 
+/**************************************************************/
+/* serial message const definition                            */  
+/**************************************************************/
+
+#define     SCROLL_TEXT             0
+
+#define     UNKNOWN_MSG              0    
+
+#define     LOAD_DATA_MSG            1                                
+#define	    LOAD_CONFIG_MSG		     2 
+#define     SET_RTC_MSG              3
+
+#define     WAKEUP_CHAR              0xAA
+#define     ESCAPE_CHAR              0xFF
+                                                   
+#define     LED_STATUS               PORTB.4
+
+/***************************************************************/
+#define     BYTE                unsigned char     
+#define     PBYTE               BYTE*   
+#define     WORD                unsigned int
+#define     BOOL                unsigned char
+#define     TRUE                1
+#define     FALSE               0
+#define     LONG                long      
+#define     UINT                unsigned int
+/***************************************************************/
+
+#endif //__DEFINE_H_

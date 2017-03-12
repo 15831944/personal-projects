@@ -1,0 +1,349 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\GeneralCtrl.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "GeneralCtrl DLL\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "GeneralCtrl\0"
+            VALUE "LegalCopyright", "Copyright (C) 2004\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "GeneralCtrl.DLL\0"
+            VALUE "ProductName", "GeneralCtrl Dynamic Link Library\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROPPAGE_GENERAL DIALOG DISCARDABLE  0, 0, 259, 142
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "General"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "&Size && Margin",IDC_STATIC,7,12,143,59
+    EDITTEXT        IDC_EDIT_WIDTH,43,26,31,12,ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_WIDTH,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,63,25,11,
+                    14
+    EDITTEXT        IDC_EDIT_HEIGHT,43,47,31,12,ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_HEIGHT,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,63,46,11,14
+    EDITTEXT        IDC_EDIT_LEFT,103,25,25,12,ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_LEFT,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,123,24,11,
+                    14
+    EDITTEXT        IDC_EDIT_TOP,103,47,25,12,ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_TOP,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,123,46,11,
+                    14
+    LTEXT           "Width",IDC_STATIC,16,27,20,8
+    LTEXT           "Height",IDC_STATIC,16,48,22,8
+    LTEXT           "Left",IDC_STATIC,83,27,13,8
+    LTEXT           "Top",IDC_STATIC,83,49,14,8
+    GROUPBOX        "Extended Styles",IDC_STATIC,159,73,93,61
+    CONTROL         "Client edge",IDC_CHECK_CLIENT_EDGE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,172,87,66,10
+    CONTROL         "Static edge",IDC_CHECK_STATIC_EDGE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,172,102,66,10
+    CONTROL         "Modal frame",IDC_CHECK_MODAL_FRAME,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,172,117,66,10
+    GROUPBOX        "Color",IDC_STATIC,7,73,143,61
+    COMBOBOX        IDC_COMBO_LEDCOLOR,73,83,70,159,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_BKCOLOR,73,116,70,113,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Segment on",IDC_STATIC,14,86,39,8
+    LTEXT           "Background",IDC_STATIC,14,116,40,8
+    GROUPBOX        "Digits",IDC_STATIC,159,12,93,59
+    EDITTEXT        IDC_EDIT_DIGITS,217,25,23,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_SPIN_DIGITS,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,235,24,11,14
+    LTEXT           "Number of digit",IDC_STATIC,166,27,48,8
+    CONTROL         "Enable Edit Control",IDC_CHECK_ENABLE_EDIT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,166,50,76,10
+    COMBOBOX        IDC_COMBO_LEDCOLOR_OFF,73,99,70,159,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWVARIABLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Segment off",IDC_STATIC,13,101,39,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PROPPAGE_GENERAL DLGINIT
+BEGIN
+    IDC_COMBO_LEDCOLOR, 0x403, 9, 0
+0x3031, 0x312d, 0x2d30, 0x3031, "\000" 
+    IDC_COMBO_LEDCOLOR, 0x403, 8, 0
+0x2d30, 0x2d30, 0x3532, 0x0035, 
+    IDC_COMBO_LEDCOLOR, 0x403, 8, 0
+0x2d30, 0x3532, 0x2d35, 0x0030, 
+    IDC_COMBO_LEDCOLOR, 0x403, 10, 0
+0x2d30, 0x3532, 0x2d35, 0x3532, 0x0035, 
+    IDC_COMBO_LEDCOLOR, 0x403, 8, 0
+0x3532, 0x2d35, 0x2d30, 0x0030, 
+    IDC_COMBO_LEDCOLOR, 0x403, 10, 0
+0x3532, 0x2d35, 0x2d30, 0x3532, 0x0035, 
+    IDC_COMBO_LEDCOLOR, 0x403, 10, 0
+0x3532, 0x2d35, 0x3532, 0x2d35, 0x0030, 
+    IDC_COMBO_LEDCOLOR, 0x403, 12, 0
+0x3532, 0x2d35, 0x3532, 0x2d35, 0x3532, 0x0035, 
+    IDC_COMBO_LEDCOLOR, 0x403, 16, 0
+0x7543, 0x7473, 0x6d6f, 0x4320, 0x6c6f, 0x726f, 0x2e2e, 0x002e, 
+    IDC_COMBO_BKCOLOR, 0x403, 6, 0
+0x2d30, 0x2d30, 0x0030, 
+    IDC_COMBO_BKCOLOR, 0x403, 8, 0
+0x2d30, 0x2d30, 0x3532, 0x0035, 
+    IDC_COMBO_BKCOLOR, 0x403, 8, 0
+0x2d30, 0x3532, 0x2d35, 0x0030, 
+    IDC_COMBO_BKCOLOR, 0x403, 10, 0
+0x2d30, 0x3532, 0x2d35, 0x3532, 0x0035, 
+    IDC_COMBO_BKCOLOR, 0x403, 8, 0
+0x3532, 0x2d35, 0x2d30, 0x0030, 
+    IDC_COMBO_BKCOLOR, 0x403, 10, 0
+0x3532, 0x2d35, 0x2d30, 0x3532, 0x0035, 
+    IDC_COMBO_BKCOLOR, 0x403, 10, 0
+0x3532, 0x2d35, 0x3532, 0x2d35, 0x0030, 
+    IDC_COMBO_BKCOLOR, 0x403, 12, 0
+0x3532, 0x2d35, 0x3532, 0x2d35, 0x3532, 0x0035, 
+    IDC_COMBO_BKCOLOR, 0x403, 16, 0
+0x7543, 0x7473, 0x6d6f, 0x4320, 0x6c6f, 0x726f, 0x2e2e, 0x002e, 
+    IDC_COMBO_LEDCOLOR_OFF, 0x403, 6, 0
+0x2d30, 0x2d30, 0x0030, 
+    IDC_COMBO_LEDCOLOR_OFF, 0x403, 7, 0
+0x2d30, 0x2d30, 0x3436, "\000" 
+    IDC_COMBO_LEDCOLOR_OFF, 0x403, 7, 0
+0x2d30, 0x3436, 0x302d, "\000" 
+    IDC_COMBO_LEDCOLOR_OFF, 0x403, 8, 0
+0x2d30, 0x3436, 0x362d, 0x0034, 
+    IDC_COMBO_LEDCOLOR_OFF, 0x403, 7, 0
+0x3436, 0x302d, 0x302d, "\000" 
+    IDC_COMBO_LEDCOLOR_OFF, 0x403, 8, 0
+0x3436, 0x302d, 0x362d, 0x0034, 
+    IDC_COMBO_LEDCOLOR_OFF, 0x403, 8, 0
+0x3436, 0x362d, 0x2d34, 0x0030, 
+    IDC_COMBO_LEDCOLOR_OFF, 0x403, 9, 0
+0x3436, 0x362d, 0x2d34, 0x3436, "\000" 
+    IDC_COMBO_LEDCOLOR_OFF, 0x403, 16, 0
+0x7543, 0x7473, 0x6d6f, 0x4320, 0x6c6f, 0x726f, 0x2e2e, 0x002e, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+CG_IDR_POPUP_INPUT_PANEL MENU DISCARDABLE 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "&Lock Panel Position",        ID_POPUP_LOCKPANELPOSITION
+        , CHECKED
+        MENUITEM SEPARATOR
+        MENUITEM "Cut\tCtrl+X",                 ID_POPUP_CUT
+        MENUITEM "Copy\tCtrl+C",                ID_POPUP_COPY
+        MENUITEM "&Remove \tDelete",            ID_POPUP_REMOVE
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties ...",             ID_POPUP_PROPERTIES
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR_MOVE         CURSOR  DISCARDABLE     "res\\DRAGMOVE.CUR"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_PROPPAGE_GENERAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        VERTGUIDE, 159
+        TOPMARGIN, 12
+        BOTTOMMARGIN, 134
+        HORZGUIDE, 71
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+IDR_MANIFEST            24      MOVEABLE PURE   "res\\MDI.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_MATRIXSMALL         BITMAP  DISCARDABLE     "matrixsetsmallblue.bmp"
+IDB_MATRIXTINY          BITMAP  DISCARDABLE     "matrixsettinyblue.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
+    IDS_PROPSHT_CAPTION     "Panel Property Sheet"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Australia) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENA)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_AUS
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_MATRIXLARGE         BITMAP  DISCARDABLE     "matrixsetblue.bmp"
+#endif    // English (Australia) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\GeneralCtrl.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

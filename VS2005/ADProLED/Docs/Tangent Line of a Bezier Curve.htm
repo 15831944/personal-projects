@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)http://www.tsunamichannel.com/howto/java/25/index.html -->
+<HTML><HEAD><TITLE>Tangent Line of a Bezier Curve</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content="MSHTML 6.00.2900.3132" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>
+<H1>Tangent Line of a Bezier Curve</H1>2005/03/10 Thursday </CENTER>
+<HR>
+
+<DL>
+  <DT><FONT color=navy>Akira</FONT></TD> 
+  <DD>This is a program for calculating the tangent line of a bezier curve. A 
+  tangent line can be calculated by taking the derivative of a bezier equation:
+  <P><PRE>A(1-t)^3 + 3Bt(1-t)^2 + 3Ct^2(1-t) + Dt^3 (original bezier equation)
+A(1-3t+3t^2-t^3) + 3Bt(1-2t+t^2) + 3Ct^2(1-t) + Dt^3
+A(1-3t+3t^2-t^3) + 3B(t-2t^2+t^3) + 3C(t^2-t^3) + Dt^3
+Dt^3 + 3Ct^2 - 3Ct^3 + 3Bt - 6Bt^2 + 3Bt^3 + A - 3At + 3At^2 - At^3
+Dt^3 - 3Ct^3 + 3Bt^3 - At^3 + 3Ct^2 - 6Bt^2 + 3At^2 + 3Bt - 3At + A
+t^3 (D-3C+3B-A) + t^2 (3C-6B+3A) + t (3B-3A) + A
+3t^2 (D-3C+3B-A) + 2t (3C-6B+3A) + (3B-3A) (taking derivative)
+3t^2 (D-3C+3B-A) + 6t (C-2B+A) + 3(B-A) (velocity at time t)
+</PRE>
+  <P></P>
+  <DT><FONT color=hotpink>Tsunami</FONT></TD> 
+  <DD>What is this useful? Is it related to "closed area detection"?
+  <P></P>
+  <DT><FONT color=navy>Akira</FONT></TD> 
+  <DD>Yes, this algorithm is very important for detecting a closed area. My idea 
+  of closed area algorithm is to follow right-hand side of the curves until the 
+  track returns to the start point again.<BR><IMG height=400 
+  src="Tangent Line of a Bezier Curve_files/algorithm.png" width=400>
+  <P></P>
+  <DT><FONT color=hotpink>Tsunami</FONT></TD> 
+  <DD>So this is why you need to find the tangent line (angle) of a bezier 
+curve.
+  <P></P>
+  <DT><FONT color=navy>Akira</FONT></TD> 
+  <DD>Yes. Althought..., it seems like here is a flaw in "closest point 
+  algorithm". There are areas of a curve where closest algorithm can't detect... 
+  I'll work on it later.
+  <P></P>
+  <DT><FONT color=hotpink>Tsunami</FONT></TD> 
+  <DD>Archived applet is <A 
+  href="http://www.tsunamichannel.com/howto/java/25/applet25.jar">here</A>. 
+  Enjoy. 
+  <UL></UL></DD></DL>
+<HR>
+
+<CENTER>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD><APPLET height=400 archive=applet25.jar width=600 
+      code=BezierAngleApplet><PARAM NAME="configs" VALUE="config.txt"><PARAM NAME="config directory" VALUE="config"></APPLET> 
+</TD></TR></TBODY></TABLE></CENTER>
+<HR>
+
+<CENTER>written by Akira Hasegawa </CENTER></BODY></HTML>

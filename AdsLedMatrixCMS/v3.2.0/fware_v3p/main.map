@@ -1,0 +1,31 @@
+CodeVisionAVR C Compiler V1.25.2 Standard
+(C) Copyright 1998-2006 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+File: d:\myprojects\lcms\v3.0.5\fware_v3p\main.c
+Global variables memory map:
+
+Variable                          Address   Size
+*start_mem_G1                                                         164h      2
+power_off                                                             R2.0    1/8
+is_stopping                                                           R2.1    1/8
+key_pressed                                                           R2.2    1/8
+is_half_top                                                           R2.3    1/8
+temp                                                                  166h     16
+dw_temp                                                               176h      4
+x                                                                    R4,R5      2
+scroll_count_G1                                                       17Ah      2
+scroll_updown_G1                                                      17Ch      2
+tick_count_G1                                                         17Eh      2
+frame_index_G1                                                        180h      1
+scroll_step_G1                                                        181h      1
+text_length_G1                                                        182h      2
+scroll_rate_G1                                                        184h      1
+scroll_temp_G1                                                        185h      1
+scroll_type_G1                                                        186h      1
+rx_message                                                              R6      1
+rx_wparam                                                            R7,R8      2
+rx_lparam                                                           R9,R10      2
+rx_buffer                                                             187h      8
+rx_wr_index                                                            R11      1
+rx_counter                                                             R12      1

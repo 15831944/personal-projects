@@ -1,0 +1,17 @@
+CodeVisionAVR C Compiler V1.25.2 Standard
+(C) Copyright 1998-2006 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+File: d:\myprojects\lcms\v2.0.0\ds18b20\ds18b20.c
+Global variables memory map:
+
+Variable                          Address   Size
+__ds18b20_scratch_pad.temp_lsb                                        200h      1
+__ds18b20_scratch_pad.temp_msb                                        201h      1
+__ds18b20_scratch_pad.temp_high                                       202h      1
+__ds18b20_scratch_pad.temp_low                                        203h      1
+__ds18b20_scratch_pad.conf_register                                   204h      1
+__ds18b20_scratch_pad.res1                                            205h      1
+__ds18b20_scratch_pad.res2                                            206h      1
+__ds18b20_scratch_pad.res3                                            207h      1
+__ds18b20_scratch_pad.crc                                             208h      1

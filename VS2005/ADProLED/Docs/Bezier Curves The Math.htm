@@ -1,0 +1,76 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0051)http://www.moshplant.com/direct-or/bezier/math.html -->
+<HTML><HEAD><TITLE>Bezier Curves: The Math</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<META content="MSHTML 6.00.2900.3132" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff>
+<H1>
+<CENTER>The Math Behind the Bézier Curve</CENTER></H1>
+<H1>
+<CENTER><IMG height=178 src="Bezier Curves The Math_files/curve01.gif" width=267 
+align=bottom NATURALSIZEFLAG="0"></CENTER></H1>
+<P><FONT size=+1>A cubic Bezier curve is defined by four points. Two are 
+<I>endpoints</I>. (<I>x<SUB>0</SUB>,y<SUB>0</SUB></I>) is the <I>origin</I> 
+endpoint. (<I>x<SUB>3</SUB>,y<SUB>3</SUB></I>) is the <I>destination</I> 
+endpoint. The points (<I>x<SUB>1</SUB>,y<SUB>1</SUB></I>) and 
+(<I>x<SUB>2</SUB>,y<SUB>2</SUB></I>) are <I>control points</I>.</FONT></P>
+<P><FONT size=+1>Two equations define the points on the curve. Both are 
+evaluated for an arbitrary number of values of <I>t</I> between 0 and 1. One 
+equation yields values for <I>x</I>, the other yields values for <I>y</I>. As 
+increasing values for <I>t</I> are supplied to the equations, the point defined 
+by <I>x(t),y(t)</I> moves from the origin to the destination. This is how the 
+equations are defined in Adobe's PostScript references.</FONT></P>
+<BLOCKQUOTE>
+  <P><I><FONT size=+1>x(t) = a<SUB>x</SUB>t<SUP>3</SUP> + 
+  b<SUB>x</SUB>t<SUP>2</SUP> + c<SUB>x</SUB>t + x<SUB>0</SUB></FONT></I></P>
+  <BLOCKQUOTE>
+    <P><I><FONT size=+1>x<SUB>1</SUB> = x<SUB>0</SUB> + c<SUB>x</SUB> / 
+    3<BR>x<SUB>2</SUB> = x<SUB>1</SUB> + (c<SUB>x</SUB> + b<SUB>x</SUB>) / 
+    3<BR>x<SUB>3</SUB> = x<SUB>0</SUB> + c<SUB>x</SUB> + b<SUB>x</SUB> + 
+    a<SUB>x</SUB></FONT></I></P></BLOCKQUOTE>
+  <P><I><FONT size=+1>y(t) = a<SUB>y</SUB>t<SUP>3</SUP> + 
+  b<SUB>y</SUB>t<SUP>2</SUP> + c<SUB>y</SUB>t + y<SUB>0</SUB></FONT></I></P>
+  <BLOCKQUOTE>
+    <P><I><FONT size=+1>y<SUB>1</SUB> = y<SUB>0</SUB> + c<SUB>y</SUB> / 
+    3<BR>y<SUB>2</SUB> = y<SUB>1</SUB> + (c<SUB>y</SUB> + b<SUB>y</SUB>) / 
+    3<BR>y<SUB>3</SUB> = y<SUB>0</SUB> + c<SUB>y</SUB> + b<SUB>y</SUB> + 
+    a<SUB>y</SUB></FONT></I></P></BLOCKQUOTE></BLOCKQUOTE>
+<P><FONT size=+1>This method of definition can be reverse-engineered so that 
+it'll give up the coefficient values based on the points described 
+above:</FONT></P>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><I><FONT size=+1>c<SUB>x</SUB> = 3 (x<SUB>1</SUB> - 
+    x<SUB>0</SUB>)<BR>b<SUB>x</SUB> = 3 (x<SUB>2</SUB> - x<SUB>1</SUB>) - 
+    c<SUB>x</SUB><BR>a<SUB>x</SUB> = x<SUB>3</SUB> - x<SUB>0</SUB> - 
+    c<SUB>x</SUB> - b<SUB>x</SUB></FONT></I></P>
+    <P><I><FONT size=+1>c<SUB>y</SUB> = 3 (y<SUB>1</SUB> - 
+    y<SUB>0</SUB>)<BR>b<SUB>y</SUB> = 3 (y<SUB>2</SUB> - y<SUB>1</SUB>) - 
+    c<SUB>y</SUB><BR>a<SUB>y</SUB> = y<SUB>3</SUB> - y<SUB>0</SUB> - 
+    c<SUB>y</SUB> - b<SUB>y</SUB></FONT></I></P></BLOCKQUOTE></BLOCKQUOTE>
+<P><FONT size=+1>Now, simply by knowing coördinates for any four points, you can 
+create the equations for a <A 
+href="http://www.moshplant.com/direct-or/bezier/simple_curve.html">simple Bézier 
+curve</A>.</FONT></P>
+<P>
+<CENTER><A href="http://www.moshplant.com/direct-or/bezier/index.html">Home of 
+the Bézier</A> | The math | <A 
+href="http://www.moshplant.com/direct-or/bezier/simple_curve.html">A simple 
+curve</A> | <A 
+href="http://www.moshplant.com/direct-or/bezier/lines.html">Lines</A> | <A 
+href="http://www.moshplant.com/direct-or/bezier/recurve.html">Recurves</A> | <A 
+href="http://www.moshplant.com/direct-or/bezier/loop.html">Loops</A><BR><A 
+href="http://www.moshplant.com/direct-or/bezier/bezier.html">Shockwave Bézier 
+demo</A> | <A href="http://www.moshplant.com/direct-or/bezier/slider.html">The 
+Bézier curve slider demo</A><FONT size=+1> </FONT><IMG height=13 
+src="Bezier Curves The Math_files/new01.gif" width=40 align=top 
+NATURALSIZEFLAG="3"><BR><A href="http://www.moshplant.com/ouija/ouija.html">The 
+Virtual Ouija Board</A><FONT size=+1> </FONT><IMG height=13 
+src="Bezier Curves The Math_files/new01.gif" width=40 align=top 
+NATURALSIZEFLAG="3"></CENTER>
+<P></P>
+<P>
+<CENTER><FONT size=-1>© 1996 by <A href="mailto:dplant@moshplant.com">Darrel 
+Plant</A>, <A href="http://www.moshplant.com/">Moshofsky/Plant Creative 
+Services</A>. Permission is granted to link to these 
+pages.</FONT></CENTER></BODY></HTML>

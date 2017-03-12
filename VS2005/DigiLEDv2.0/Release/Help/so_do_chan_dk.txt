@@ -1,0 +1,23 @@
+// chan bo mach tieu de
+
+#define     DATA_BIT        PORTD.2     // title data
+#define     DATA_CLK        PORTE.2     // pin 29 black-blue
+#define     DATA_STB        PORTE.0     // pin 31 red-yellow
+
+// chan bo quet 4094
+       
+#define     SCAN_CLK        PORTD.3     // pin 13 blue 
+#define     SCAN_STB        PORTD.4     // pin 14 orange
+#define     SCAN_DAT        PORTD.5     // pin 15 white
+
+// chan dieu khien LED 7 thanh
+                                                     
+#define     DATA_01         PORTB.0
+#define     DATA_02         PORTB.1
+#define     DATA_03         PORTB.2
+#define     DATA_04         PORTB.3
+#define     DATA_05         PORTB.4
+#define     DATA_06         PORTB.5
+
+#define     CTRL_CLK        PORTB.6     // pin 7
+#define     CTRL_STB        PORTB.7     // pin 8    

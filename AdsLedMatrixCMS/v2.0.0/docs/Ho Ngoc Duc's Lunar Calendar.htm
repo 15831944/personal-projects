@@ -1,0 +1,269 @@
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="Ho Ngoc Duc"><title>Ho Ngoc Duc's Lunar Calendar</title>
+
+<script language="JavaScript" src="Ho%20Ngoc%20Duc%27s%20Lunar%20Calendar_files/amlich-hnd.js" type="text/javascript"></script>
+<script language="JavaScript">
+<!--
+	showVietCal();
+-->
+</script>
+<style type="text/css">
+<!--
+  .tennam {text-align:center; font-size:150%; line-height:120%; font-weight:bold; color:#000000; background-color: #CCCCCC}
+  .thang {font-size: 13pt; padding:1; line-height:100%; font-family:Tahoma,Verdana,Arial; table-layout:fixed}
+  .tenthang {text-align:center; font-size:125%; line-height:100%; font-weight:bold; color:#330033; background-color: #CCFFCC}
+  .navi-l {text-align:center; font-size:75%; line-height:100%; font-family:Verdana,Times New Roman,Arial; font-weight:bold; color:red; background-color: #CCFFCC}
+  .navi-r {text-align:center; font-size:75%; line-height:100%; font-family:Verdana,Arial,Times New Roman; font-weight:bold; color:#330033; background-color: #CCFFCC}
+  .ngaytuan {width:14%; text-align:center; font-size:125%; line-height:100%; color:#330033; background-color: #FFFFCC}
+  .ngaythang {background-color:#FDFDF0}
+  .homnay {background-color:#FFF000}
+  .tet {background-color:#FFCC99}
+  .am {text-align:right;font-size:75%;line-height:100%;color:blue}
+  .am2 {text-align:right;font-size:75%;line-height:100%;color:#004080}
+  .t2t6 {text-align:left;font-size:125%;color:black}
+  .t7 {text-align:left;font-size:125%;line-height:100%;color:green}
+  .cn {text-align:left;font-size:125%;line-height:100%;color:red}
+-->
+</style></head><body onload="">
+
+<h1>Chương trình âm lịch bằng JavaScript</h1>
+
+<table align="center" border="0" cellspacing="1">
+
+<tbody><tr>
+<td align="center">
+
+<script language="JavaScript">
+<!--
+	document.writeln(printSelectedMonth());
+//-->
+</script>
+<table class="thang" border="2" cellpadding="1" cellspacing="1" width="420">
+<tbody><tr><td colspan="2" class="navi-l"><a href="http://www.ifis.uni-luebeck.de/%7Educ/amlich/JavaScript/?yy=2005&amp;mm=10">&lt;&lt;</a> &nbsp;<a href="http://www.ifis.uni-luebeck.de/%7Educ/amlich/JavaScript/?yy=2006&amp;mm=9">&lt;</a></td>
+<td colspan="3" class="tenthang" onclick="showMonthSelect();">10/2006</td>
+<td colspan="2" class="navi-r"><a href="http://www.ifis.uni-luebeck.de/%7Educ/amlich/JavaScript/?yy=2006&amp;mm=11">&gt;</a> &nbsp;<a href="http://www.ifis.uni-luebeck.de/%7Educ/amlich/JavaScript/?yy=2007&amp;mm=10">&gt;&gt;</a></td></tr>
+<tr onclick="alertAbout();">
+<td class="ngaytuan">CN</td>
+<td class="ngaytuan">T2</td>
+<td class="ngaytuan">T3</td>
+<td class="ngaytuan">T4</td>
+<td class="ngaytuan">T5</td>
+<td class="ngaytuan">T6</td>
+<td class="ngaytuan">T7</td>
+</tr>
+<tr>
+<td class="ngaythang" title="Ngày Quý Hợi, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(10,8,2006,0,2454010,1,10,2006);"><div style="color: red;" class="cn">1</div> <div class="am">10/8</div></td>
+<td class="ngaythang" title="Ngày Giáp Tý, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(11,8,2006,0,2454011,2,10,2006);"><div style="color: black;" class="t2t6">2</div> <div class="am">11</div></td>
+<td class="ngaythang" title="Ngày Ất Sửu, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(12,8,2006,0,2454012,3,10,2006);"><div style="color: black;" class="t2t6">3</div> <div class="am">12</div></td>
+<td class="ngaythang" title="Ngày Bính Dần, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(13,8,2006,0,2454013,4,10,2006);"><div style="color: black;" class="t2t6">4</div> <div class="am">13</div></td>
+<td class="ngaythang" title="Ngày Đinh Mão, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(14,8,2006,0,2454014,5,10,2006);"><div style="color: black;" class="t2t6">5</div> <div class="am">14</div></td>
+<td class="ngaythang" title="Ngày Mậu Thìn, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(15,8,2006,0,2454015,6,10,2006);"><div style="color: black;" class="t2t6">6</div> <div class="am">15</div></td>
+<td class="ngaythang" title="Ngày Kỷ Tỵ, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(16,8,2006,0,2454016,7,10,2006);"><div style="color: green;" class="t7">7</div> <div class="am">16</div></td>
+</tr>
+<tr>
+<td class="ngaythang" title="Ngày Canh Ngọ, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(17,8,2006,0,2454017,8,10,2006);"><div style="color: red;" class="cn">8</div> <div class="am">17</div></td>
+<td class="ngaythang" title="Ngày Tân Mùi, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(18,8,2006,0,2454018,9,10,2006);"><div style="color: black;" class="t2t6">9</div> <div class="am">18</div></td>
+<td class="ngaythang" title="Ngày Nhâm Thân, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(19,8,2006,0,2454019,10,10,2006);"><div style="color: black;" class="t2t6">10</div> <div class="am">19</div></td>
+<td class="ngaythang" title="Ngày Quý Dậu, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(20,8,2006,0,2454020,11,10,2006);"><div style="color: black;" class="t2t6">11</div> <div class="am">20</div></td>
+<td class="ngaythang" title="Ngày Giáp Tuất, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(21,8,2006,0,2454021,12,10,2006);"><div style="color: black;" class="t2t6">12</div> <div class="am">21</div></td>
+<td class="ngaythang" title="Ngày Ất Hợi, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(22,8,2006,0,2454022,13,10,2006);"><div style="color: black;" class="t2t6">13</div> <div class="am">22</div></td>
+<td class="ngaythang" title="Ngày Bính Tý, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(23,8,2006,0,2454023,14,10,2006);"><div style="color: green;" class="t7">14</div> <div class="am">23</div></td>
+</tr>
+<tr>
+<td class="ngaythang" title="Ngày Đinh Sửu, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(24,8,2006,0,2454024,15,10,2006);"><div style="color: red;" class="cn">15</div> <div class="am">24</div></td>
+<td class="ngaythang" title="Ngày Mậu Dần, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(25,8,2006,0,2454025,16,10,2006);"><div style="color: black;" class="t2t6">16</div> <div class="am">25</div></td>
+<td class="ngaythang" title="Ngày Kỷ Mão, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(26,8,2006,0,2454026,17,10,2006);"><div style="color: black;" class="t2t6">17</div> <div class="am">26</div></td>
+<td class="ngaythang" title="Ngày Canh Thìn, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(27,8,2006,0,2454027,18,10,2006);"><div style="color: black;" class="t2t6">18</div> <div class="am">27</div></td>
+<td class="ngaythang" title="Ngày Tân Tỵ, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(28,8,2006,0,2454028,19,10,2006);"><div style="color: black;" class="t2t6">19</div> <div class="am">28</div></td>
+<td class="ngaythang" title="Ngày Nhâm Ngọ, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(29,8,2006,0,2454029,20,10,2006);"><div style="color: black;" class="t2t6">20</div> <div class="am">29</div></td>
+<td class="ngaythang" title="Ngày Quý Mùi, tháng Đinh Dậu, năm Bính Tuất" onclick="alertDayInfo(30,8,2006,0,2454030,21,10,2006);"><div style="color: green;" class="t7">21</div> <div class="am">30</div></td>
+</tr>
+<tr>
+<td class="ngaythang" title="Ngày Giáp Thân, tháng Mậu Tuất, năm Bính Tuất" onclick="alertDayInfo(1,9,2006,0,2454031,22,10,2006);"><div style="color: red;" class="cn">22</div> <div class="am">1/9</div></td>
+<td class="ngaythang" title="Ngày Ất Dậu, tháng Mậu Tuất, năm Bính Tuất" onclick="alertDayInfo(2,9,2006,0,2454032,23,10,2006);"><div style="color: black;" class="t2t6">23</div> <div class="am">2</div></td>
+<td class="ngaythang" title="Ngày Bính Tuất, tháng Mậu Tuất, năm Bính Tuất" onclick="alertDayInfo(3,9,2006,0,2454033,24,10,2006);"><div style="color: black;" class="t2t6">24</div> <div class="am">3</div></td>
+<td class="homnay" title="Ngày Đinh Hợi, tháng Mậu Tuất, năm Bính Tuất" onclick="alertDayInfo(4,9,2006,0,2454034,25,10,2006);"><div style="color: black;" class="t2t6">25</div> <div class="am">4</div></td>
+<td class="ngaythang" title="Ngày Mậu Tý, tháng Mậu Tuất, năm Bính Tuất" onclick="alertDayInfo(5,9,2006,0,2454035,26,10,2006);"><div style="color: black;" class="t2t6">26</div> <div class="am">5</div></td>
+<td class="ngaythang" title="Ngày Kỷ Sửu, tháng Mậu Tuất, năm Bính Tuất" onclick="alertDayInfo(6,9,2006,0,2454036,27,10,2006);"><div style="color: black;" class="t2t6">27</div> <div class="am">6</div></td>
+<td class="ngaythang" title="Ngày Canh Dần, tháng Mậu Tuất, năm Bính Tuất" onclick="alertDayInfo(7,9,2006,0,2454037,28,10,2006);"><div style="color: green;" class="t7">28</div> <div class="am">7</div></td>
+</tr>
+<tr>
+<td class="ngaythang" title="Ngày Tân Mão, tháng Mậu Tuất, năm Bính Tuất" onclick="alertDayInfo(8,9,2006,0,2454038,29,10,2006);"><div style="color: red;" class="cn">29</div> <div class="am">8</div></td>
+<td class="ngaythang" title="Ngày Nhâm Thìn, tháng Mậu Tuất, năm Bính Tuất" onclick="alertDayInfo(9,9,2006,0,2454039,30,10,2006);"><div style="color: black;" class="t2t6">30</div> <div class="am">9</div></td>
+<td class="ngaythang" title="Ngày Quý Tỵ, tháng Mậu Tuất, năm Bính Tuất" onclick="alertDayInfo(10,9,2006,0,2454040,31,10,2006);"><div style="color: black;" class="t2t6">31</div> <div class="am">10</div></td>
+<td class="ngaythang"><div class="cn">&nbsp;</div> <div class="am">&nbsp;</div></td>
+<td class="ngaythang"><div class="cn">&nbsp;</div> <div class="am">&nbsp;</div></td>
+<td class="ngaythang"><div class="cn">&nbsp;</div> <div class="am">&nbsp;</div></td>
+<td class="ngaythang"><div class="cn">&nbsp;</div> <div class="am">&nbsp;</div></td>
+</tr>
+<tr>
+<td class="ngaythang"><div class="cn">&nbsp;</div> <div class="am">&nbsp;</div></td>
+<td class="ngaythang"><div class="cn">&nbsp;</div> <div class="am">&nbsp;</div></td>
+<td class="ngaythang"><div class="cn">&nbsp;</div> <div class="am">&nbsp;</div></td>
+<td class="ngaythang"><div class="cn">&nbsp;</div> <div class="am">&nbsp;</div></td>
+<td class="ngaythang"><div class="cn">&nbsp;</div> <div class="am">&nbsp;</div></td>
+<td class="ngaythang"><div class="cn">&nbsp;</div> <div class="am">&nbsp;</div></td>
+<td class="ngaythang"><div class="cn">&nbsp;</div> <div class="am">&nbsp;</div></td>
+</tr>
+</tbody></table>
+<script language="JavaScript" src="Ho%20Ngoc%20Duc%27s%20Lunar%20Calendar_files/amlich-hnd.js"></script>
+
+
+
+</td>
+</tr>
+
+<tr>
+<td align="center">
+<form name="SelectMonth" action="">
+Tháng
+<select name="month">
+  <option value="1">1
+  </option><option value="2">2
+  </option><option value="3">3
+  </option><option value="4">4
+  </option><option value="5">5
+  </option><option value="6">6
+  </option><option value="7">7
+  </option><option value="8">8
+  </option><option value="9">9
+  </option><option value="10">10
+  </option><option value="11">11
+  </option><option value="12">12
+</option></select> &nbsp;&nbsp;&nbsp;&nbsp;
+Năm
+<input name="year" size="4" value="2005"> &nbsp;
+
+<p>
+
+<input value="Xem lịch tháng" onclick="javascript:viewMonth(parseInt(month.value), parseInt(year.value));" type="button">
+&nbsp;&nbsp;
+<input value="Xem lịch năm" onclick="javascript:viewYear(parseInt(year.value));" type="button">
+
+
+<script type="text/javascript">
+<!--
+	getSelectedMonth();
+	document.SelectMonth.month.value = currentMonth;
+	document.SelectMonth.year.value = currentYear;
+	function viewMonth(mm, yy) {
+		window.location = window.location.pathname + '?yy='+yy+'&mm='+mm;
+	}
+	function viewYear(yy) {
+		var loc = 'currentyear.html?yy='+yy;
+		var win2702 = window.open(loc, "win2702", "menubar=yes,scrollbars=yes,resizable=yes");
+	}
+	
+//-->
+</script>
+
+</p></form></td>
+</tr>
+
+</tbody></table>
+
+<ul>
+<li>Chọn một tháng của một năm trong khoảng 1800-2199 và nhấn chuột vào nút <b>Xem lịch tháng</b> để xem lịch của tháng đã chọn.</li>
+<li>Kích chuột vào nút <b>Xem lịch năm</b> sẽ hiển thị lịch của cả năm đã chọn. Lịch năm có thể in vừa trên một trang A4 (sử dụng chức năng in của chương trình duyệt).</li>
+<li>Để xem Can-Chi của một ngày, nhấn chuột vào ô hiển thị ngày đó.
+Nhấn chuột vào dòng thứ hai (chứa tên các ngày trong tuần: CN, T2...)
+sẽ hiện thông tin về chương trình.</li>
+</ul>
+
+
+<p>
+
+</p><h2>Sử dụng thư viện JavaScript tính âm lịch trên trang Web của bạn</h2>
+
+Bạn có thể hiển thị ngày tháng âm lịch trên trang Web của mình bằng nhiều cách khác nhau.
+
+<h3>Hiện ngày tháng trên thanh trạng thái (status bar)</h3>
+
+Đây là cách đơn giản nhất. Chỉ cần thêm đoạn mã sau vào bất kỳ vị trí nào trong trang Web của bạn:
+
+<p>
+</p><blockquote>
+<code>
+&lt;script type="text/javascript" language="JavaScript" src="http://www.ifis.uni-luebeck.de/~duc/amlich-hnd.js"&gt;<br>
+&lt;/script&gt;<br>
+&lt;script language="JavaScript"&gt;<br>
+&lt;!--<br>
+&nbsp;&nbsp;&nbsp; showVietCal();<br>
+--&gt;<br>
+&lt;/script&gt;<br>
+</code>
+</blockquote>
+
+Kết quả sẽ giống như Statusbar của trang bạn đang xem.
+
+<h3>Chèn lịch tháng vào trang Web với IFRAME</h3>
+
+<p>Chèn đoạn mã sau vào vị trí mà bạn muốn bảng lịch tháng hiện ra:</p>
+
+<blockquote>
+<code>
+&lt;IFRAME src="http://www.ifis.uni-luebeck.de/~duc/amlich/JavaScript/currentmonth.html" 
+align="right" name="CurentMonth" width="188" height="228" scrolling="no" frameborder=0&gt;<br>
+&lt;/IFRAME&gt;
+</code>
+</blockquote>
+
+<p>Kết quả sẽ tương tự như trang <a href="http://www.ifis.uni-luebeck.de/%7Educ/amlich/JavaScript/sample01.html">sample01.html</a>.
+</p>
+
+<h3>Chèn trực tiếp lịch tháng vào trang Web</h3>
+
+<p>Chèn đoạn mã sau vào vị trí mà bạn muốn bảng lịch tháng hiện ra:</p>
+
+<blockquote>
+<code>
+&lt;script type="text/javascript" language="JavaScript" src="http://www.ifis.uni-luebeck.de/~duc/amlich-hnd.js"&gt;<br>
+&lt;/script&gt;<br>
+&lt;script language="JavaScript"&gt;<br>
+&lt;!--<br>
+      setOutputSize("small");<br>
+      document.writeln(printSelectedMonth());<br>
+--&gt;<br>
+&lt;/script&gt;<br>
+</code>
+</blockquote>
+
+<p>Kết quả sẽ tương tự như trang <a href="http://www.ifis.uni-luebeck.de/%7Educ/amlich/JavaScript/sample02.html">sample02.html</a>. Trang bạn đang xem cũng dùng phương pháp này.
+</p>
+
+<h3>Thông tin về chương trình</h3>
+
+Chương trình âm lịch Việt Nam bằng JavaScript do tác giả <a href="http://www.informatik.uni-leipzig.de/%7Educ/">Hồ Ngọc Đức</a> thực hiện. 
+Hiện tại chương trình chứa dữ liệu cho 4 thế kỷ, từ 1800 đến 2199. Các số liệu này được tính sẵn 
+bằng <a href="http://www.informatik.uni-leipzig.de/%7Educ/amlich/">chương trình Java</a> của cùng tác giả. Dữ liệu cho các thế kỷ khác có thể 
+được tác giả cung cấp theo yêu cầu.
+
+<p>
+Bạn có thể <a href="http://www.ifis.uni-luebeck.de/%7Educ/amlich-js.zip">download thư viện JavaScript tính âm lịch</a>
+và thêm các chức năng bạn muốn có. Ví dụ, bạn có thể sửa đổi hàm
+alertDayInfo để chương trình không hiện Can-Chi của ngày vừa chọn mà
+hiện các thông tin khác như lịch hoạt động trong ngày v.v.
+<!--
+<h3>Những thay đổi gần đây</h3>
+
+<ul>
+<li> 08/2006: Cập nhật dữ liệu 1925 (bản 0.7)
+<li> 03/2005: Sửa lỗi bất tương thích với IE. Hiển thị giờ hoàng đạo. Sửa lỗi tính jdn
+<li> 09/2004: Công bố phiên bản 0.2
+</ul>
+-->
+<iframe src="about:blank" name="hiddenFrame" frameborder="0" height="0" width="0"></iframe>
+</p><form name="hiddenForm" method="post" action="/~duc/PHP/saveLog.php" target="hiddenFrame">
+<input name="referrer" value="http://www.google.com.vn/search?hl=vi&amp;q=t%C3%ADnh+%C3%A2m+l%E1%BB%8Bch&amp;btnG=T%C3%ACm+ki%E1%BA%BFm&amp;meta=" type="hidden"><br>
+<input name="page" value="amlich/JavaScript/" type="hidden"><br>
+</form>
+<script language="JavaScript">
+<!--
+  document.hiddenForm.referrer.value=document.referrer;
+  //document.hiddenForm.submit();
+//-->
+</script>
+
+</body></html>

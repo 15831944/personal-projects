@@ -1,0 +1,36 @@
+CodeVisionAVR C Compiler V1.25.2 Standard
+(C) Copyright 1998-2006 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+File: d:\myprojects\vs2005\digiledv2.0\fware_m8515\main.c
+Global variables memory map:
+
+Variable                          Address   Size
+*start_mem_G1                                                          C4h      2
+*end_mem_G1                                                            C6h      2
+*buffer_G1                                                             C8h      2
+*org_mem_G1                                                            CAh      2
+is_power_off                                                          R2.0    1/8
+count_row                                                            R4,R5      2
+count_col                                                            R6,R7      2
+scroll_rate_G1                                                         CCh      1
+page_index_G1                                                          CDh      1
+tick_count_G1                                                          CEh      2
+text_length_G1                                                         D0h      2
+szTitle_G1                                                             D2h    100
+_xtable                                                               136h     16
+rx_message                                                              R8      1
+rx_wparam                                                           R9,R10      2
+rx_lparam                                                          R11,R12      2
+rx_buffer                                                             146h      8
+rx_wr_index                                                            R13      1
+rx_counter                                                             R14      1
+__ds18b20_scratch_pad.temp_lsb                                        14Eh      1
+__ds18b20_scratch_pad.temp_msb                                        14Fh      1
+__ds18b20_scratch_pad.temp_high                                       150h      1
+__ds18b20_scratch_pad.temp_low                                        151h      1
+__ds18b20_scratch_pad.conf_register                                   152h      1
+__ds18b20_scratch_pad.res1                                            153h      1
+__ds18b20_scratch_pad.res2                                            154h      1
+__ds18b20_scratch_pad.res3                                            155h      1
+__ds18b20_scratch_pad.crc                                             156h      1

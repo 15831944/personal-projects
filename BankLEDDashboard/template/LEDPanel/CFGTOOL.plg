@@ -1,0 +1,70 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CFGTOOL - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/CFGTOOL.res" /d "_DEBUG" "D:\MyProjects\DigiLED\template\LEDPanel\CFGTOOL.rc"" 
+Creating temporary file "C:\DOCUME~1\CUONGQ~1\LOCALS~1\Temp\RSP6.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/CFGTOOL.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\MyProjects\DigiLED\template\LEDPanel\CFGTOOL.cpp"
+"D:\MyProjects\DigiLED\template\LEDPanel\CFGTOOLDlg.cpp"
+"D:\MyProjects\DigiLED\template\LEDPanel\Curvefit.cpp"
+"D:\MyProjects\DigiLED\template\LEDPanel\DigiStatic.cpp"
+"D:\MyProjects\DigiLED\template\LEDPanel\Serial.cpp"
+"D:\MyProjects\DigiLED\template\LEDPanel\SerialEx.cpp"
+"D:\MyProjects\DigiLED\template\LEDPanel\SerialWnd.cpp"
+"D:\MyProjects\DigiLED\template\LEDPanel\StaticFrame.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\CUONGQ~1\LOCALS~1\Temp\RSP6.tmp" 
+Creating temporary file "C:\DOCUME~1\CUONGQ~1\LOCALS~1\Temp\RSP7.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/CFGTOOL.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\MyProjects\DigiLED\template\LEDPanel\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\CUONGQ~1\LOCALS~1\Temp\RSP7.tmp" 
+Creating temporary file "C:\DOCUME~1\CUONGQ~1\LOCALS~1\Temp\RSP8.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/CFGTOOL.pdb" /debug /machine:I386 /out:"Debug/CFGTOOL.exe" /pdbtype:sept 
+.\Debug\CFGTOOL.obj
+.\Debug\CFGTOOLDlg.obj
+.\Debug\Curvefit.obj
+.\Debug\DigiStatic.obj
+.\Debug\Serial.obj
+.\Debug\SerialEx.obj
+.\Debug\SerialWnd.obj
+.\Debug\StaticFrame.obj
+.\Debug\StdAfx.obj
+.\Debug\CFGTOOL.res
+]
+Creating command line "link.exe @C:\DOCUME~1\CUONGQ~1\LOCALS~1\Temp\RSP8.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+CFGTOOL.cpp
+CFGTOOLDlg.cpp
+Curvefit.cpp
+DigiStatic.cpp
+Serial.cpp
+SerialEx.cpp
+SerialWnd.cpp
+StaticFrame.cpp
+D:\MyProjects\DigiLED\template\LEDPanel\StaticFrame.cpp(68) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+D:\MyProjects\DigiLED\template\LEDPanel\StaticFrame.cpp(68) : warning C4309: 'initializing' : truncation of constant value
+D:\MyProjects\DigiLED\template\LEDPanel\StaticFrame.cpp(68) : warning C4305: 'initializing' : truncation from 'const int' to 'char'
+D:\MyProjects\DigiLED\template\LEDPanel\StaticFrame.cpp(68) : warning C4309: 'initializing' : truncation of constant value
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+CFGTOOL.exe - 0 error(s), 4 warning(s)
+</pre>
+</body>
+</html>

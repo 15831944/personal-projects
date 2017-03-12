@@ -1,0 +1,113 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MATRIX - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Release/MATRIX.res" /d "NDEBUG" "D:\MyProjects\LCMS\v3.0.3\soft_v3\MATRIX.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.CUO\LOCALS~1\Temp\RSP12.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_UNICODE" /Fp"Release/MATRIX.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\BCMenu.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\BtnST.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\CeXDib.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\ColorCombo.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\ColorText.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\ConnectingDlg.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\DataEdit.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\DIB.CPP"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\FontDisp.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\GeneralSettings.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\MATRIX.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\MATRIXDlg.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\MatrixSimulator.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\MD5.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\ProgressDlg.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\ProtectedSoft.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\ScrollMatrix.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\Serial.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\SerialEx.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\SerialWnd.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\SettingDlg.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\ShadeButtonST.cpp"
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\StaticFrame.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1.CUO\LOCALS~1\Temp\RSP12.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.CUO\LOCALS~1\Temp\RSP13.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_UNICODE" /Fp"Release/MATRIX.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\MyProjects\LCMS\v3.0.3\soft_v3\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1.CUO\LOCALS~1\Temp\RSP13.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.CUO\LOCALS~1\Temp\RSP14.tmp" with contents
+[
+/nologo /entry:"wWinMainCRTStartup" /subsystem:windows /incremental:no /pdb:"Release/LCMSv3.pdb" /machine:I386 /out:"Release/LCMSv3.exe" 
+.\Release\BCMenu.obj
+.\Release\BtnST.obj
+.\Release\CeXDib.obj
+.\Release\ColorCombo.obj
+.\Release\ColorText.obj
+.\Release\ConnectingDlg.obj
+.\Release\DataEdit.obj
+.\Release\DIB.OBJ
+.\Release\FontDisp.obj
+.\Release\GeneralSettings.obj
+.\Release\MATRIX.obj
+.\Release\MATRIXDlg.obj
+.\Release\MatrixSimulator.obj
+.\Release\MD5.obj
+.\Release\ProgressDlg.obj
+.\Release\ProtectedSoft.obj
+.\Release\ScrollMatrix.obj
+.\Release\Serial.obj
+.\Release\SerialEx.obj
+.\Release\SerialWnd.obj
+.\Release\SettingDlg.obj
+.\Release\ShadeButtonST.obj
+.\Release\StaticFrame.obj
+.\Release\StdAfx.obj
+.\Release\MATRIX.res
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1.CUO\LOCALS~1\Temp\RSP14.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+BCMenu.cpp
+BtnST.cpp
+CeXDib.cpp
+ColorCombo.cpp
+ColorText.cpp
+ConnectingDlg.cpp
+DataEdit.cpp
+DIB.CPP
+FontDisp.cpp
+GeneralSettings.cpp
+MATRIX.cpp
+MATRIXDlg.cpp
+MatrixSimulator.cpp
+MD5.cpp
+ProgressDlg.cpp
+ProtectedSoft.cpp
+ScrollMatrix.cpp
+Serial.cpp
+SerialEx.cpp
+SerialWnd.cpp
+Generating Code...
+Compiling...
+SettingDlg.cpp
+ShadeButtonST.cpp
+StaticFrame.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+LCMSv3.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

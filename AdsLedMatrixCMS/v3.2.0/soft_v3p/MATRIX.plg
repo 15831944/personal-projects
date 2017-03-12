@@ -1,0 +1,56 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MATRIX - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1.CUO\LOCALS~1\Temp\RSPA3.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_UNICODE" /Fp"Release/MATRIX.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\MyProjects\LCMS\v3.0.5\soft_v3p\MATRIXDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1.CUO\LOCALS~1\Temp\RSPA3.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.CUO\LOCALS~1\Temp\RSPA4.tmp" with contents
+[
+/nologo /entry:"wWinMainCRTStartup" /subsystem:windows /incremental:no /pdb:"Release/LCMSv305.pdb" /machine:I386 /out:"Release/LCMSv305.exe" 
+.\Release\BCMenu.obj
+.\Release\BtnST.obj
+.\Release\CeXDib.obj
+.\Release\ColorCombo.obj
+.\Release\ColorText.obj
+.\Release\ConnectingDlg.obj
+.\Release\DataEdit.obj
+.\Release\DIB.OBJ
+.\Release\FontDisp.obj
+.\Release\GeneralSettings.obj
+.\Release\MATRIX.obj
+.\Release\MATRIXDlg.obj
+.\Release\MatrixSimulator.obj
+.\Release\MD5.obj
+.\Release\ProgressDlg.obj
+.\Release\ProtectedSoft.obj
+.\Release\ScrollMatrix.obj
+.\Release\Serial.obj
+.\Release\SerialEx.obj
+.\Release\SerialWnd.obj
+.\Release\SettingDlg.obj
+.\Release\ShadeButtonST.obj
+.\Release\StaticFrame.obj
+.\Release\StdAfx.obj
+.\Release\MATRIX.res
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1.CUO\LOCALS~1\Temp\RSPA4.tmp"
+<h3>Output Window</h3>
+Compiling...
+MATRIXDlg.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+LCMSv305.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,1387 @@
+// MatrixSimulator.cpp : implementation file
+//
+
+#include "stdafx.h"
+#include "MATRIX.h"
+#include "FontDisp.h"
+#include "MatrixSimulator.h"
+#include "resource.h"
+
+#ifdef _DEBUG
+#define new DEBUG_NEW
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#endif
+
+#define		TIMER_ID			1001
+#define		CLOCK_ID			1002
+
+extern FONT_CHAR char_map[256];	
+
+static BYTE buffer[2048*8][32];		// 512 characters max - 64KBs
+static BYTE __SCREEN_LAYER[MAX_LINE][LAYER_COUNT][DATA_LINE*DATA_LENGTH];
+static BYTE __FONT_BUFFER[MAX_LINE][LAYER_COUNT][DATA_LINE*DATA_LENGTH];
+/////////////////////////////////////////////////////////////////////////////
+// CMatrixSimulator
+
+CMatrixSimulator::CMatrixSimulator()
+{
+	m_cx = 0; m_cy = 0; m_pBuffer = NULL;
+	m_ptPosition = CPoint(0,0);
+	m_pOrigin = new BYTE[DATA_LINE*DATA_LENGTH];		
+	m_pEnd   = m_pOrigin + DATA_LINE*DATA_LENGTH;
+	memset(m_pOrigin,BLANK_STATE,DATA_LINE*DATA_LENGTH);
+	
+	m_pClock = new BYTE[DATA_LINE*CLOCK_LENGTH];
+	memset(m_pClock,BLANK_STATE,DATA_LINE*CLOCK_LENGTH);
+
+	m_bHitScroll = FALSE;
+	m_bReCalcMatrix = FALSE;
+	m_szBkPos = CSize(0,0);
+	m_pDCMem = NULL;
+	m_nChar  = 0;
+	m_nLine = 0;
+	m_nColumeH = 0;
+	m_nColumeL = 0;
+	m_nTextLength = 0;
+	m_nCurrentPage = 0;
+	m_nFontTextLength = 0;
+	m_pStart = m_pOrigin;		
+	m_pStaticLine = NULL;	
+	m_nCurrentLayer = 0;
+	m_bScrolling = FALSE;
+	m_nFontPixelLenght = 0;
+	m_bLoadBkgndImgs = FALSE;
+	m_bVisibleBkLayer  = TRUE;
+	m_bVisibleLayer[0] = TRUE;
+	m_bVisibleLayer[1] = TRUE;
+	m_bVisibleLayer[2] = TRUE;
+	m_bVisibleLayer[3] = TRUE;
+	for (int i = 0; i< LAYER_COUNT; i++)
+	{
+		m_szTextPos[i] = CSize(0,0);
+		m_nTextLengthPixel[i] = 0;
+		m_bLoadImage[i] = FALSE;
+		for (int line =0; line < MAX_LINE; line++){
+			memset(__SCREEN_LAYER[line][i],BLANK_STATE,DATA_LINE*DATA_LENGTH);	
+			memset(__FONT_BUFFER[line][i],BLANK_STATE,DATA_LINE*DATA_LENGTH);
+		}
+	}
+}
+
+CMatrixSimulator::~CMatrixSimulator()
+{
+	if (m_pDCMem){
+		//m_pDCMem->SelectObject(m_pOldBitmap);
+		//m_pDCMem->DeleteDC();
+		delete m_pDCMem;
+	}
+}
+
+
+BEGIN_MESSAGE_MAP(CMatrixSimulator, CStatic)
+	ON_WM_CONTEXTMENU()
+	//{{AFX_MSG_MAP(CMatrixSimulator)
+	ON_WM_DESTROY()
+	ON_WM_PAINT()
+	ON_WM_TIMER()
+	ON_WM_CREATE()
+	ON_COMMAND(ID_POPUP_CHANGESCALE_1X1, OnPopupChangescale1x1)
+	ON_COMMAND(ID_POPUP_CHANGESCALE_2X2, OnPopupChangescale2x2)
+	ON_COMMAND(ID_POPUP_CHANGESCALE_3X3, OnPopupChangescale3x3)
+	ON_COMMAND(ID_POPUP_CHANGESCALE_4X4, OnPopupChangescale4x4)
+	ON_COMMAND(ID_POPUP_STARTSCROLL, OnPopupStartscroll)
+	ON_COMMAND(ID_POPUP_STOPSCROLL, OnPopupStopscroll)
+	ON_COMMAND(ID_POPUP_LOADFRAMESIMAGE, OnPopupLoadframesimage)
+	ON_COMMAND(ID_POPUP_LOADBACKGROUNDIMAGE, OnPopupLoadbackgroundimage)
+	ON_WM_VSCROLL()
+	ON_WM_HSCROLL()
+	//}}AFX_MSG_MAP
+END_MESSAGE_MAP()
+
+/////////////////////////////////////////////////////////////////////////////
+// CMatrixSimulator message handlers
+
+void CMatrixSimulator::OnDestroy() 
+{
+	CStatic::OnDestroy();
+	
+	if (m_pOrigin)
+		delete[] m_pOrigin;
+	if (m_pStaticLine)	
+		delete[] m_pStaticLine;	
+	if (m_pClock)
+		delete[] m_pClock;
+}
+
+void CMatrixSimulator::OnPaint() 
+{
+	CPaintDC dc(this); // device context for painting
+	CDC* pDC =&dc;
+	CRect rect;
+	GetClientRect(rect);	
+	
+	if (m_pDCMem == NULL){
+		m_pDCMem = new CDC();
+		m_pDCMem->CreateCompatibleDC(pDC); 
+		m_bmpDCMem.CreateCompatibleBitmap(pDC, rect.Width(),rect.Height() );
+		m_pOldBitmap = m_pDCMem->SelectObject(&m_bmpDCMem);
+		this->DisplayFrame(m_pDCMem,FALSE);	
+	}		
+	else if (m_bReCalcMatrix){
+		m_bReCalcMatrix = FALSE;
+		if(m_bmpDCMem.DeleteObject()){
+			m_bmpDCMem.CreateCompatibleBitmap(pDC, rect.Width(),rect.Height() );
+			m_pOldBitmap = m_pDCMem->SelectObject(&m_bmpDCMem);
+			this->DisplayFrame(m_pDCMem,FALSE);	
+		}
+	}	
+
+	if (m_bHitScroll){
+		m_bHitScroll = FALSE;
+		dc.BitBlt(0,0,rect.Width(), rect.Height(),m_pDCMem,0,0,SRCCOPY);	
+	}
+	else{
+		this->DisplayFrame(pDC,FALSE);	
+	}	
+	
+	pDC->DrawEdge(&rect,BDR_RAISEDINNER,BF_RECT|BF_ADJUST);	
+	pDC->DrawEdge(&rect,BDR_SUNKENOUTER,BF_RECT|BF_ADJUST);
+
+}
+
+void CMatrixSimulator::OnTimer(UINT nIDEvent) 
+{
+	if (nIDEvent == TIMER_ID && m_nScrollMode)
+	{		
+		if (m_wCharWidth[m_nChar] >= m_cx)
+		{
+			m_pStart ++;  			
+		}
+		else
+		{			
+			m_pStart += 8;   							
+
+			if (m_pStart > m_pOrigin + m_cx - m_wCharWidth[m_nChar])
+			{
+				m_nChar++;				
+				m_pStart = m_pOrigin + m_wCharWidth[m_nChar];
+			}
+		}
+
+		int nTextLengthPixel = m_nTextLengthPixel[0] - m_szTextPos[0].cx;
+		for (int i=0; i< LAYER_COUNT; i++)
+		{
+			if (nTextLengthPixel < m_nTextLengthPixel[i] - m_szTextPos[0].cx)
+				nTextLengthPixel = m_nTextLengthPixel[i] - m_szTextPos[0].cx;
+		}
+
+		int cx = m_cx + nTextLengthPixel;
+		
+		if (m_pStart >= m_pOrigin + (cx + 10))          
+		{
+			m_pStart = m_pOrigin;     
+			m_nChar  = 0;
+		}      
+		CClientDC dc(this);
+		CDC* pDC =&dc;
+		this->Invalidate(FALSE);
+	}
+	else if (nIDEvent == CLOCK_ID)
+	{
+		CTime time = CTime::GetCurrentTime();
+		CString csText = time.Format(_T("%H:%M:%S"));
+		char szText[50] = {0x01,0x02,0x03,0x00};
+	#ifdef _UNICODE		
+		LPTSTR szData = (LPTSTR)csText.GetBuffer(csText.GetLength());		
+		int length = WideCharToMultiByte(CP_ACP,0,szData,wcslen(szData),szText,sizeof(szText),NULL,NULL);	
+		szText[length] = '\0';
+	#endif
+		ShowClock(szText);		
+	}
+
+	CStatic::OnTimer(nIDEvent);
+}
+
+void CMatrixSimulator::SetPixelSize(int cx, int cy)
+{
+	m_cx = cx; m_cy = cy;	
+	if (m_pStaticLine)	
+		delete[] m_pStaticLine;	
+	m_pStaticLine = new BYTE[m_cx*8];
+	memset(m_pStaticLine,BLANK_STATE,m_cx*8);
+	ClearScreen();
+	for (int i =0;i < LAYER_COUNT;i++)
+		ClearLayer(i);
+}
+
+void CMatrixSimulator::SetCurrentLayer(int nLayer)
+{
+	m_nCurrentLayer = nLayer;	
+}
+
+CSize CMatrixSimulator::GetPixelSize() const
+{
+	return CSize(m_cx,m_cy);
+}
+
+void CMatrixSimulator::GetPixelSize(int *cx, int *cy)
+{
+	*cx = m_cx; *cy = m_cy;
+}
+
+void CMatrixSimulator::DisplayFrame(CDC*pDC, BOOL bRefresh)
+{
+// display one frame in the screen at the specific time
+	int count_col = 0, count_row = 0;
+	
+	if (pDC){
+		if (pDC->m_hDC){
+			m_nColumeL = m_cx - (m_pStart - m_pOrigin) + m_wCharWidth[m_nChar];						 
+			m_nColumeH = m_cx - (m_pStart - m_pOrigin) + m_wCharWidth[m_nChar+1];
+
+			for (m_pBuffer = m_pStart;m_pBuffer < m_pEnd; m_pBuffer++)  
+			{           
+				DrawBitCol(pDC,count_col,count_row);
+				if ( ++count_col >= m_cx)
+				{                                            
+					count_col = 0;  // reset for next colume           
+                                                                               
+					if (++count_row >= 8)
+					{
+						// reset row for next row
+						count_row = 0;
+					}                
+					m_pBuffer += DATA_LENGTH - m_cx;    
+					
+				}                				
+			}	
+			if (bRefresh){
+				this->Invalidate(FALSE);
+			}
+		}
+	}
+}
+
+extern CGeneralSettings __SETTING;
+
+
+void CMatrixSimulator::ReCalcLayout(int scale, BOOL bRedraw)
+{
+	m_bReCalcMatrix = TRUE;
+	SetWindowPos(NULL,0,0,m_cx*scale+1,m_cy*scale+1,SWP_NOMOVE);	
+	if (bRedraw)	
+	{
+		this->RedrawWindow();	
+		GetParent()->RedrawWindow();
+	}
+
+	__SETTING.m_nScale = scale;
+}
+
+int CMatrixSimulator::OnCreate(LPCREATESTRUCT lpCreateStruct) 
+{
+	if (CStatic::OnCreate(lpCreateStruct) == -1)
+		return -1;
+	
+	return 0;
+}
+
+void CMatrixSimulator::DrawBitCol(CDC *pDC, int bit_col, int bit_row)
+{
+	CRect rect = CRect();
+	GetClientRect(&rect);
+	
+	int cx = rect.Width()/m_cx;
+	int cy = rect.Height()/m_cy;	
+	
+	CBrush brR(RGB(255,0,0));
+	CBrush brG(RGB(0,255,0));
+	CBrush brY(RGB(255,255,0));	
+	CBrush brW(RGB(50,50,50));
+	CBrush* pBrC = NULL;
+	CBrush* pBrOld  = pDC->SelectObject(&brR);
+
+	// drawing 4 lines with 2 colors here	
+	BYTE mask = 0x01;	
+	BOOL bR = FALSE, bG = FALSE;
+	// one byte in m_pBuffer[] contain 8 lines
+	for (int line = 0; line < m_cy/8; line++)
+	{
+		CRect rc = CRect(rect);
+		rc.right = rc.left + cx +1;
+		rc.bottom = rc.top + cy +1;
+		rc.OffsetRect(0,cy*line*8);
+
+		for (int i = 0; i< bit_col; i++)
+			rc.OffsetRect(cx,0);
+		for (int j = 0; j< bit_row; j++)
+			rc.OffsetRect(0,cy);
+		// select white color
+		pDC->SelectObject(brW);
+		bR = FALSE; bG = FALSE;
+		// processing scroll mode
+		BYTE data = 0;		
+
+		if (m_bScrolling)
+		{
+			if (m_wCharWidth[m_nChar] < m_cx)
+			{
+				if (bit_col < m_wCharWidth[m_nChar])	
+				{
+					data = m_pOrigin[m_cx + bit_col + DATA_LENGTH*bit_row];										
+				}
+				else if ((bit_col > m_nColumeL) && (bit_col < m_nColumeH))				
+					data = (*m_pBuffer);				
+				else
+					data = 0x00;
+			}			
+			else
+			{
+				data = (*m_pBuffer);
+			}
+
+			if (bit_col < 80)
+			{				
+				data = m_pClock[bit_col+bit_row*CLOCK_LENGTH] ;
+			}
+			
+		}
+		else
+		{
+			if (m_bVisibleBkLayer)
+				data = (data) | (m_pStaticLine[bit_col+bit_row*m_cx]);		
+
+			for (int l=LAYER_COUNT-1; l>= 0; l--)
+			{
+				if (m_bVisibleLayer[l])
+					data = ExtORByte(data,__SCREEN_LAYER[m_nLine][l][bit_col + DATA_LENGTH*bit_row + m_cx]);
+			}			
+		}			
+		COLORREF clr = RGB(0,0,0);
+		// check red color
+		if (data&mask)
+		{
+			bR = TRUE;
+			clr = RGB(255,0,0);
+			pDC->SelectObject(brR);
+		}
+		mask = mask<<1;
+		// check green color
+		if (data&mask)
+		{
+			bG = TRUE;
+			clr = RGB(0,255,0);
+			pDC->SelectObject(brG);
+		}
+		// check yellow color
+		if (bR && bG){
+			clr = RGB(255,255,0);
+			pDC->SelectObject(brY);
+		}
+		if ( cx > 1 ){
+			pDC->Ellipse(rc);		
+		}
+		else{			
+			pDC->SetPixel(CPoint(rc.left,rc.top),clr);
+		}
+		mask = mask<<1;
+	}
+	
+	pDC->SelectObject(pBrOld);
+}
+
+void CMatrixSimulator::ClearScreen()
+{
+	memset(m_pOrigin,BLANK_STATE,DATA_LINE*DATA_LENGTH);	
+	memset(m_pClock,BLANK_STATE,DATA_LINE*CLOCK_LENGTH);	
+	this->Invalidate(FALSE);
+}
+
+void CMatrixSimulator::ClearLayer(int nLayer)
+{	
+	m_szTextPos[nLayer] = CSize(0,0);
+	m_bLoadImage[m_nCurrentLayer] = FALSE;
+	memset(__SCREEN_LAYER[nLayer],BLANK_STATE,DATA_LINE*DATA_LENGTH);
+	this->Invalidate(FALSE);
+}
+
+void CMatrixSimulator::ClearBkGnd()
+{	
+	m_szBkPos = CSize(0,0);
+	m_bLoadBkgndImgs = FALSE;
+	memset(m_pStaticLine,BLANK_STATE,m_cx*DATA_LINE);	
+	this->Invalidate(FALSE);
+}
+
+void CMatrixSimulator::SetRate(int nRate)
+{
+	m_nRate = nRate;
+}
+
+void CMatrixSimulator::StartScroll(int nRate)
+{
+	this->ClearScreen();
+	for (int i=3; i>= 0; i--)
+		if (m_bVisibleLayer[i])
+			this->MergeLayer(i);		
+
+	m_pStart = m_pOrigin + 0;
+	m_pEnd   = m_pStart  + DATA_LENGTH*DATA_LINE;
+	m_bScrolling = TRUE;
+	SetTimer(TIMER_ID,m_nRate=nRate,NULL);
+	SetTimer(CLOCK_ID,500,NULL);
+}
+
+void CMatrixSimulator::StopScroll()
+{
+	m_bScrolling = FALSE;
+	KillTimer(TIMER_ID);
+	KillTimer(CLOCK_ID);
+	this->Invalidate(FALSE);
+}
+
+void CMatrixSimulator::LoadData(PBYTE pData, int nSize)
+{
+#if 0
+	if (DATA_LINE*DATA_LENGTH > nSize)
+		memcpy(m_pOrigin,pData,nSize);
+	else
+		memcpy(m_pOrigin,pData,DATA_LINE*DATA_LENGTH);
+#else
+	static int i = 0;
+	static int row = 0;
+
+	m_pOrigin[i + row*DATA_LENGTH] = *pData;
+	if (++i >= nSize)
+	{
+		i = 0;
+		if (++row>=8)
+			row =0;
+	}           
+	Invalidate();
+#endif
+}
+
+void CMatrixSimulator::LoadText(const char *szText, int nColor, BOOL bGradient)
+{
+	int cx =0, nPixel =0;
+	PBYTE pData = __SCREEN_LAYER[m_nLine][m_nCurrentLayer] + m_cx;
+	if (m_bLoadImage[m_nCurrentLayer]==FALSE){
+		memset(__SCREEN_LAYER[m_nLine][m_nCurrentLayer],BLANK_STATE,DATA_LINE*DATA_LENGTH);
+	}
+	
+	nPixel = TextFromFont(szText,nColor, FALSE/*bGradient*/, (PBYTE*)&pData,DATA_LENGTH);	
+
+	m_wCharWidth[0] = 0;
+	int len = m_nTextLength = strlen(szText);		
+	
+	for (int i = 0; i< len; i++)
+	{
+		BYTE sz = BYTE(szText[i]);	
+		if (sz >255) sz =255;
+		cx += char_map[sz].width;
+		if (i <256){
+			m_wCharWidth[i + 1] = cx;
+		}
+		
+		if (cx > DATA_LENGTH)	
+			break;	// cut off too long text
+	}	
+
+	m_nTextLengthPixel[m_nCurrentLayer] = nPixel;
+
+	MoveText(m_szTextPos[m_nCurrentLayer].cx,m_szTextPos[m_nCurrentLayer].cy,m_nCurrentLayer,FALSE);
+
+	m_pStart = m_pOrigin + m_cx;
+	m_pEnd   = m_pStart + DATA_LENGTH*DATA_LINE;
+
+	if (bGradient)		
+		GradientLayer(nColor,m_nCurrentLayer);
+
+	this->Invalidate(FALSE);
+}
+
+void CMatrixSimulator::LoadCharMap(LPCTSTR szFile)
+{
+#ifdef __OLD_VER_SAVE_FONT
+	CFile file(szFile,CFile::modeRead);		
+
+	CArchive ar(&file,CArchive::load);
+	for (int i = 0; i < 256; i++)
+	{
+		ar>>char_map[i].heigth>>char_map[i].width;
+		for (int x = 0; x < char_map[i].width; x++)
+		{
+			for (int y = 0; y < char_map[i].heigth; y++)
+			{
+				ar>>char_map[i].pdata[x][y];
+			}
+		}
+	}
+	ar.Close();
+	file.Close();
+#else	
+	DecompressFont(szFile);
+	LoadFont();
+#endif
+}
+
+int CMatrixSimulator::GetBuffer(PBYTE *pBuffer, int nLayer)
+{
+	*pBuffer = __SCREEN_LAYER[m_nLine][m_nCurrentLayer] + m_cx;
+	int nTextLengthPixel = m_nTextLengthPixel[m_nCurrentLayer] - m_szTextPos[m_nCurrentLayer].cx;
+
+	return nTextLengthPixel;
+
+}
+
+int CMatrixSimulator::GetBuffer(PBYTE *pBuffer)
+{
+	*pBuffer = m_pOrigin + m_cx;
+	
+	int nTextLengthPixel = m_nTextLengthPixel[0] - m_szTextPos[0].cx;
+	for (int i=0; i< LAYER_COUNT; i++)
+	{
+		if (nTextLengthPixel < m_nTextLengthPixel[i] - m_szTextPos[i].cx)
+			nTextLengthPixel = m_nTextLengthPixel[i] - m_szTextPos[i].cx;
+	}
+	
+	return (nTextLengthPixel);
+}
+
+int CMatrixSimulator::GetStaticBuffer(PBYTE* pBuffer)
+{
+	*pBuffer = m_pStaticLine;
+	return (m_cx);
+}
+
+void CMatrixSimulator::LoadStaticText(const char *szText, int nColor, BOOL bGradient)
+{
+
+	PBYTE pData = m_pStaticLine;
+	if (m_bLoadBkgndImgs==FALSE){
+		memset(m_pStaticLine,0x00,m_cx*8);
+	}
+
+	UINT nLength = TextFromFont(szText,nColor, FALSE/*bGradient*/, (PBYTE*)&m_pStaticLine,m_cx);	
+	
+	MoveStaticText(m_szBkPos.cx,m_szBkPos.cy,FALSE);
+
+	if (bGradient)		
+		GradientLayer(nColor,-1);
+	this->Invalidate(FALSE);
+}
+
+void CMatrixSimulator::SetScrollMode(int nMode)
+{
+	m_nScrollMode = nMode;
+}
+
+void CMatrixSimulator::MoveText(int x, int y, int layer, BOOL bUpdate)
+{
+	PBYTE pBuffer = __SCREEN_LAYER[m_nLine][layer];
+
+	if (bUpdate)
+	{
+		m_szTextPos[layer].cx += x;	
+		m_szTextPos[layer].cy += y;
+	}
+	// moving on x-axis		
+	if (x > 0)
+		for (int j = 0; j < 8; j++)	
+			for (int i = 0; i < DATA_LENGTH; i++)	
+				if ( i >= DATA_LENGTH - x)
+					pBuffer[i + (DATA_LENGTH*j)] = 0;
+				else
+					pBuffer[i + (DATA_LENGTH*j)] = pBuffer[i+x+(DATA_LENGTH*j)];	
+	else if (x < 0)
+		for (int j = 0; j < 8; j++)	
+			for (int i = DATA_LENGTH-1; i >=0 ; i--)	
+				if ( i < -x )
+					pBuffer[i + (DATA_LENGTH*j)] = 0;
+				else
+					pBuffer[i + (DATA_LENGTH*j)] = pBuffer[i+x+(DATA_LENGTH*j)];	
+
+	// moving on y-axis
+	if (y > 0)
+		for (int b = 0; b < y ; b++)		
+			for (int i = 0; i < DATA_LENGTH ; i++)									
+			{				
+				BYTE mask = 0x03;
+				for (int x=0;x<4;x++){
+					pBuffer[i +(DATA_LENGTH*0)]= pBuffer[i +(DATA_LENGTH*0)]&(~mask) | pBuffer[i +(DATA_LENGTH*1)]&mask;
+					pBuffer[i +(DATA_LENGTH*1)]= pBuffer[i +(DATA_LENGTH*1)]&(~mask) | pBuffer[i +(DATA_LENGTH*2)]&mask;
+					pBuffer[i +(DATA_LENGTH*2)]= pBuffer[i +(DATA_LENGTH*2)]&(~mask) | pBuffer[i +(DATA_LENGTH*3)]&mask;
+					pBuffer[i +(DATA_LENGTH*3)]= pBuffer[i +(DATA_LENGTH*3)]&(~mask) | pBuffer[i +(DATA_LENGTH*4)]&mask;
+					pBuffer[i +(DATA_LENGTH*4)]= pBuffer[i +(DATA_LENGTH*4)]&(~mask) | pBuffer[i +(DATA_LENGTH*5)]&mask;
+					pBuffer[i +(DATA_LENGTH*5)]= pBuffer[i +(DATA_LENGTH*5)]&(~mask) | pBuffer[i +(DATA_LENGTH*6)]&mask;
+					pBuffer[i +(DATA_LENGTH*6)]= pBuffer[i +(DATA_LENGTH*6)]&(~mask) | pBuffer[i +(DATA_LENGTH*7)]&mask;				
+					pBuffer[i +(DATA_LENGTH*7)]= pBuffer[i +(DATA_LENGTH*7)]&(~mask) | (pBuffer[i +(DATA_LENGTH*0)]&(mask<<2))>>2;			
+					mask = mask<<2;
+				}
+			}
+	else if (y < 0)
+		for (int b = 0; b < -y ; b++)		
+			for (int i = 0; i < DATA_LENGTH ; i++)									
+			{				
+				BYTE mask = 0xC0;
+				for (int x=0;x<4;x++){
+					pBuffer[i +(DATA_LENGTH*7)]= pBuffer[i +(DATA_LENGTH*7)]&(~mask) | pBuffer[i +(DATA_LENGTH*6)]&mask;
+					pBuffer[i +(DATA_LENGTH*6)]= pBuffer[i +(DATA_LENGTH*6)]&(~mask) | pBuffer[i +(DATA_LENGTH*5)]&mask;
+					pBuffer[i +(DATA_LENGTH*5)]= pBuffer[i +(DATA_LENGTH*5)]&(~mask) | pBuffer[i +(DATA_LENGTH*4)]&mask;
+					pBuffer[i +(DATA_LENGTH*4)]= pBuffer[i +(DATA_LENGTH*4)]&(~mask) | pBuffer[i +(DATA_LENGTH*3)]&mask;
+					pBuffer[i +(DATA_LENGTH*3)]= pBuffer[i +(DATA_LENGTH*3)]&(~mask) | pBuffer[i +(DATA_LENGTH*2)]&mask;
+					pBuffer[i +(DATA_LENGTH*2)]= pBuffer[i +(DATA_LENGTH*2)]&(~mask) | pBuffer[i +(DATA_LENGTH*1)]&mask;
+					pBuffer[i +(DATA_LENGTH*1)]= pBuffer[i +(DATA_LENGTH*1)]&(~mask) | pBuffer[i +(DATA_LENGTH*0)]&mask;				
+					pBuffer[i +(DATA_LENGTH*0)]= pBuffer[i +(DATA_LENGTH*0)]&(~mask) | (pBuffer[i +(DATA_LENGTH*7)]&(mask>>2))<<2;			
+					mask = mask>>2;
+				}
+			}
+
+	this->Invalidate(FALSE);
+}
+
+void CMatrixSimulator::MoveStaticText(int x, int y, BOOL bUpdate)
+{	
+	PBYTE pBuffer = m_pStaticLine;
+
+	if (bUpdate)
+	{
+		m_szBkPos.cx += x;	
+		m_szBkPos.cy += y;
+	}
+	// moving on x-axis		
+	if (x > 0)
+		for (int j = 0; j < 8; j++)	
+			for (int i = 0; i < m_cx; i++)	
+				if ( i >= m_cx - x)
+					pBuffer[i + (m_cx*j)] = 0;
+				else
+					pBuffer[i + (m_cx*j)] = pBuffer[i+x+(m_cx*j)];	
+	else if (x < 0)
+		for (int j = 0; j < 8; j++)	
+			for (int i = m_cx-1; i >=0 ; i--)	
+				if ( i < -x )
+					pBuffer[i + (m_cx*j)] = 0;
+				else
+					pBuffer[i + (m_cx*j)] = pBuffer[i+x+(m_cx*j)];	
+	// moving on y-axis
+
+	if (y > 0)
+		for (int b = 0; b < y ; b++)		
+			for (int i = 0; i < m_cx ; i++)									
+			{				
+				BYTE mask = 0x03;
+				for (int x=0;x<4;x++){
+					pBuffer[i +(m_cx*0)]= pBuffer[i +(m_cx*0)]&(~mask) | pBuffer[i +(m_cx*1)]&mask;
+					pBuffer[i +(m_cx*1)]= pBuffer[i +(m_cx*1)]&(~mask) | pBuffer[i +(m_cx*2)]&mask;
+					pBuffer[i +(m_cx*2)]= pBuffer[i +(m_cx*2)]&(~mask) | pBuffer[i +(m_cx*3)]&mask;
+					pBuffer[i +(m_cx*3)]= pBuffer[i +(m_cx*3)]&(~mask) | pBuffer[i +(m_cx*4)]&mask;
+					pBuffer[i +(m_cx*4)]= pBuffer[i +(m_cx*4)]&(~mask) | pBuffer[i +(m_cx*5)]&mask;
+					pBuffer[i +(m_cx*5)]= pBuffer[i +(m_cx*5)]&(~mask) | pBuffer[i +(m_cx*6)]&mask;
+					pBuffer[i +(m_cx*6)]= pBuffer[i +(m_cx*6)]&(~mask) | pBuffer[i +(m_cx*7)]&mask;				
+					pBuffer[i +(m_cx*7)]= pBuffer[i +(m_cx*7)]&(~mask) | (pBuffer[i +(m_cx*0)]&(mask<<2))>>2;			
+					mask = mask<<2;
+				}
+			}
+	else if (y < 0)
+		for (int b = 0; b < -y ; b++)		
+			for (int i = 0; i < m_cx ; i++)									
+			{				
+				BYTE mask = 0xC0;
+				for (int x=0;x<4;x++){
+					pBuffer[i +(m_cx*7)]= pBuffer[i +(m_cx*7)]&(~mask) | pBuffer[i +(m_cx*6)]&mask;
+					pBuffer[i +(m_cx*6)]= pBuffer[i +(m_cx*6)]&(~mask) | pBuffer[i +(m_cx*5)]&mask;
+					pBuffer[i +(m_cx*5)]= pBuffer[i +(m_cx*5)]&(~mask) | pBuffer[i +(m_cx*4)]&mask;
+					pBuffer[i +(m_cx*4)]= pBuffer[i +(m_cx*4)]&(~mask) | pBuffer[i +(m_cx*3)]&mask;
+					pBuffer[i +(m_cx*3)]= pBuffer[i +(m_cx*3)]&(~mask) | pBuffer[i +(m_cx*2)]&mask;
+					pBuffer[i +(m_cx*2)]= pBuffer[i +(m_cx*2)]&(~mask) | pBuffer[i +(m_cx*1)]&mask;
+					pBuffer[i +(m_cx*1)]= pBuffer[i +(m_cx*1)]&(~mask) | pBuffer[i +(m_cx*0)]&mask;				
+					pBuffer[i +(m_cx*0)]= pBuffer[i +(m_cx*0)]&(~mask) | (pBuffer[i +(m_cx*7)]&(mask>>2))<<2;			
+					mask = mask>>2;
+				}
+			}
+
+	this->Invalidate(FALSE);
+}
+
+void CMatrixSimulator::MergeLayer(int nLayer)
+{
+	for (int y=0 ; y < DATA_LINE; y++)
+	{
+		for (int x=0 ; x < DATA_LENGTH; x++)
+		{
+			m_pOrigin[x + DATA_LENGTH*y] = ExtORByte(m_pOrigin[x + DATA_LENGTH*y],__SCREEN_LAYER[m_nLine][nLayer][x + DATA_LENGTH*y]);			
+		}
+	}
+	// clear layer merged
+	
+	// memset(__SCREEN_LAYER[nLayer],0x00,DATA_LINE*DATA_LENGTH);
+
+	m_pStart = m_pOrigin + m_cx;
+	m_pEnd   = m_pStart  + DATA_LENGTH*DATA_LINE;
+	this->Invalidate(FALSE);
+}
+
+BYTE CMatrixSimulator::ExtORByte(BYTE byte1, BYTE byte2)
+{
+	BYTE result = 0;
+	BYTE mask = 0x03;
+	for (int i =0; i< 4; i++)
+	{
+		if (byte2&mask)
+			result |= byte2&mask;
+		else
+			result |= byte1&mask;
+		mask = mask<<2;
+	}	
+
+	return result;
+}
+
+void CMatrixSimulator::SetVisibleLayer(BOOL *bLayer)
+{
+	memcpy(m_bVisibleLayer,bLayer,sizeof(m_bVisibleLayer));
+}
+
+void CMatrixSimulator::SetVisibleBkLayer(BOOL bVisible)
+{
+	m_bVisibleBkLayer = bVisible;
+}
+
+void CMatrixSimulator::OnContextMenu(CWnd*, CPoint point)
+{
+
+	// CG: This block was added by the Pop-up Menu component
+	{
+		if (point.x == -1 && point.y == -1){
+			//keystroke invocation
+			CRect rect;
+			GetClientRect(rect);
+			ClientToScreen(rect);
+
+			point = rect.TopLeft();
+			point.Offset(5, 5);
+		}
+
+		CMenu menu;
+		VERIFY(menu.LoadMenu(CG_IDR_POPUP_MATRIX_SIMULATOR));
+
+		CMenu* pPopup = menu.GetSubMenu(0);
+		ASSERT(pPopup != NULL);
+		CWnd* pWndPopupOwner = this;
+
+		pPopup->TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y,
+			pWndPopupOwner);
+	}
+}
+
+void CMatrixSimulator::LoadBkGnd(LPCTSTR szBmpFile)
+{	
+	this->LoadImage(szBmpFile,TRUE);
+}
+
+void CMatrixSimulator::LoadImage(LPCTSTR szBmpFile, BOOL bBkGnd)
+{
+	CDib dib;
+	dib.Load(szBmpFile);
+	CClientDC dc(this);
+	CDC memDC;
+	memDC.CreateCompatibleDC(&dc); 	
+	CBitmap bitmap;
+	if (dib.GetSize().cx > DATA_LENGTH || dib.GetSize().cy > 32)
+	{
+		MessageBox(_T("T\x1EAD"L"p tin \x1EA3"L"nh c\xF3"L" k\xED"L"ch th\x1B0"L"\x1EDB"L"c qu\xE1"L" l\x1EDB"L"n"),_T("Nap \x1EA3"L"nh"),MB_OK);
+		return;
+	}
+
+	int cx = dib.GetSize().cx;
+	int cy = dib.GetSize().cy;
+	if (cx > DATA_LENGTH ) cx = DATA_LENGTH;
+	if (cy > m_cy ) cy = m_cy;
+	CRect rcDest = CRect(0,0,cx,cy);
+	CRect rcSrc = CRect(0,0,cx,cy);
+	dib.Draw(&dc,&rcDest,&rcSrc);
+	
+	bitmap.CreateCompatibleBitmap(&dc, cx, cy );
+	
+	CBitmap* pOldBitmap = memDC.SelectObject(&bitmap);
+	memDC.BitBlt(0, 0, cx, cy, &dc, 0, 0, SRCCOPY); 
+	
+	BYTE buffer[DATA_LENGTH][32];
+	memset(buffer,0xFF,DATA_LENGTH*32);
+	for (int x = 0; x < cx; x++)
+	{
+		for (int y = 0; y < cy; y++)
+		{
+			COLORREF clr = memDC.GetPixel(x,y);	
+			
+			int nColor = 0;
+			
+			if (
+			GetRValue(clr) > 150
+			) nColor = 1;
+
+			if (			
+			GetGValue(clr) > 150
+			) nColor = 2;
+
+			if (
+			GetRValue(clr) > 150 &&
+			GetGValue(clr) > 150
+			) nColor = 3;
+
+			buffer[x][y] = nColor;
+		}
+	}
+
+
+	PBYTE pData = bBkGnd?m_pStaticLine:__SCREEN_LAYER[m_nLine][m_nCurrentLayer] + m_cx;
+
+	if (!bBkGnd)
+		memset(__SCREEN_LAYER[m_nLine][m_nCurrentLayer],0x00,DATA_LINE*DATA_LENGTH);
+	else	
+		memset(m_pStaticLine,0x00,m_cx*DATA_LINE);
+
+	for (int z=0; z< 8 ; z+=2)
+	for (int y=0; y< 8 ; y++)
+	{
+		for (int x=0; x< (bBkGnd?m_cx:cx); x++)
+		{
+			if (buffer[x][y + z*4])
+			{				
+				pData[x + (y)*(bBkGnd?m_cx:DATA_LENGTH)] |=  (buffer[x][y + z*4]<<z);
+			}
+			else if (buffer[x][y + z*4]==0)
+				pData[x + (y)*(bBkGnd?m_cx:DATA_LENGTH)] &= ~(buffer[x][y + z*4]<<z);
+		}
+	}
+	
+	if (!bBkGnd)
+	{
+		m_pStart = m_pOrigin + m_cx;
+		m_pEnd   = m_pStart + DATA_LENGTH*DATA_LINE;
+		m_nTextLengthPixel[m_nCurrentLayer] = m_cx;
+		m_bLoadImage[m_nCurrentLayer] = TRUE;
+	}	
+	else{
+		m_bLoadBkgndImgs = TRUE;
+	}
+	
+	memDC.SelectObject(pOldBitmap);
+	
+	GetParent()->RedrawWindow(CRect(0,0,m_cx,m_cy));
+}
+
+void CMatrixSimulator::ChangeBkColor(int nColor, BOOL bGradient)
+{
+	PBYTE pBuffer = m_pStaticLine;
+	for (int i =0; i< m_cx*DATA_LINE; i++)
+	{
+		pBuffer[i] = ChangeColor(nColor,BYTE(pBuffer[i]));
+	}
+
+	if (bGradient)
+		GradientLayer(nColor,-1);
+}
+
+BYTE CMatrixSimulator::ChangeColor(int nColor, BYTE data)
+{
+	BYTE maskR = 0x01;
+	BYTE maskG = 0x02;
+
+	for (int i =0; i< 4; i++)
+	{
+		if (data&maskR)	//	red
+		{
+			data &= ~maskR;	// clear old
+			data |= nColor<<(i*2); //add new
+		}
+		else if (data&maskG)	//	green
+		{
+			data &= ~maskG;	// clear old
+			data |= nColor<<(i*2); //add new
+		}
+
+		if (data&maskR && data&maskG)	//	yeallow
+		{
+			data &= ~maskR;	// clear old
+			data &= ~maskG;	// clear old
+			data |= nColor<<(i*2); //add new
+		}
+		maskR = maskR<<2;
+		maskG = maskG<<2;
+	}
+
+	return data;
+}
+
+void CMatrixSimulator::ChangeColor(int nColor, int nLayer, BOOL bGradient)
+{
+	PBYTE pBuffer = __SCREEN_LAYER[m_nLine][nLayer];
+	for (int i =0; i< DATA_LENGTH*DATA_LINE; i++)
+	{
+		pBuffer[i] = ChangeColor(nColor,BYTE(pBuffer[i]));
+	}	
+
+	if (bGradient)
+		GradientLayer(nColor,nLayer);
+
+}
+
+void CMatrixSimulator::OnPopupChangescale1x1() 
+{
+	this->ReCalcLayout(1,TRUE);
+}
+
+void CMatrixSimulator::OnPopupChangescale2x2() 
+{
+	this->ReCalcLayout(2,TRUE);
+}
+
+void CMatrixSimulator::OnPopupChangescale3x3() 
+{
+	this->ReCalcLayout(3,TRUE);
+}
+
+void CMatrixSimulator::OnPopupChangescale4x4() 
+{
+	this->ReCalcLayout(4,TRUE);
+}
+
+void CMatrixSimulator::OnPopupStartscroll() 
+{
+	this->StartScroll();
+}
+
+void CMatrixSimulator::OnPopupStopscroll() 
+{
+	this->StopScroll();	
+}
+
+void CMatrixSimulator::OnPopupLoadframesimage() 
+{
+	///////////////////////////////////////////////////////////////////
+	// OPEN FILE TO IMPORT
+	/*****************************************************************/
+	CFileDialog dlg(TRUE,NULL,NULL,NULL,_T("Bitmap File(*.bmp)|*.bmp||"));
+
+	if ( dlg.DoModal() == IDCANCEL )
+	{
+		return ;	// nothing selected		
+	}
+
+	CString csFile = dlg.GetPathName();	
+
+#ifdef _UNICODE
+	char szBuffer[MAX_PATH];
+	LPTSTR szData = (LPTSTR)csFile.GetBuffer(csFile.GetLength());
+	if (wcslen(szData)>=1024)	szData[1024] = '\0';	
+	int len = WideCharToMultiByte(CP_ACP,0,szData,wcslen(szData),szBuffer,sizeof(szBuffer),NULL,NULL);
+	szBuffer[len] = '\0';
+#endif
+	LoadImage(csFile);
+	RedrawWindow();	
+}
+
+void CMatrixSimulator::OnPopupLoadbackgroundimage() 
+{
+	///////////////////////////////////////////////////////////////////
+	// OPEN FILE TO IMPORT
+	/*****************************************************************/
+	CFileDialog dlg(TRUE,NULL,NULL,NULL,_T("Bitmap File(*.bmp)|*.bmp||"));
+
+	if ( dlg.DoModal() == IDCANCEL )
+	{
+		return ;	// nothing selected		
+	}
+
+	CString csFile = dlg.GetPathName();	
+
+#ifdef _UNICODE
+	char szBuffer[MAX_PATH];
+	LPTSTR szData = (LPTSTR)csFile.GetBuffer(csFile.GetLength());
+	if (wcslen(szData)>=1024)	szData[1024] = '\0';	
+	int len = WideCharToMultiByte(CP_ACP,0,szData,wcslen(szData),szBuffer,sizeof(szBuffer),NULL,NULL);
+	szBuffer[len] = '\0';
+#endif
+	LoadBkGnd(csFile);
+	RedrawWindow();	
+}
+
+#define	FONT_HEIGHT		32
+
+void CMatrixSimulator::CompressFont(LPCTSTR szFile)
+{
+	BYTE dim[256][2];
+	BYTE buffer[FONT_HEIGHT*8*256];
+	memset(buffer,0x00,sizeof(buffer));
+	for (int i=0; i< 256; i++)
+	{
+		for (int x=0; x< FONT_HEIGHT; x++)
+		{
+			for (int y=0; y < FONT_HEIGHT; y++)
+			{
+				if (char_map[i].pdata[y][x])
+					buffer[y + (x/8)*FONT_HEIGHT + i*FONT_HEIGHT*FONT_HEIGHT/8] |= 1<<(x%8);
+				else
+					buffer[y + (x/8)*FONT_HEIGHT + i*FONT_HEIGHT*FONT_HEIGHT/8] &= ~(1<<(x%8));				
+			}
+		}
+
+		dim[i][0] = char_map[i].heigth;
+		dim[i][1] = char_map[i].width ;
+	}
+	
+
+	CFile file(szFile,CFile::modeCreate|CFile::modeWrite);
+	file.WriteHuge(buffer,sizeof(buffer));
+	file.SeekToBegin();
+	file.Write(dim,sizeof(dim));
+	file.Close();
+}
+
+void CMatrixSimulator::DecompressFont(LPCTSTR szFile)
+{
+	BYTE dim[256][2];
+	BYTE buffer[FONT_HEIGHT*8*256];
+	memset(buffer,0x00,sizeof(buffer));
+
+	CFile file(szFile,CFile::modeRead);
+	file.ReadHuge(buffer,sizeof(buffer));
+	file.SeekToBegin();
+	file.Read(dim,sizeof(dim));
+	file.Close();
+	
+	for (int i=0; i< 256; i++)
+	{
+		for (int x=0; x< FONT_HEIGHT; x++)
+		{
+			for (int y=0; y < FONT_HEIGHT; y++)
+			{
+				if (buffer[y + (x/8)*FONT_HEIGHT + i*FONT_HEIGHT*FONT_HEIGHT/8] & (1<<(x%8)))
+					char_map[i].pdata[y][x] = 1;
+				else
+					char_map[i].pdata[y][x] = 0;
+			}
+		}
+		char_map[i].heigth = dim[i][0];		
+		char_map[i].width  = dim[i][1];		
+	}
+
+}
+
+int CMatrixSimulator::GetCharWidthBuffer(PBYTE pBuffer)
+{
+	if (m_nTextLength >= 255) m_nTextLength = 255;
+	memcpy(pBuffer,m_wCharWidth,m_nTextLength*sizeof(WORD));
+	return m_nTextLength;
+}
+
+int CMatrixSimulator::GetFontCharWidthBuffer(PBYTE pBuffer)
+{
+	if (m_nFontTextLength >= 255) m_nFontTextLength = 255;
+	memcpy(pBuffer,m_wFontCharWidth[m_nCurrentLayer],m_nFontTextLength*sizeof(WORD));
+	return m_nFontTextLength;
+}
+
+void CMatrixSimulator::GradientLayer(int nColor, int nLayer)
+{
+	PBYTE pBuffer = NULL;
+	UINT cx = 0, length = 0;
+	if (nLayer>=0)
+	{
+		cx = DATA_LENGTH;
+		length = m_nTextLengthPixel[nLayer];
+		pBuffer = (__SCREEN_LAYER[m_nLine][nLayer] + m_cx);
+	}
+	else
+	{
+		cx = m_cx;
+		length = m_cx;
+		pBuffer = m_pStaticLine;
+	}
+
+	int color = nColor;
+	int c[2]  = {2,3};
+	if (color == 1)
+	{
+		c[0] = 2;
+		c[1] = 3;
+	}
+	if (color == 2)
+	{
+		c[0] = 3;
+		c[1] = 1;
+	}
+	if (color == 3)
+	{
+		c[0] = 1;
+		c[1] = 2;
+	}
+
+	for (int x=0; x< 8; x++)
+	{
+		if (x >=0 && x <4)	color = c[0];
+		if (x >=4 && x <8)	color = c[1];		
+
+		for (int y =0; y< (int)length; y++)
+		{
+			BYTE data = ChangeColor(color,pBuffer[y + cx*x]);
+			pBuffer[y + cx*x] = (data & 0x33) | (pBuffer[y + cx*x]&(~0x33));
+		}
+	}
+}
+
+void CMatrixSimulator::InitDefaultFont()
+{
+	for (int i =0; i < LAYER_COUNT; i++){
+		for (int k =0; k< MAX_LINE; k++){
+			LoadFont(__FONT_BUFFER[k][i],sizeof(__FONT_BUFFER[k][i]),i);	
+		}
+	}
+}
+
+void CMatrixSimulator::LoadFont()
+{	
+	LoadFont(__FONT_BUFFER[m_nLine][m_nCurrentLayer],sizeof(__FONT_BUFFER[m_nLine][m_nCurrentLayer]),m_nCurrentLayer);	
+}
+
+void CMatrixSimulator::LoadFont(PBYTE pData,int nDataLength, int nLayer)
+{				
+	int cx = 0;
+	char szText[512] = {' '};
+	CString csText = _T(" ");
+	
+	for (int c = 0; c< 256; c++)
+	{
+		CString csTemp = _T("");
+		csTemp.Format(_T("%c"),c);
+		csText += csTemp;
+	}
+	
+#ifdef _UNICODE		
+	LPTSTR szData = (LPTSTR)csText.GetBuffer(csText.GetLength());		
+	int length = WideCharToMultiByte(CP_ACP,0,szData,wcslen(szData),szText,sizeof(szText),NULL,NULL);	
+	szText[length] = '\0';
+#endif
+	int pos = 0, nPixel =0;
+	m_nFontTextLength = strlen(szText);
+	memset(pData,BLANK_STATE,nDataLength);
+
+	pos += TextToMatrix(szText+pos,cx,nLayer);	// 512 characters		
+	nPixel += cx;
+	pData = MatrixToPixel(pData,cx,(nDataLength/DATA_LINE),3);		
+
+	m_nFontPixelLenght = nPixel;
+}
+
+PBYTE CMatrixSimulator::MatrixToPixel(PBYTE pData, int nPixelLenght, int nBufferLength, int nColor)
+{		
+	for (int z=0; z< 8 ; z+=2)
+	{
+		for (int y=0; y< 8 ; y++)
+		{
+			for (int x=0; x< nPixelLenght; x++)
+			{
+				if ((buffer)[x][(y + z*4)]==1)							
+					pData[x + (y)*nBufferLength] |=  (nColor<<z);			
+				else if ((buffer)[x][(y + z*4)]==0)
+					pData[x + (y)*nBufferLength] &= ~(nColor<<z);
+			}
+		}
+	}
+
+	return pData + nBufferLength*8 + nPixelLenght;
+}
+
+int CMatrixSimulator::TextToMatrix(const char *szText, int &cx, int nLayer)
+{
+	int len = strlen(szText);	
+	
+	m_wFontCharWidth[nLayer][0] = 0;
+	memset(buffer,BLANK_STATE,2048*8*32);
+	
+	for (int i = 0; i< len; i++)
+	{
+		BYTE sz = BYTE(szText[i]);
+		for (int x = 0; x < char_map[sz].width; x++)
+		{
+			for (int y = 0; y < char_map[sz].heigth; y++)
+			{	
+				buffer[x + cx][y] = char_map[sz].pdata[x][y];				
+			}			
+		}
+
+		cx+=char_map[sz].width;		
+		m_wFontCharWidth[nLayer][i + 1] = cx;
+		if (cx > 2048*8)	
+			break;	// cut off too long text
+	}	
+
+	return int(i);
+}
+
+int CMatrixSimulator::GetFontBuffer(PBYTE *pBuffer)
+{
+	*pBuffer = __SCREEN_LAYER[m_nLine][m_nCurrentLayer];
+	
+	memcpy(*pBuffer,__FONT_BUFFER[m_nLine][m_nCurrentLayer],DATA_LINE*DATA_LENGTH);
+	MoveText(0,m_szTextPos[m_nCurrentLayer].cy,m_nCurrentLayer,FALSE);
+
+	return m_nFontPixelLenght;
+}
+
+void CMatrixSimulator::ShowClock(const char *szText)
+{
+	TextFromFont(szText,3,TRUE,&m_pClock,CLOCK_LENGTH);
+}
+
+int CMatrixSimulator::TextFromFont(const char *szText, int nColor, BOOL bGradient, PBYTE *pBuffer, UINT nLenght)
+{
+	int pos = 0;
+	int len = strlen(szText);
+	
+	BYTE mask = 0x00;
+	BYTE mask_clr[2] = {0x00};
+	
+	switch (nColor)
+	{
+	case 0:
+		mask = 0xFF;		// BLANK
+		mask_clr[0] = 0xFF;
+		mask_clr[1] = 0xFF;
+		break;
+	case 1:
+		mask = 0xAA;		// RED			RRRR	
+		mask_clr[0] = 0x99;	// GREEN		RGRG
+		mask_clr[1] = 0x88;	// YELLOW		RYRY
+		break;
+	case 2:
+		mask = 0x55;		// GREEN		GGGG
+		mask_clr[0] = 0x44;	// YELLOW		GYGY
+		mask_clr[1] = 0x66;	// RED			GRGR	
+		break;
+	case 3:
+		mask = 0x00;		// YELLOW		YYYY
+		mask_clr[0] = 0x22;	// RED			YRYR	
+		mask_clr[1] = 0x11;	// GREEN		YGYG
+		break;
+	default:
+		break;
+	}	
+		
+	for (int i=0; i< len; i++)
+	{				
+		BYTE c = szText[i];
+		if (c >255) c =255;
+		int nWidth = m_wFontCharWidth[m_nCurrentLayer][c+1] - m_wFontCharWidth[m_nCurrentLayer][c];		
+		if (pos + nWidth > int(nLenght))	break;
+		for (int y=0; y< 8 ; y++)
+		{
+			if (bGradient) {
+				if (y >=0 && y <4)	mask = mask_clr[0];
+				if (y >=4 && y <8)	mask = mask_clr[1];	
+			}
+
+			for (int x=0; x< nWidth; x++)
+			{
+				(*pBuffer)[x + pos + y*nLenght] = (~mask) & __FONT_BUFFER[m_nLine][m_nCurrentLayer][x + m_wFontCharWidth[m_nCurrentLayer][c] + y*DATA_LENGTH];								
+			}					
+		}
+		pos += nWidth;	
+	}	
+
+	return pos;
+}
+
+void CMatrixSimulator::SaveWorkspace(CFile &file)
+{
+	file.Write(&m_szBkPos.cx,sizeof(m_szBkPos.cx));
+	file.Write(&m_szBkPos.cy,sizeof(m_szBkPos.cy));
+	file.Write(&m_cx,sizeof(m_cx));
+	file.Write(&m_cy,sizeof(m_cy));
+	file.Write(m_pStaticLine,m_cx*8);
+	file.Write(&m_bLoadBkgndImgs,sizeof(m_bLoadBkgndImgs));
+	file.Write(&m_nCurrentLayer,sizeof(m_nCurrentLayer));
+	file.Write(m_wCharWidth,sizeof(m_wCharWidth));
+	file.Write(&m_nFontPixelLenght,sizeof(m_nFontPixelLenght));
+	file.Write(&m_nTextLength,sizeof(m_nTextLength));
+	file.Write(&m_nFontTextLength,sizeof(m_nFontTextLength));
+
+	for(int i=0; i< 4; i++){
+		file.Write(&m_bLoadImage[i],sizeof(m_bLoadImage[i]));
+		file.Write(&m_szTextPos[i].cx,sizeof(m_szTextPos[i].cx));
+		file.Write(&m_szTextPos[i].cy,sizeof(m_szTextPos[i].cy));
+		file.Write((LPVOID)__SCREEN_LAYER[i],sizeof(__SCREEN_LAYER[i]));
+		file.Write((LPVOID)__FONT_BUFFER[i],sizeof(__FONT_BUFFER[i]));
+		file.Write(m_wFontCharWidth[i],sizeof(m_wFontCharWidth[i]));		
+		file.Write(&m_nTextLengthPixel[i],sizeof(m_nTextLengthPixel[i]));
+	}
+}
+
+void CMatrixSimulator::LoadWorkspace(CFile &file)
+{
+	file.Read(&m_szBkPos.cx,sizeof(m_szBkPos.cx));
+	file.Read(&m_szBkPos.cy,sizeof(m_szBkPos.cy));
+	file.Read(&m_cx,sizeof(m_cx));
+	file.Read(&m_cy,sizeof(m_cy));
+	file.Read(m_pStaticLine,m_cx*8);
+	file.Read(&m_bLoadBkgndImgs,sizeof(m_bLoadBkgndImgs));
+	file.Read(&m_nCurrentLayer,sizeof(m_nCurrentLayer));
+	file.Read(m_wCharWidth,sizeof(m_wCharWidth));
+	file.Read(&m_nFontPixelLenght,sizeof(m_nFontPixelLenght));
+	file.Read(&m_nTextLength,sizeof(m_nTextLength));
+	file.Read(&m_nFontTextLength,sizeof(m_nFontTextLength));
+
+	for(int i=0; i< 4; i++){
+		file.Read(&m_bLoadImage[i],sizeof(m_bLoadImage[i]));
+		file.Read(&m_szTextPos[i].cx,sizeof(m_szTextPos[i].cx));
+		file.Read(&m_szTextPos[i].cy,sizeof(m_szTextPos[i].cy));
+		file.Read((LPVOID)__SCREEN_LAYER[i],sizeof(__SCREEN_LAYER[i]));
+		file.Read((LPVOID)__FONT_BUFFER[i],sizeof(__FONT_BUFFER[i]));
+		file.Read(m_wFontCharWidth[i],sizeof(m_wFontCharWidth[i]));		
+		file.Read(&m_nTextLengthPixel[i],sizeof(m_nTextLengthPixel[i]));
+	}
+
+	m_pStart = m_pOrigin + m_cx;
+	m_pEnd   = m_pStart  + DATA_LENGTH*DATA_LINE;
+}
+
+void CMatrixSimulator::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar) 
+{
+	m_ptPosition.y = -int(nPos);
+	m_bHitScroll = TRUE;
+	SetWindowPos(NULL,m_ptPosition.x,m_ptPosition.y,0,0,SWP_NOSIZE|SWP_NOREDRAW);
+	this->DisplayFrame(m_pDCMem,TRUE);	
+}
+
+void CMatrixSimulator::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar) 
+{
+	m_ptPosition.x = -int(nPos);
+	m_bHitScroll = TRUE;
+	SetWindowPos(NULL,m_ptPosition.x,m_ptPosition.y,0,0,SWP_NOSIZE|SWP_NOREDRAW);
+	this->DisplayFrame(m_pDCMem,TRUE);	
+}
+
+void CMatrixSimulator::NextPage()
+{
+	m_nCurrentPage++;
+	if ((m_nCurrentPage+1)*m_cx > DATA_LENGTH){
+		m_nCurrentPage = 0;
+	}
+}
+
+void CMatrixSimulator::PrevPage()
+{
+	m_nCurrentPage--;		
+	if ((m_nCurrentPage+1)*m_cx < (UINT)m_cx){
+		m_nCurrentPage = 0;
+	}
+}
+
+UINT CMatrixSimulator::GetCurrentPage()
+{
+	return m_nCurrentPage;
+}
